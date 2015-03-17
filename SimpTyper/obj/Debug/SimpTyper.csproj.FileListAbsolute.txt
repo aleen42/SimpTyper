@@ -1,0 +1,13 @@
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe.config
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.csprojResolveAssemblyReference.cache
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\MainWindow.baml
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\MainWindow.g.cs
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\App.g.cs
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper_MarkupCompile.cache
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.g.resources
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.Properties.Resources.resources
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.csproj.GenerateResource.Cache
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.pdb
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.exe
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.pdb
