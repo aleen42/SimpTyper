@@ -19,6 +19,8 @@ namespace SimpTyper
     {
         public static bool whether_maximize = false;
         public static bool up_whether_maximize = false;         //记录是否往上拉窗体到顶端
+        public static bool whether_addartical_open = false;
+        public static Window addartical;
         public static int i = 0;    //doubleclick
         
     }
@@ -39,10 +41,10 @@ namespace SimpTyper
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;     
             this.ShowInTaskbar = true;
-            //Window_main.Width = SystemParameters.WorkArea.Width * 0.9;
-            //Window_main.Height = SystemParameters.WorkArea.Height * 0.9;
-            Window_main.MinWidth = SystemParameters.WorkArea.Width * 0.5;
-            Window_main.MinHeight = SystemParameters.WorkArea.Height * 0.5;
+            Window_main.Width = SystemParameters.WorkArea.Width * 0.9;
+            Window_main.Height = SystemParameters.WorkArea.Height * 0.9;
+            Window_main.MinWidth = SystemParameters.WorkArea.Width * 0.8;
+            Window_main.MinHeight = SystemParameters.WorkArea.Height * 0.8;
         }
 
         void Window1_SourceInitialized(object sender, EventArgs e)
@@ -354,7 +356,22 @@ namespace SimpTyper
             }
         }
 
-        
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (common.whether_addartical_open == false) 
+            {
+                common.addartical = new AddTitle();
+                common.addartical.Show();
+                common.whether_addartical_open = true;
+            }
+            else
+            {
+                common.addartical.Close();
+                common.whether_addartical_open = false;
+            }
+        }
+
+
 
         
         //private void Button_Click_1(object sender, RoutedEventArgs e)

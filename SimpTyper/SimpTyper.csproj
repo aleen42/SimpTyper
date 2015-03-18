@@ -53,10 +53,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AddTitle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AddTitle.xaml.cs">
+      <DependentUpon>AddTitle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -123,6 +130,19 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pic\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\underbar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\addbutton_static.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\addbutton_mouseover.png" />
+    <Resource Include="Pic\addbutton_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\Addarticalbg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

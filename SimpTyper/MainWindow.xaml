@@ -236,6 +236,49 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <ImageBrush x:Key="Button.Static.Background6" ImageSource="Pic/addbutton_static.png"/>
+        <SolidColorBrush x:Key="Button.Static.Border6" Color="White"/>
+        <ImageBrush x:Key="Button.MouseOver.Background6" ImageSource="Pic/addbutton_mouseover.png"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border6" Color="White"/>
+        <ImageBrush x:Key="Button.Pressed.Background6" ImageSource="Pic/addbutton_pressed.png"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border6" Color="White"/>
+        <Style x:Key="Add_Button" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background6}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border6}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background6}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border6}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background6}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border6}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
 
         <LinearGradientBrush x:Key="ResizeGripperForeground" EndPoint="1,0.75" StartPoint="0,0.25">
@@ -350,24 +393,28 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="81*"/>
-            <ColumnDefinition Width="230*"/>
+            <ColumnDefinition Width="265" MinWidth="240" MaxWidth="380"/>
+            <ColumnDefinition Width="300*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.ColumnSpan="2">
-            <Grid HorizontalAlignment="Right" Width="1244" Height="27" VerticalAlignment="Top" Background="White">
-                <Button x:Name="Close_button" RenderOptions.BitmapScalingMode="NearestNeighbor" VerticalAlignment="Bottom" Width="28" Height="28" Style="{DynamicResource CloseButton}" Click="Button_Click" Margin="1218,-1,-2,0"/>
-                <Button x:Name="Maximize_button" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="0,0,28,0" VerticalAlignment="Bottom" Height="27" Style="{DynamicResource MaximizeButton}" Click="Maximize_button_Click" HorizontalAlignment="Right" Width="29"/>
-                <Button x:Name="Minimize_button" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="1158,0,57,0" VerticalAlignment="Bottom" Width="29" Height="27" Style="{DynamicResource MinimizeButton}" Click="Minimize_button_Click"/>
-            </Grid>
-        </Grid>
-        <Grid Margin="0,28,10,0" Background="#FFBD2C2C"/>
-        <GridSplitter HorizontalAlignment="Left" Height="561" Margin="0,85,0,0" VerticalAlignment="Top" Width="1" Opacity="0.5" ShowsPreview="True" Style="{DynamicResource GridSplitterStyle}" Grid.Column="1">
+        <GridSplitter  HorizontalAlignment="Left" Margin="0,37"  Width="1" Opacity="0.3" ShowsPreview="False" Style="{DynamicResource GridSplitterStyle}" Grid.Column="1">
             <GridSplitter.Background>
                 <ImageBrush ImageSource="Pic/line.png"/>
             </GridSplitter.Background>
         </GridSplitter>
-        <Grid Margin="10,28,0,0" Background="Black" Grid.Column="1"/>
+
+        <Grid Grid.ColumnSpan="2">
+            <Grid HorizontalAlignment="Right" Width="1244" Height="27" VerticalAlignment="Top" Background="White">
+                <Button x:Name="Close_button" RenderOptions.BitmapScalingMode="NearestNeighbor" VerticalAlignment="Bottom" Width="28" Height="28" Style="{DynamicResource CloseButton}" Click="Button_Click" Margin="1217,-1,-1,0"/>
+                <Button x:Name="Maximize_button" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="0,0,29,0" VerticalAlignment="Bottom" Height="27" Style="{DynamicResource MaximizeButton}" Click="Maximize_button_Click" HorizontalAlignment="Right" Width="29"/>
+                <Button x:Name="Minimize_button" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="1157,0,58,0" VerticalAlignment="Bottom" Width="29" Height="27" Style="{DynamicResource MinimizeButton}" Click="Minimize_button_Click"/>
+            </Grid>
+        </Grid>
+        <Grid Margin="0,28,0,89">
+            <Button Margin="0,513,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30" Style="{DynamicResource Add_Button}" Click="AddButton_Click"/>
+            <TextBox Height="23" Margin="20,30,20,0" TextWrapping="Wrap" Text="Filter Articals" VerticalAlignment="Top" Foreground="#FFC3C3C3" FontSize="14"/>
+        </Grid>
+        <Grid Margin="1,28,-154,89" Grid.Column="1"/>
 
     </Grid>
 
