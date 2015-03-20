@@ -13,7 +13,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Window}">
-                        <Grid Margin="1">
+                        <Grid>
                             <Rectangle Fill="{x:Null}"   
                                RadiusX="0" RadiusY="0">
                                 <Rectangle.Effect>
@@ -34,9 +34,9 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid Margin="10">
         <Grid.Effect>
-            <DropShadowEffect BlurRadius="3" Opacity="1" Color="#ffa10000" ShadowDepth="0" RenderingBias="Quality"/>
+            <DropShadowEffect BlurRadius="6" Opacity="0.7" Color="#ffa10000" ShadowDepth="0" RenderingBias="Quality"/>
         </Grid.Effect>
         <Grid.Background>
             <ImageBrush ImageSource="Pic/Addarticalbg.png"/>

@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 
 namespace SimpTyper
 {
-    public class common
+    class common
     {
         public static bool whether_maximize = false;
         public static bool up_whether_maximize = false;         //记录是否往上拉窗体到顶端
@@ -361,6 +361,8 @@ namespace SimpTyper
             if (common.whether_addartical_open == false) 
             {
                 common.addartical = new AddTitle();
+                common.addartical.Left = this.Left + Addbutton.Margin.Left - 10;
+                common.addartical.Top = this.Height - LeftPart.Margin.Bottom - Addbutton.Margin.Bottom - Addbutton.Height - common.addartical.Height + this.Top + 10;
                 common.addartical.Show();
                 common.whether_addartical_open = true;
             }
@@ -370,6 +372,33 @@ namespace SimpTyper
                 common.whether_addartical_open = false;
             }
         }
+
+        private void FilterArticals_GotFocus(object sender, RoutedEventArgs e)
+        {
+            FilterArticals.Text = "";
+        }
+
+        private void FilterArticals_LostFocus(object sender, RoutedEventArgs e)
+        {
+            FilterArticals.Text = "Filter Articals...";
+        }
+
+        private void ListBox_MouseEnter(object sender, MouseEventArgs e)
+        {
+            LeftPartListBox.Style = (Style)Resources["ListBoxStyle1"];
+        }
+
+        private void LeftPartListBox_MouseLeave(object sender, MouseEventArgs e)
+        {
+            LeftPartListBox.Style = (Style)Resources["ListBoxStyle"];
+        }
+
+
+        
+
+
+
+
 
 
 
