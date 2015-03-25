@@ -19,9 +19,13 @@ namespace SimpTyper
     {
         public static bool whether_maximize = false;
         public static bool up_whether_maximize = false;         //记录是否往上拉窗体到顶端
+        public static bool first_time_loadLeftPartListBox = true;
         public static bool whether_addartical_open = false;
-        public static Window addartical;
         public static int i = 0;    //doubleclick
+        public static string Filter_Name = "";
+        public static Grid addtitile_grid;
+        public static TextBox filterarticals;
+        public static Window mainwindow;
         
     }
     /// <summary>
@@ -37,22 +41,24 @@ namespace SimpTyper
 
         public MainWindow()
         {
-            this.SourceInitialized += new EventHandler(Window1_SourceInitialized);
+            this.SourceInitialized += new EventHandler(Window_SourceInitialized);
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;     
+            Window_Initialize();
+        }
+
+
+        private void Window_Initialize()
+        {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.ShowInTaskbar = true;
             Window_main.Width = SystemParameters.WorkArea.Width * 0.9;
             Window_main.Height = SystemParameters.WorkArea.Height * 0.9;
             Window_main.MinWidth = SystemParameters.WorkArea.Width * 0.8;
             Window_main.MinHeight = SystemParameters.WorkArea.Height * 0.8;
-        }
+            ListBox_Grid.Children.Add(new LeftPart_ListBox());
+            common.first_time_loadLeftPartListBox = false;
+        }   
 
-        void Window1_SourceInitialized(object sender, EventArgs e)
-        {
-            System.Windows.Interop.HwndSource hwndSource = PresentationSource.FromVisual((Visual)sender) as System.Windows.Interop.HwndSource;
-            hwndSource.AddHook(new System.Windows.Interop.HwndSourceHook(WndProc));
-
-        }
         private const int WM_NCHITTEST = 0x0084;
         private const int WM_LBUTTONDOWN = 0x0201;
         private const int WM_LBUTTONUP = 0x0202;
@@ -61,6 +67,12 @@ namespace SimpTyper
         private readonly int bThickness = 4; // 边框宽度   
         private Point mousePoint = new Point(); //鼠标坐标   
 
+        void Window_SourceInitialized(object sender, EventArgs e)
+        {
+            System.Windows.Interop.HwndSource hwndSource = PresentationSource.FromVisual((Visual)sender) as System.Windows.Interop.HwndSource;
+            hwndSource.AddHook(new System.Windows.Interop.HwndSourceHook(WndProc));
+
+        }   //处理鼠标信息
 
         private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
         {
@@ -233,6 +245,27 @@ namespace SimpTyper
 
 
             Point p = Mouse.GetPosition(this);
+            if (p.X > (common.addtitile_grid.Margin.Left + Innergrid.Margin.Left) && p.X < (common.addtitile_grid.Margin.Left + common.addtitile_grid.Width - Innergrid.Margin.Right) && p.Y > (this.Height - common.addtitile_grid.Margin.Bottom -common.addtitile_grid.Height + Innergrid.Margin.Top) && p.Y < (this.Height - common.addtitile_grid.Margin.Bottom - Innergrid.Margin.Bottom -12))
+            {
+                //cannot close the addarticle_grid
+            }
+            else
+            {
+                if (p.X > (common.addtitile_grid.Margin.Left + Innergrid.Margin.Left + 17) && p.X < (common.addtitile_grid.Margin.Left + Innergrid.Margin.Left + 27) && p.Y > (this.Height - common.addtitile_grid.Margin.Bottom - Innergrid.Margin.Bottom - 12) && p.Y < (this.Height - common.addtitile_grid.Margin.Bottom - Innergrid.Margin.Bottom - 5))
+                {
+                    //cannot close the addarticle_grid
+                }
+                else
+                {
+                    if (common.whether_addartical_open == true)
+                    {
+                        common.addtitile_grid.Visibility = Visibility.Collapsed;
+                        common.whether_addartical_open = false;
+                    }
+                }
+            }
+
+            
             if (p.X > 0 && p.X < this.Width && p.Y > 0 && p.Y < 30 && common.whether_maximize == false)
             {
                 this.DragMove();
@@ -276,13 +309,11 @@ namespace SimpTyper
         private void Window_main_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Point p = Mouse.GetPosition(this);
-            if (p.X > 0 && p.X < this.Width && p.Y > 0 && p.Y < 30)
+            if (p.X > 0 && p.X < (this.Width - 87) && p.Y > 0 && p.Y < 30)
             {
                 Maximize_button_Click(null, null);
             }
         }
-
-        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -325,6 +356,7 @@ namespace SimpTyper
             this.Height = rcnormal.Height;
             common.up_whether_maximize = false;
         }
+
         private void Maximize_button_Click(object sender, RoutedEventArgs e)
         {
             if (common.whether_maximize == false)
@@ -360,49 +392,93 @@ namespace SimpTyper
         {
             if (common.whether_addartical_open == false) 
             {
-                common.addartical = new AddTitle();
-                common.addartical.Left = this.Left + Addbutton.Margin.Left - 10;
-                common.addartical.Top = this.Height - LeftPart.Margin.Bottom - Addbutton.Margin.Bottom - Addbutton.Height - common.addartical.Height + this.Top + 10;
-                common.addartical.Show();
+                common.addtitile_grid.Visibility = Visibility.Visible;
                 common.whether_addartical_open = true;
             }
             else
             {
-                common.addartical.Close();
+                common.addtitile_grid.Visibility = Visibility.Collapsed;
                 common.whether_addartical_open = false;
             }
         }
 
         private void FilterArticals_GotFocus(object sender, RoutedEventArgs e)
         {
-            FilterArticals.Text = "";
+
+            if (common.whether_addartical_open == true)
+            {
+                common.addtitile_grid.Visibility = Visibility.Collapsed;
+                common.whether_addartical_open = false;
+            }
         }
 
-        private void FilterArticals_LostFocus(object sender, RoutedEventArgs e)
+
+        private void FilterArticals_TextChanged(object sender, TextChangedEventArgs e)
         {
-            FilterArticals.Text = "Filter Articals...";
+            if (common.filterarticals == null)
+                return;
+            if (common.filterarticals.Text != "Filter Articals...")                                                                    //textbox点击或已输入字符
+            {
+                //MessageBox.Show("1");
+                common.Filter_Name = common.filterarticals.Text;
+                ListBox_Grid.Children.Clear();
+                ListBox_Grid.Children.Add(new LeftPart_ListBox());
+            }
+
+            //if (common.filterarticals.Text == "Filter Articals..." && common.first_time_loadLeftPartListBox == false)                 //textbox没字符
+            //{
+            //    ListBox_Grid.Children.Clear();
+            //    ListBox_Grid.Children.Add(new LeftPart_ListBox());
+            //    //MessageBox.Show(FilterArticals.Text);
+            //}
         }
 
-        private void ListBox_MouseEnter(object sender, MouseEventArgs e)
+        //private void FilterArticals_LostFocus(object sender, RoutedEventArgs e)                   //somethingwrong
+        //{
+        //    //common.filterarticals.Text = "Filter Articals...";
+        //} 
+
+        private void AddTitle_grid_Loaded(object sender, RoutedEventArgs e)
         {
-            LeftPartListBox.Style = (Style)Resources["ListBoxStyle1"];
+            common.addtitile_grid = sender as Grid;
+            
         }
-
-        private void LeftPartListBox_MouseLeave(object sender, MouseEventArgs e)
+        private void TextBox_Loaded(object sender, RoutedEventArgs e)
         {
-            LeftPartListBox.Style = (Style)Resources["ListBoxStyle"];
+            common.filterarticals = sender as TextBox;
+        }
+
+        private void Window_main_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.mainwindow = sender as Window;
+        }
+
+        private void GridSplitter_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (common.whether_addartical_open == true)
+            {
+                common.addtitile_grid.Visibility = Visibility.Collapsed;
+                common.whether_addartical_open = false;
+            }
         }
 
 
-        
+
+        //private void TextBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    common.filterarticals.Text = "";
+        //}
 
 
-
-
-
-
-
-        
+        //private void FilterArticals_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        //{
+        //    if (sender != null)
+        //    {
+        //        TextBox txb = sender as TextBox;
+        //        txb.SelectAll();
+        //    }
+        //}
+ 
         //private void Button_Click_1(object sender, RoutedEventArgs e)
         //{
         //    common.i += 1;

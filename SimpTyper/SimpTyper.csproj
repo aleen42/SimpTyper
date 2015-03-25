@@ -53,7 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AddTitle.xaml">
+    <Page Include="LeftPart_ListBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -61,12 +61,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AddTitle.xaml.cs">
-      <DependentUpon>AddTitle.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LeftPart_ListBox.xaml.cs">
+      <DependentUpon>LeftPart_ListBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -129,9 +129,6 @@
     <Resource Include="Pic\title.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pic\line.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Pic\underbar.png" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +143,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pic\rectangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Txt\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\line.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

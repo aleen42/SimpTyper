@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pic/rectangle.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pic/line.png")]
 
 
