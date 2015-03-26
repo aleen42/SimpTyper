@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pic/line.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pic/brows_button_mouseover.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pic/brows_button_static.png")]
 
 

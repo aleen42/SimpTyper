@@ -53,6 +53,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AddArticals_InnerGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LeftPart_ListBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -61,6 +65,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AddArticals_InnerGrid.xaml.cs">
+      <DependentUpon>AddArticals_InnerGrid.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -149,6 +156,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pic\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\Add_mouseover.png" />
+    <Resource Include="Pic\Add_mousepressed.png" />
+    <Resource Include="Pic\Add_static.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\Add_mouseover%28pressed%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\Create_mouseover%28pressed%29.png" />
+    <Resource Include="Pic\Create_mouseover.png" />
+    <Resource Include="Pic\Create_mousepressed.png" />
+    <Resource Include="Pic\Create_static.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\Brows_Button_mouseover.png" />
+    <Resource Include="Pic\Brows_Button_static.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -13,3 +13,5 @@ F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.exe
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.pdb
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\LeftPart_ListBox.baml
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\LeftPart_ListBox.g.cs
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\AddArticals_InnerGrid.baml
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\AddArticals_InnerGrid.g.cs

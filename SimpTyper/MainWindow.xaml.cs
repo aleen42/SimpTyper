@@ -15,18 +15,31 @@ using System.Windows.Shapes;
 
 namespace SimpTyper
 {
+    enum AddTitle_Grid_Button
+    {
+        Add = 0,
+        Create
+    }
+
     class common
     {
         public static bool whether_maximize = false;
         public static bool up_whether_maximize = false;         //记录是否往上拉窗体到顶端
         public static bool first_time_loadLeftPartListBox = true;
         public static bool whether_addartical_open = false;
+        public static bool whether_AddTitle_Grid_Button_Add_pressed = false;
+        public static bool whether_AddTitle_Grid_Button_Create_pressed = false;
+        public static AddTitle_Grid_Button AddTitle_Grid_ButtonChoise = AddTitle_Grid_Button.Add;
+        public static Button AddTitle_Grid_Button_Add;
+        public static Button AddTitle_Grid_Button_Create;
+        public static Button Browse_Button;
         public static int i = 0;    //doubleclick
         public static string Filter_Name = "";
         public static Grid addtitile_grid;
+        public static Grid inner_grid;
         public static TextBox filterarticals;
+        public static TextBox browse_TextBox;
         public static Window mainwindow;
-        
     }
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
@@ -55,6 +68,7 @@ namespace SimpTyper
             Window_main.Height = SystemParameters.WorkArea.Height * 0.9;
             Window_main.MinWidth = SystemParameters.WorkArea.Width * 0.8;
             Window_main.MinHeight = SystemParameters.WorkArea.Height * 0.8;
+            
             ListBox_Grid.Children.Add(new LeftPart_ListBox());
             common.first_time_loadLeftPartListBox = false;
         }   
@@ -245,26 +259,33 @@ namespace SimpTyper
 
 
             Point p = Mouse.GetPosition(this);
-            if (p.X > (common.addtitile_grid.Margin.Left + Innergrid.Margin.Left) && p.X < (common.addtitile_grid.Margin.Left + common.addtitile_grid.Width - Innergrid.Margin.Right) && p.Y > (this.Height - common.addtitile_grid.Margin.Bottom -common.addtitile_grid.Height + Innergrid.Margin.Top) && p.Y < (this.Height - common.addtitile_grid.Margin.Bottom - Innergrid.Margin.Bottom -12))
+            if(common.inner_grid==null)
             {
-                //cannot close the addarticle_grid
+                //null
             }
             else
             {
-                if (p.X > (common.addtitile_grid.Margin.Left + Innergrid.Margin.Left + 17) && p.X < (common.addtitile_grid.Margin.Left + Innergrid.Margin.Left + 27) && p.Y > (this.Height - common.addtitile_grid.Margin.Bottom - Innergrid.Margin.Bottom - 12) && p.Y < (this.Height - common.addtitile_grid.Margin.Bottom - Innergrid.Margin.Bottom - 5))
+                if (p.X > (common.addtitile_grid.Margin.Left + common.inner_grid.Margin.Left) && p.X < (common.addtitile_grid.Margin.Left + common.addtitile_grid.Width - common.inner_grid.Margin.Right) && p.Y > (this.Height - common.addtitile_grid.Margin.Bottom - common.addtitile_grid.Height + common.inner_grid.Margin.Top) && p.Y < (this.Height - common.addtitile_grid.Margin.Bottom - common.inner_grid.Margin.Bottom - 12))
                 {
                     //cannot close the addarticle_grid
                 }
                 else
                 {
-                    if (common.whether_addartical_open == true)
+                    if (p.X > (common.addtitile_grid.Margin.Left + common.inner_grid.Margin.Left + 17) && p.X < (common.addtitile_grid.Margin.Left + common.inner_grid.Margin.Left + 27) && p.Y > (this.Height - common.addtitile_grid.Margin.Bottom - common.inner_grid.Margin.Bottom - 12) && p.Y < (this.Height - common.addtitile_grid.Margin.Bottom - common.inner_grid.Margin.Bottom - 5))
                     {
-                        common.addtitile_grid.Visibility = Visibility.Collapsed;
-                        common.whether_addartical_open = false;
+                        //cannot close the addarticle_grid
+                    }
+                    else
+                    {
+                        if (common.whether_addartical_open == true)
+                        {
+                            common.addtitile_grid.Visibility = Visibility.Collapsed;
+                            common.addtitile_grid.Children.Clear();
+                            common.whether_addartical_open = false;
+                        }
                     }
                 }
             }
-
             
             if (p.X > 0 && p.X < this.Width && p.Y > 0 && p.Y < 30 && common.whether_maximize == false)
             {
@@ -319,14 +340,11 @@ namespace SimpTyper
         {
             Application.Current.Shutdown();
         }
-
         
         /// <summary>
         /// 最大化，最小化
         /// </summary>
         /// 
-
-        
 
         private void Maximize_Click()
         {
@@ -394,26 +412,33 @@ namespace SimpTyper
             {
                 common.addtitile_grid.Visibility = Visibility.Visible;
                 common.whether_addartical_open = true;
+                common.addtitile_grid.Children.Add(new AddArticals_InnerGrid());
             }
             else
             {
                 common.addtitile_grid.Visibility = Visibility.Collapsed;
+                common.addtitile_grid.Children.Clear();
                 common.whether_addartical_open = false;
             }
         }
 
-        private void FilterArticals_GotFocus(object sender, RoutedEventArgs e)
+        //private void FilterArticals_LostFocus(object sender, RoutedEventArgs e)                   //somethingwrong
+        //{
+        //    //common.filterarticals.Text = "Filter Articals...";
+        //} 
+
+        private void Addarticals_Loaded(object sender, RoutedEventArgs e)
         {
-
-            if (common.whether_addartical_open == true)
-            {
-                common.addtitile_grid.Visibility = Visibility.Collapsed;
-                common.whether_addartical_open = false;
-            }
+            common.addtitile_grid = sender as Grid;
+            
         }
 
+        private void Filter_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.filterarticals = sender as TextBox;
+        }
 
-        private void FilterArticals_TextChanged(object sender, TextChangedEventArgs e)
+        private void Filter_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (common.filterarticals == null)
                 return;
@@ -433,19 +458,14 @@ namespace SimpTyper
             //}
         }
 
-        //private void FilterArticals_LostFocus(object sender, RoutedEventArgs e)                   //somethingwrong
-        //{
-        //    //common.filterarticals.Text = "Filter Articals...";
-        //} 
+        private void Filter_GotFocus(object sender, RoutedEventArgs e)
+        {
 
-        private void AddTitle_grid_Loaded(object sender, RoutedEventArgs e)
-        {
-            common.addtitile_grid = sender as Grid;
-            
-        }
-        private void TextBox_Loaded(object sender, RoutedEventArgs e)
-        {
-            common.filterarticals = sender as TextBox;
+            if (common.whether_addartical_open == true)
+            {
+                common.addtitile_grid.Visibility = Visibility.Collapsed;
+                common.whether_addartical_open = false;
+            }
         }
 
         private void Window_main_Loaded(object sender, RoutedEventArgs e)
@@ -461,7 +481,6 @@ namespace SimpTyper
                 common.whether_addartical_open = false;
             }
         }
-
 
 
         //private void TextBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
