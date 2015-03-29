@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -198,6 +199,7 @@ namespace SimpTyper
             if (ofd.ShowDialog() == true)
             {
                 Browse.Text = ofd.FileName;
+                common.addfile_Name = ofd.SafeFileName;
             }
         }
 
@@ -223,6 +225,46 @@ namespace SimpTyper
             common.Browse_Button.Background = new ImageBrush
             {
                 ImageSource = new BitmapImage(new Uri(@"..\..\Pic/Brows_Button_static.png", UriKind.Relative))
+            };
+        }
+
+        private void addanartical_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (common.addfile_Name == "")
+                return;
+            File.Copy(Browse.Text, @"..\..\Txt\" + common.addfile_Name);
+            //關閉添加框體
+            common.addtitile_grid.Visibility = Visibility.Collapsed;
+            common.addtitile_grid.Children.Clear();
+            common.whether_addartical_open = false;
+            //更新左側listbox
+            common.Filter_Name = common.filterarticals_TextBox.Text;
+            common.listbox_grid.Children.Clear();
+            common.listbox_grid.Children.Add(new LeftPart_ListBox());
+        }
+
+        private void addanartical_Button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            common.addanartial_Button.Background = new ImageBrush
+            {
+                ImageSource = new BitmapImage(new Uri(@"..\..\Pic/addanartical_Button_mouseover.png", UriKind.Relative))
+            };
+        }
+
+        private void addanartical_Button_MouseLeave(object sender, MouseEventArgs e)
+        {
+            common.addanartial_Button.Background = new ImageBrush
+            {
+                ImageSource = new BitmapImage(new Uri(@"..\..\Pic/addanartical_Button_static.png", UriKind.Relative))
+            };
+        }
+
+        private void addanartical_Button_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.addanartial_Button = sender as Button;
+            common.addanartial_Button.Background = new ImageBrush
+            {
+                ImageSource = new BitmapImage(new Uri(@"..\..\Pic/addanartical_Button_static.png", UriKind.Relative))
             };
         }
 

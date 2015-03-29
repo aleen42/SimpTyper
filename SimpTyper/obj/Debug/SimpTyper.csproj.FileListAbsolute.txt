@@ -15,3 +15,5 @@ F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\LeftPart_ListB
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\LeftPart_ListBox.g.cs
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\AddArticals_InnerGrid.baml
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\AddArticals_InnerGrid.g.cs
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\RightButtonMenu.baml
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\RightButtonMenu.g.cs

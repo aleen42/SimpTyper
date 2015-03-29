@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,13 +34,21 @@ namespace SimpTyper
         public static Button AddTitle_Grid_Button_Add;
         public static Button AddTitle_Grid_Button_Create;
         public static Button Browse_Button;
+        public static Button addanartial_Button;
         public static int i = 0;    //doubleclick
         public static string Filter_Name = "";
+        public static string addfile_Name = "";
+        public static string selectedfile_Name = "";
+        public static Grid leftpart_grid;
         public static Grid addtitile_grid;
         public static Grid inner_grid;
-        public static TextBox filterarticals;
+        public static Grid listbox_grid;
+        public static Grid menu_grid;
+        public static TextBox filterarticals_TextBox;
         public static TextBox browse_TextBox;
+        
         public static Window mainwindow;
+
     }
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
@@ -68,7 +77,7 @@ namespace SimpTyper
             Window_main.Height = SystemParameters.WorkArea.Height * 0.9;
             Window_main.MinWidth = SystemParameters.WorkArea.Width * 0.8;
             Window_main.MinHeight = SystemParameters.WorkArea.Height * 0.8;
-            
+
             ListBox_Grid.Children.Add(new LeftPart_ListBox());
             common.first_time_loadLeftPartListBox = false;
         }   
@@ -163,7 +172,8 @@ namespace SimpTyper
             }
             else if (msg == WM_LBUTTONUP)
             {
-                timer.Close();
+                if (timer != null)
+                    timer.Close();
             }
             return IntPtr.Zero;
         }
@@ -255,8 +265,10 @@ namespace SimpTyper
         //        move_Normal_Click();
         //        common.whether_maximize = false;
         //    }
-
-
+            if (common.menu_grid.Children != null)
+            {
+                common.menu_grid.Children.Clear();
+            }
 
             Point p = Mouse.GetPosition(this);
             if(common.inner_grid==null)
@@ -286,10 +298,11 @@ namespace SimpTyper
                     }
                 }
             }
-            
-            if (p.X > 0 && p.X < this.Width && p.Y > 0 && p.Y < 30 && common.whether_maximize == false)
+
+            if (p.X > 0 && p.X < this.Width && p.Y > 0 && p.Y < 30 && e.LeftButton == MouseButtonState.Pressed && common.whether_maximize == false) 
             {
-                this.DragMove();
+                try { this.DragMove(); }
+                catch { }
             }
         //    System.Threading.Thread.Sleep(200);
         //    if (common.i != 0)
@@ -330,14 +343,18 @@ namespace SimpTyper
         private void Window_main_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Point p = Mouse.GetPosition(this);
-            if (p.X > 0 && p.X < (this.Width - 87) && p.Y > 0 && p.Y < 30)
+            if (p.X > 0 && p.X < (this.Width - 87) && p.Y > 0 && p.Y < 30 && e.LeftButton == MouseButtonState.Pressed)
             {
                 Maximize_button_Click(null, null);
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Close_Button_Click(object sender, RoutedEventArgs e)
         {
+            if (common.menu_grid.Children != null)
+            {
+                common.menu_grid.Children.Clear();
+            }
             Application.Current.Shutdown();
         }
         
@@ -377,6 +394,10 @@ namespace SimpTyper
 
         private void Maximize_button_Click(object sender, RoutedEventArgs e)
         {
+            if (common.menu_grid.Children != null)
+            {
+                common.menu_grid.Children.Clear();
+            }
             if (common.whether_maximize == false)
             {
                 Maximize_button.Style = (Style)Resources["NormalButton"];
@@ -393,6 +414,10 @@ namespace SimpTyper
 
         private void Minimize_button_Click(object sender, RoutedEventArgs e)
         {
+            if (common.menu_grid.Children != null)
+            {
+                common.menu_grid.Children.Clear();
+            }
             this.WindowState = WindowState.Minimized;
         }
 
@@ -408,6 +433,10 @@ namespace SimpTyper
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
+            if (common.menu_grid.Children != null)
+            {
+                common.menu_grid.Children.Clear();
+            }
             if (common.whether_addartical_open == false) 
             {
                 common.addtitile_grid.Visibility = Visibility.Visible;
@@ -435,19 +464,19 @@ namespace SimpTyper
 
         private void Filter_Loaded(object sender, RoutedEventArgs e)
         {
-            common.filterarticals = sender as TextBox;
+            common.filterarticals_TextBox = sender as TextBox;
         }
 
         private void Filter_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (common.filterarticals == null)
+            if (common.filterarticals_TextBox == null)
                 return;
-            if (common.filterarticals.Text != "Filter Articals...")                                                                    //textbox点击或已输入字符
+            if (common.filterarticals_TextBox.Text != "Filter Articals...")                                                                    //textbox点击或已输入字符
             {
                 //MessageBox.Show("1");
-                common.Filter_Name = common.filterarticals.Text;
-                ListBox_Grid.Children.Clear();
-                ListBox_Grid.Children.Add(new LeftPart_ListBox());
+                common.Filter_Name = common.filterarticals_TextBox.Text;
+                common.listbox_grid.Children.Clear();
+                common.listbox_grid.Children.Add(new LeftPart_ListBox());
             }
 
             //if (common.filterarticals.Text == "Filter Articals..." && common.first_time_loadLeftPartListBox == false)                 //textbox没字符
@@ -460,7 +489,8 @@ namespace SimpTyper
 
         private void Filter_GotFocus(object sender, RoutedEventArgs e)
         {
-
+            if (common.menu_grid.Children != null)
+                common.menu_grid.Children.Clear();
             if (common.whether_addartical_open == true)
             {
                 common.addtitile_grid.Visibility = Visibility.Collapsed;
@@ -480,7 +510,25 @@ namespace SimpTyper
                 common.addtitile_grid.Visibility = Visibility.Collapsed;
                 common.whether_addartical_open = false;
             }
+            if (common.menu_grid.Children != null)
+                common.menu_grid.Children.Clear();
         }
+
+        private void ListBox_Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.listbox_grid = sender as Grid;
+        }
+
+        private void Right_Button_Menu_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.menu_grid = sender as Grid;
+        }
+
+        private void LeftPart_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.leftpart_grid = sender as Grid;
+        }
+
 
 
         //private void TextBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

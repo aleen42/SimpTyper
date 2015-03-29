@@ -191,6 +191,92 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <ImageBrush x:Key="Button.Static.Background10" ImageSource="Pic/addanartical_Button_static.png"/>
+        <SolidColorBrush x:Key="Button.Static.Border10" Color="White"/>
+        <ImageBrush x:Key="Button.MouseOver.Background10" ImageSource="Pic/addanartical_Button_mouseover.png"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border10" Color="White"/>
+        <Style x:Key="Add_articals" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background10}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border10}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <Border.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterX="70" CenterY="12"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Border.RenderTransform>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation  
+                                             Duration="0:0:0.05"  
+                                             Storyboard.TargetName="border"
+                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleX)"  
+                                             To="1.1"  />
+                                        <DoubleAnimation  
+                                             Duration="0:0:0.05"  
+                                             Storyboard.TargetName="border"
+                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleY)"  
+                                             To="1.1"  />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="PreviewMouseLeftButtonDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames                               
+                                            Storyboard.TargetName="border"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(Y)"  
+                                            >
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="1.5"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation  
+                                             Duration="0:0:0.1"  
+                                             Storyboard.TargetName="border"
+                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleX)"  
+                                             To="1"  />
+                                        <DoubleAnimation  
+                                             Duration="0:0:0.1"  
+                                             Storyboard.TargetName="border"
+                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleY)"  
+                                             To="1"  />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <ImageBrush x:Key="Button.Static.Background9" ImageSource="Pic/Brows_Button_static.png"/>
         <SolidColorBrush x:Key="Button.Static.Border9" Color="White"/>
         <ImageBrush x:Key="Button.MouseOver.Background9" ImageSource="Pic/Brows_Button_mouseover.png"/>
@@ -211,7 +297,7 @@
                             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                             <Border.RenderTransform>
                                 <TransformGroup>
-                                    <ScaleTransform CenterX="20.5" CenterY="12"/>
+                                    <ScaleTransform CenterX="38.5" CenterY="12"/>
                                     <SkewTransform/>
                                     <RotateTransform/>
                                     <TranslateTransform/>
@@ -365,6 +451,7 @@
                     </Button.Template>
                 </Button>
                 <Button x:Name="Browse_Button" RenderOptions.BitmapScalingMode="Linear" Loaded="Browse_Button_Loaded" Margin="413,0,0,99" HorizontalAlignment="Left" Width="52" Height="18" Style="{DynamicResource Browse}" PreviewMouseLeftButtonDown="Browse_Button_PreviewMouseLeftButtonDown" MouseEnter="Browse_Button_MouseEnter" MouseLeave="Browse_Button_MouseLeave" RenderTransformOrigin="-5.933,1.333" VerticalAlignment="Bottom"/>
+                <Button x:Name="addanartical_Button" Loaded="addanartical_Button_Loaded" Margin="247,0,0,39" RenderOptions.BitmapScalingMode="Linear" HorizontalAlignment="Left" Width="94" Height="16" Style="{DynamicResource Add_articals}" PreviewMouseLeftButtonDown="addanartical_Button_PreviewMouseLeftButtonDown" MouseEnter="addanartical_Button_MouseEnter" MouseLeave="addanartical_Button_MouseLeave" RenderTransformOrigin="-5.933,1.333" VerticalAlignment="Bottom"/>
             </Grid>
         </Grid>
     </Grid>

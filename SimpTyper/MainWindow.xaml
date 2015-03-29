@@ -258,7 +258,12 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
-                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <DockPanel LastChildFill="True" Margin="25,0,-86,0">
+                                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                <Label x:Name="AddArticals_label" Content="Add Articals" Opacity="0" FontFamily="Arial" FontSize="13" Width="84" Margin="0,2,0,-2" Foreground="#FFA10000"/>
+
+                            </DockPanel>
+
                             <Border.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform CenterX="20.5" CenterY="12"/>
@@ -298,12 +303,36 @@
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames                               
+                                            Storyboard.TargetName="AddArticals_label"
+                                            Storyboard.TargetProperty="Opacity"  
+                                            >
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames                               
+                                            Storyboard.TargetName="AddArticals_label"
+                                            Storyboard.TargetProperty="Opacity"  
+                                            >
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
 
 
         <LinearGradientBrush x:Key="ResizeGripperForeground" EndPoint="1,0.75" StartPoint="0,0.25">
@@ -1022,7 +1051,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="265" MinWidth="240" MaxWidth="300"/>
+            <ColumnDefinition x:Name="Column1" MinWidth="245" MaxWidth="280" Width="265"/>
             <ColumnDefinition Width="300*"/>
         </Grid.ColumnDefinitions>
 
@@ -1033,9 +1062,9 @@
         </GridSplitter>
 
         <Grid Grid.ColumnSpan="2" Margin="0,2,0,-2">
-            <Grid  HorizontalAlignment="Right" Width="1244" Height="27" VerticalAlignment="Top" Background="White">
+            <Grid  HorizontalAlignment="Right" Width="1244" Height="27" VerticalAlignment="Top" Background="White" Margin="0,-2,0,0">
                 <!--<Button x:Name="Close_button" RenderOptions.BitmapScalingMode="NearestNeighbor" VerticalAlignment="Bottom" Width="28" Height="28" Style="{DynamicResource CloseButton}" Click="Button_Click" Margin="1217,-1,-1,0"/>-->
-                <Button Width="29" x:Name="PART_ContentHostClearButton" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="Button_Click" Margin="0,-1,0,0">
+                <Button Width="29" x:Name="PART_ContentHostClearButton" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="Close_Button_Click" Margin="0,-1,0,0">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border x:Name="PART_Border" BorderBrush="Transparent" BorderThickness="0" Margin="0,1,0,0">
@@ -1061,16 +1090,16 @@
                 <Button x:Name="Minimize_button" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="1157,0,58,0" VerticalAlignment="Bottom" Width="29" Height="27" Style="{DynamicResource MinimizeButton}" Click="Minimize_button_Click"/>
             </Grid>
         </Grid>
-        <Grid x:Name="LeftPart" Margin="0,28,0,89">
+        <Grid x:Name="LeftPart" Loaded="LeftPart_Loaded" Margin="0,28,0,89">
             <TextBox x:Name="Filter" Loaded="Filter_Loaded" Height="23" Margin="20,71,20,0" TextChanged="Filter_TextChanged" FontSize="13" TextWrapping="NoWrap" VerticalAlignment="Top" Style="{DynamicResource TextBoxStyle_withClear}" FontFamily="Arial" GotFocus="Filter_GotFocus"/>
             <!--GotFocus="FilterArticals_GotFocus" LostFocus="TextBox_LostFocus" Text="Filter Articals..."-->
-            <Grid x:Name="ListBox_Grid" Margin="0,110,0,45"/>
+            <Grid x:Name="ListBox_Grid" Loaded="ListBox_Grid_Loaded" Margin="0,110,0,56"/>
             <Button x:Name="Addbutton" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="10,0,0,10" HorizontalAlignment="Left" Width="30" Height="30" Style="{DynamicResource Add_Button}" Click="AddButton_Click" RenderTransformOrigin="-5.933,1.333" VerticalAlignment="Bottom"/>
         </Grid>
-        <Grid Margin="0,28,-153,89" Grid.Column="1"/>
-        <Grid Background="{x:Null}" Loaded="Addarticals_Loaded" Visibility="Collapsed" Grid.ColumnSpan="2" Margin="3,0,0,125" HorizontalAlignment="Left" Width="500" Height="208" VerticalAlignment="Bottom">
-            
-        </Grid>
+        <Grid Margin="0,28,0,89" Grid.Column="1"/>
+        <Grid Background="{x:Null}" Loaded="Addarticals_Loaded" Visibility="Collapsed" Grid.ColumnSpan="2" Margin="3,0,0,125" HorizontalAlignment="Left" Width="500" Height="208" VerticalAlignment="Bottom"/>
+        <Grid x:Name="Right_Button_Menu" Background="{x:Null}" Loaded="Right_Button_Menu_Loaded" Margin="172,156,0,0" HorizontalAlignment="Left" Width="130" Grid.ColumnSpan="2" Height="66" VerticalAlignment="Top"/>
+
     </Grid>
 
 </Window>
