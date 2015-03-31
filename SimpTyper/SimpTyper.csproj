@@ -55,10 +55,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Artical_Show.xaml.cs">
+      <DependentUpon>Artical_Show.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Artical_Title.xaml.cs">
+      <DependentUpon>Artical_Title.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RightButtonMenu.xaml.cs">
       <DependentUpon>RightButtonMenu.xaml</DependentUpon>
     </Compile>
     <Page Include="AddArticals_InnerGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Artical_Show.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Artical_Title.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,6 +216,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pic\Delete_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\artical_grid_bottom.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

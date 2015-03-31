@@ -55,12 +55,12 @@
                             </Border.RenderTransform>
                         </Border>-->
                         <Grid x:Name="Bd" RenderOptions.BitmapScalingMode="NearestNeighbor" Background="{TemplateBinding Background}" SnapsToDevicePixels="true" Margin="0,0,0,0">
-                            <Border x:Name="Txt_logo" Height="14" Width="14" Margin="8,8,0,8" HorizontalAlignment="Left" >
+                            <Border x:Name="Txt_logo" Height="14" Width="14" Opacity="0.3"  Margin="20,8,0,8" HorizontalAlignment="Left" >
                                 <Border.Background>
                                     <ImageBrush RenderOptions.BitmapScalingMode="NearestNeighbor" ImageSource="Pic/TxtLogo_static.png"/>
                                 </Border.Background>
                             </Border>
-                            <TextBlock VerticalAlignment="Center" Background="{x:Null}" Margin="25,6,10,6" Text="{TemplateBinding Content}" TextTrimming="CharacterEllipsis" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Cursor="Arrow"/>
+                            <TextBlock VerticalAlignment="Center" Background="{x:Null}" Margin="50,6,-15,6" Text="{TemplateBinding Content}" TextTrimming="CharacterEllipsis" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Cursor="Arrow"/>
                             <Grid.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -69,6 +69,9 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </Grid.RenderTransform>
+                            <!--<Grid.Effect>
+                                <DropShadowEffect Opacity="0.1" BlurRadius="4" Color="Black" ShadowDepth="0" RenderingBias="Quality"/>
+                            </Grid.Effect>-->
                         </Grid>
                         <ControlTemplate.Triggers>
                             <!--<EventTrigger RoutedEvent="MouseEnter">
@@ -88,7 +91,8 @@
                                 <MultiTrigger.Conditions>
                                     <Condition Property="IsMouseOver" Value="True"/>
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource Item.MouseOver.Background}"/>
+                                <!--<Setter Property="Background" TargetName="Bd" Value="{StaticResource Item.MouseOver.Background}"/>-->
+                                <Setter Property="Opacity" TargetName="Txt_logo" Value="0.6"/>
                                 <!--<Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource Item.MouseOver.Border}"/>-->
                             </MultiTrigger>
                             <MultiTrigger>
@@ -149,12 +153,12 @@
                             </Border.RenderTransform>
                         </Border>-->
                         <Grid x:Name="Bd" RenderOptions.BitmapScalingMode="NearestNeighbor" Background="{TemplateBinding Background}" SnapsToDevicePixels="true" Margin="0,0,0,0">
-                            <Border x:Name="Txt_logo" Height="14" Width="14" Margin="8,8,0,8" HorizontalAlignment="Left" >
+                            <Border x:Name="Txt_logo" Height="14" Width="14" Margin="20,8,0,8" HorizontalAlignment="Left" >
                                 <Border.Background>
                                     <ImageBrush RenderOptions.BitmapScalingMode="NearestNeighbor" ImageSource="Pic/TxtLogo_pressed.png"/>
                                 </Border.Background>
                             </Border>
-                            <TextBlock VerticalAlignment="Center" Background="{x:Null}" Margin="25,6,10,6" Text="{TemplateBinding Content}" TextTrimming="CharacterEllipsis" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Cursor="Arrow"/>
+                            <TextBlock VerticalAlignment="Center" Background="{x:Null}" Margin="50,6,-15,6" Text="{TemplateBinding Content}" TextTrimming="CharacterEllipsis" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Cursor="Arrow"/>
                             <Grid.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -563,7 +567,7 @@
     </UserControl.Resources>
     <Grid>
         <ListBox x:Name="LeftPartListBox" Margin="-1,0" BorderBrush="{x:Null}" BorderThickness="0" Background="{x:Null}" Style="{DynamicResource ListBoxStyle}">
-            <ListBoxItem Content="12312312213311123123123233123145" PreviewMouseRightButtonDown="ListBoxItem_PreviewMouseRightButtonDown" Style="{DynamicResource ListBoxItemStyle_withstaticlogo}" Height="30" FontSize="13"  UseLayoutRounding="False"/>
+            <!--<ListBoxItem Content="12312312213311123123123233123145" PreviewMouseRightButtonDown="ListBoxItem_PreviewMouseRightButtonDown" Style="{DynamicResource ListBoxItemStyle_withstaticlogo}" Height="30" FontSize="13"  UseLayoutRounding="False"/>-->
         </ListBox>
 
         <!--MouseEnter="ListBox_MouseEnter" MouseLeave="LeftPartListBox_MouseLeave"-->

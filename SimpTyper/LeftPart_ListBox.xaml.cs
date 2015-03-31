@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -54,13 +56,18 @@ namespace SimpTyper
                 if (common.Filter_Name != "" && common.Filter_Name != NextFile.Name.Substring(0, common.Filter_Name.Length))
                     continue;
                 ListBoxItem ListBox_addItem = new ListBoxItem();
-                ListBox_addItem.Content = Convert(NextFile.Name.Substring(0, NextFile.Name.Length - (suffix.Length + 1)), ListBox_addItem.GetType(), 8);
-                native_common.shortname_longname_Hashtable.Add(ListBox_addItem.Content, NextFile.Name.Substring(0, NextFile.Name.Length - (suffix.Length + 1)));   //保存省略前和省略后名字的关系
-                ListBox_addItem.Content = ConvertBack(ListBox_addItem.Content);
+                ListBox_addItem.Content = Convert(NextFile.Name.Substring(0, NextFile.Name.Length - (suffix.Length + 1)), ListBox_addItem.GetType(), 20);
+                if (native_common.shortname_longname_Hashtable.Contains(ListBox_addItem.Content) == false)
+                    native_common.shortname_longname_Hashtable.Add(ListBox_addItem.Content, NextFile.Name.Substring(0, NextFile.Name.Length - (suffix.Length + 1)));   //保存省略前和省略后名字的关系
+
+                //ListBox_addItem.Content = ConvertBack(ListBox_addItem.Content);
                 ListBox_addItem.Style = (Style)Resources["ListBoxItemStyle_withstaticlogo"];
                 ListBox_addItem.Height = 30;
                 ListBox_addItem.FontFamily = new FontFamily("Microsoft JhengHei UI");
                 ListBox_addItem.FontSize = 13;
+                //ListBox_addItem.Background = new SolidColorBrush(Colors.White);
+                ListBox_addItem.MouseEnter += new MouseEventHandler(ListBoxItem_MouseEnter);
+                ListBox_addItem.MouseLeave += new MouseEventHandler(ListBoxItem_MouseLeave);
                 ListBox_addItem.GotFocus += new RoutedEventHandler(ListBoxItem_GotFocus);
                 ListBox_addItem.LostFocus += new RoutedEventHandler(ListBoxItem_LostFocus);
                 ListBox_addItem.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(Item_Selected);
@@ -103,7 +110,7 @@ namespace SimpTyper
             if (common.whether_addartical_open == true)
             {
                 common.addtitile_grid.Visibility = Visibility.Collapsed;
-                common.mainwindow.ResizeMode = ResizeMode.CanResizeWithGrip;
+                common.addtitile_grid.Children.Clear();
                 common.whether_addartical_open = false;
             }
             if (common.menu_grid.Children != null)
@@ -114,9 +121,33 @@ namespace SimpTyper
 
         private void ListBoxItem_GotFocus(object sender, RoutedEventArgs e)
         {
+
             ListBoxItem current = sender as ListBoxItem;
+            common.selectedfile_Name = ConvertBack(current.Content.ToString()).ToString();
+            FileStream selectedfile = new FileStream(@"..\..\Txt\" + common.selectedfile_Name + ".txt", FileMode.Open, FileAccess.Read);
+            StreamReader text_reader = new StreamReader(selectedfile);
+            // 把文件指针重新定位到文件的开始
+            text_reader.BaseStream.Seek(0, SeekOrigin.Begin);  //0代表开头
+            //StreamReader.BaseStream.Seek(offset,origin);
+            //SeekOrigin.Begin:表示流的开头
+            string s = "";
+            common.selectedfile_Text = "";
+            while ((s = text_reader.ReadLine()) != null)
+            {
+                if (s.Substring(0, 0) != " ")
+                    common.selectedfile_Text += "        ";
+                common.selectedfile_Text += s;
+                common.selectedfile_Text += "\r\n";
+            }
+            //读入字符流
+
+            FileInfo info_reader = new FileInfo(@"..\..\Txt\" + common.selectedfile_Name + ".txt");
+            common.selectedfile_CreationTime = info_reader.CreationTime.ToString();
+
             current.Foreground = new SolidColorBrush(Colors.White);
             current.Style = (Style)Resources["ListBoxItemStyle_withpressedlogo"];
+
+            common.whether_selectfile = true;
         }
 
         private void ListBoxItem_LostFocus(object sender, RoutedEventArgs e)
@@ -131,11 +162,12 @@ namespace SimpTyper
             if (common.whether_addartical_open == true)
             {
                 common.addtitile_grid.Visibility = Visibility.Collapsed;
+                common.addtitile_grid.Children.Clear();
                 common.whether_addartical_open = false;
             }
 
             ListBoxItem current = sender as ListBoxItem;
-            common.selectedfile_Name = @"..\..\Txt\" + current.Content.ToString() + ".txt";
+            common.selectedfile_Name = @"..\..\Txt\" + ConvertBack(current.Content.ToString()) + ".txt";
             //MessageBox.Show(current.Content.ToString());
 
             UserControl menu = new RightButtonMenu();
@@ -150,7 +182,67 @@ namespace SimpTyper
 
         }
 
+        private void ListBoxItem_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ListBoxItem current = sender as ListBoxItem;
+            common.mouseoverfile_Name = ConvertBack(current.Content.ToString()).ToString();
+            FileStream mouseoverfile = new FileStream(@"..\..\Txt\" + common.mouseoverfile_Name + ".txt", FileMode.Open, FileAccess.Read);
+            StreamReader text_reader = new StreamReader(mouseoverfile);
+            // 把文件指针重新定位到文件的开始
+            text_reader.BaseStream.Seek(0, SeekOrigin.Begin);  //0代表开头
+            //StreamReader.BaseStream.Seek(offset,origin);
+            //SeekOrigin.Begin:表示流的开头
+            string s = "";
+            common.mouseoverfile_Text = "";
+            while ((s = text_reader.ReadLine()) != null)
+            {
+                if (s.Substring(0, 0) != " ")
+                    common.mouseoverfile_Text += "        ";
+                common.mouseoverfile_Text += s;
+                common.mouseoverfile_Text += "\r\n";
+            }
+            //读入字符流
 
+
+            FileInfo info_reader = new FileInfo(@"..\..\Txt\" + common.mouseoverfile_Name + ".txt");
+            common.mouseoverfile_CreationTime = info_reader.CreationTime.ToString();
+            
+            if (current.IsSelected == false)
+            {
+                if (common.articalinfo_grid.Children != null)
+                    common.articalinfo_grid.Children.Clear();
+                common.articalinfo_grid.Children.Add(new Artical_Title());
+            } 
+            else
+            {
+                if (common.articalinfo_grid.Children != null)
+                    common.articalinfo_grid.Children.Clear();
+                common.articalinfo_grid.Children.Add(new Artical_Show());
+            }
+
+            if (common.whether_addartical_open == true)
+            {
+                common.addtitile_grid.Visibility = Visibility.Collapsed;
+                common.addtitile_grid.Children.Clear();
+                common.whether_addartical_open = false;
+            }
+        }
+
+        private void ListBoxItem_MouseLeave(object sender, MouseEventArgs e)
+        {
+            ListBoxItem current = sender as ListBoxItem;
+            if (current.IsSelected == false && common.whether_selectfile == false)
+            {
+                if (common.articalinfo_grid.Children != null)
+                    common.articalinfo_grid.Children.Clear();
+            }
+            else
+            {
+                if (common.articalinfo_grid.Children != null)
+                    common.articalinfo_grid.Children.Clear();
+                common.articalinfo_grid.Children.Add(new Artical_Show());
+            }
+        }
     }
 
 

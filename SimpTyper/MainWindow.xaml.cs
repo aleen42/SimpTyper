@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -27,6 +28,7 @@ namespace SimpTyper
         public static bool whether_maximize = false;
         public static bool up_whether_maximize = false;         //记录是否往上拉窗体到顶端
         public static bool first_time_loadLeftPartListBox = true;
+        public static bool whether_selectfile = false;
         public static bool whether_addartical_open = false;
         public static bool whether_AddTitle_Grid_Button_Add_pressed = false;
         public static bool whether_AddTitle_Grid_Button_Create_pressed = false;
@@ -39,14 +41,19 @@ namespace SimpTyper
         public static string Filter_Name = "";
         public static string addfile_Name = "";
         public static string selectedfile_Name = "";
+        public static string selectedfile_Text = "";
+        public static string selectedfile_CreationTime = "";
+        public static string mouseoverfile_Name = "";
+        public static string mouseoverfile_Text = "";
+        public static string mouseoverfile_CreationTime = "";
         public static Grid leftpart_grid;
         public static Grid addtitile_grid;
         public static Grid inner_grid;
         public static Grid listbox_grid;
         public static Grid menu_grid;
+        public static Grid articalinfo_grid;
         public static TextBox filterarticals_TextBox;
         public static TextBox browse_TextBox;
-        
         public static Window mainwindow;
 
     }
@@ -75,9 +82,8 @@ namespace SimpTyper
             this.ShowInTaskbar = true;
             Window_main.Width = SystemParameters.WorkArea.Width * 0.9;
             Window_main.Height = SystemParameters.WorkArea.Height * 0.9;
-            Window_main.MinWidth = SystemParameters.WorkArea.Width * 0.8;
-            Window_main.MinHeight = SystemParameters.WorkArea.Height * 0.8;
-
+            Window_main.MinWidth = SystemParameters.WorkArea.Width * 0.85;
+            Window_main.MinHeight = SystemParameters.WorkArea.Height * 0.85;
             ListBox_Grid.Children.Add(new LeftPart_ListBox());
             common.first_time_loadLeftPartListBox = false;
         }   
@@ -477,6 +483,9 @@ namespace SimpTyper
                 common.Filter_Name = common.filterarticals_TextBox.Text;
                 common.listbox_grid.Children.Clear();
                 common.listbox_grid.Children.Add(new LeftPart_ListBox());
+                common.whether_selectfile = false;
+                if (common.articalinfo_grid.Children != null)
+                    common.articalinfo_grid.Children.Clear();
             }
 
             //if (common.filterarticals.Text == "Filter Articals..." && common.first_time_loadLeftPartListBox == false)                 //textbox没字符
@@ -527,6 +536,11 @@ namespace SimpTyper
         private void LeftPart_Loaded(object sender, RoutedEventArgs e)
         {
             common.leftpart_grid = sender as Grid;
+        }
+
+        private void Artical_info_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.articalinfo_grid = sender as Grid;
         }
 
 

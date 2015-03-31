@@ -1047,11 +1047,12 @@
         </Style>
 
 
+
     </Window.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition x:Name="Column1" MinWidth="245" MaxWidth="280" Width="265"/>
+            <ColumnDefinition x:Name="Column1" MinWidth="210" MaxWidth="280" Width="230"/>
             <ColumnDefinition Width="300*"/>
         </Grid.ColumnDefinitions>
 
@@ -1097,9 +1098,9 @@
             <Button x:Name="Addbutton" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="10,0,0,10" HorizontalAlignment="Left" Width="30" Height="30" Style="{DynamicResource Add_Button}" Click="AddButton_Click" RenderTransformOrigin="-5.933,1.333" VerticalAlignment="Bottom"/>
         </Grid>
         <Grid Margin="0,28,0,89" Grid.Column="1"/>
-        <Grid Background="{x:Null}" Loaded="Addarticals_Loaded" Visibility="Collapsed" Grid.ColumnSpan="2" Margin="3,0,0,125" HorizontalAlignment="Left" Width="500" Height="208" VerticalAlignment="Bottom"/>
         <Grid x:Name="Right_Button_Menu" Background="{x:Null}" Loaded="Right_Button_Menu_Loaded" Margin="172,156,0,0" HorizontalAlignment="Left" Width="130" Grid.ColumnSpan="2" Height="66" VerticalAlignment="Top"/>
-
+        <Grid x:Name="Artical_info" Background="{x:Null}" Loaded="Artical_info_Loaded" Margin="5,64,10,0" Grid.Column="1" Height="559" VerticalAlignment="Top"/>
+        <Grid Background="{x:Null}" Loaded="Addarticals_Loaded" Visibility="Collapsed" Grid.ColumnSpan="2" Margin="3,0,0,125" HorizontalAlignment="Left" Width="500" Height="208" VerticalAlignment="Bottom"/>
     </Grid>
 
 </Window>

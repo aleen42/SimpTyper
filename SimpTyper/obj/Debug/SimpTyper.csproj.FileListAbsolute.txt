@@ -17,3 +17,7 @@ F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\AddArticals_In
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\AddArticals_InnerGrid.g.cs
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\RightButtonMenu.baml
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\RightButtonMenu.g.cs
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\Artical_Title.baml
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\Artical_Title.g.cs
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\Artical_Show.baml
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\Artical_Show.g.cs
