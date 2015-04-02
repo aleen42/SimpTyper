@@ -29,18 +29,6 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:25" Value="-300"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:25.5" Value="-1000"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="update_at" Storyboard.TargetProperty="(UIElement.Opacity)">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.6"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:25" Value="0.6"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:25.1" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="time" Storyboard.TargetProperty="(UIElement.Opacity)">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:25" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:25.1" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
 
     </UserControl.Resources>
@@ -63,7 +51,7 @@
             </Label.RenderTransform>
         </Label>
         <Grid x:Name="artical_grid" HorizontalAlignment="Left" Opacity="0" Height="307" Margin="363,152,-18,0" VerticalAlignment="Top" Width="654">
-            <TextBlock x:Name="artical" IsEnabled="False" Text="Labelasdfasdfasdf" TextWrapping="Wrap" Foreground="#FF5B5B5B" HorizontalAlignment="Right" FontSize="20" Width="644" Margin="0,0,10,0"/>
+            <TextBlock x:Name="artical" Text="Labelasdfasdfasdf" TextWrapping="Wrap" Foreground="#FF5B5B5B" HorizontalAlignment="Right" FontSize="20" Width="624" Margin="0,0,30,0"/>
             <Image Source="Pic/artical_grid_bottom.png" Stretch="Fill" HorizontalAlignment="Center" Width="654" Height="307" RenderTransformOrigin="0.5,0.5"/>
             <Grid.RenderTransform>
                 <TransformGroup>
@@ -74,26 +62,5 @@
                 </TransformGroup>
             </Grid.RenderTransform>
         </Grid>
-        <Label x:Name="update_at" Content="updated at: " Opacity="0" Foreground="#FF5B5B5B" HorizontalAlignment="Left" Margin="657,464,0,58" FontSize="15">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label x:Name="time" Content="time" Opacity="0" Foreground="#ffa10000" HorizontalAlignment="Left" Margin="747,465,0,57" FontSize="15">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-
     </Grid>
 </UserControl>

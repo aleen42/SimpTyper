@@ -402,7 +402,7 @@
                                         <Setter.Value>
                                             <VisualBrush Opacity="0.3" Stretch="None" AlignmentX="Left">
                                                 <VisualBrush.Visual>
-                                                    <TextBox Text="Local Path..." FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" Foreground="Black" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}"/>
+                                                    <TextBox Text="Local Path(.txt)..." FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" Foreground="Black" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}"/>
                                                 </VisualBrush.Visual>
                                             </VisualBrush>
                                         </Setter.Value>
@@ -424,6 +424,103 @@
                     <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
                 </MultiTrigger>
             </Style.Triggers>
+        </Style>
+
+        <ImageBrush x:Key="Button.Static.Background6" ImageSource="Pic/addbutton_static.png"/>
+        <SolidColorBrush x:Key="Button.Static.Border6" Color="White"/>
+        <ImageBrush x:Key="Button.MouseOver.Background6" ImageSource="Pic/addbutton_mouseover.png"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border6" Color="White"/>
+        <ImageBrush x:Key="Button.Pressed.Background6" ImageSource="Pic/addbutton_pressed.png"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border6" Color="White"/>
+        <ImageBrush x:Key="Button.Disabled.Background6" ImageSource="Pic/addbutton_disabled.png"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border6" Color="White"/>
+        <Style x:Key="Add_Button" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background6}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border6}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <DockPanel LastChildFill="True" Margin="25,0,-125,0">
+                                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                <Label x:Name="AddArticals_label" Content="Add it immediately!" Opacity="1" FontFamily="Arial" FontSize="13" Width="164" Margin="0,2,0,-2" Foreground="#FFA10000"/>
+
+                            </DockPanel>
+
+                            <Border.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterX="20.5" CenterY="12"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Border.RenderTransform>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background6}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border6}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background6}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border6}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background6}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border6}"/>
+                                <Setter Property="Foreground" TargetName="AddArticals_label" Value="#ff606060"/>
+                                <Setter Property="Opacity" TargetName="border" Value="0.4"/>
+                            </Trigger>
+                            <EventTrigger RoutedEvent="PreviewMouseLeftButtonDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames                               
+                                            Storyboard.TargetName="border"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(Y)"  
+                                            >
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="1.5"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <!--<EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames                               
+                                            Storyboard.TargetName="AddArticals_label"
+                                            Storyboard.TargetProperty="Opacity"  
+                                            >
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>-->
+                            <!--<EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames                               
+                                            Storyboard.TargetName="AddArticals_label"
+                                            Storyboard.TargetProperty="Opacity"  
+                                            >
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>-->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
 
@@ -451,7 +548,9 @@
                     </Button.Template>
                 </Button>
                 <Button x:Name="Browse_Button" RenderOptions.BitmapScalingMode="Linear" Loaded="Browse_Button_Loaded" Margin="413,0,0,99" HorizontalAlignment="Left" Width="52" Height="18" Style="{DynamicResource Browse}" PreviewMouseLeftButtonDown="Browse_Button_PreviewMouseLeftButtonDown" MouseEnter="Browse_Button_MouseEnter" MouseLeave="Browse_Button_MouseLeave" RenderTransformOrigin="-5.933,1.333" VerticalAlignment="Bottom"/>
-                <Button x:Name="addanartical_Button" Loaded="addanartical_Button_Loaded" Margin="247,0,0,39" RenderOptions.BitmapScalingMode="Linear" HorizontalAlignment="Left" Width="94" Height="16" Style="{DynamicResource Add_articals}" PreviewMouseLeftButtonDown="addanartical_Button_PreviewMouseLeftButtonDown" MouseEnter="addanartical_Button_MouseEnter" MouseLeave="addanartical_Button_MouseLeave" RenderTransformOrigin="-5.933,1.333" VerticalAlignment="Bottom"/>
+                <!--<Button x:Name="addanartical_Button" Loaded="addanartical_Button_Loaded" Margin="247,0,0,39" RenderOptions.BitmapScalingMode="Linear" HorizontalAlignment="Left" Width="94" Height="16" Style="{DynamicResource Add_articals}" PreviewMouseLeftButtonDown="addanartical_Button_PreviewMouseLeftButtonDown" MouseEnter="addanartical_Button_MouseEnter" MouseLeave="addanartical_Button_MouseLeave" RenderTransformOrigin="-5.933,1.333" VerticalAlignment="Bottom"/>-->
+                <Button x:Name="addanartical_Button" Loaded="addanartical_Button_Loaded" IsEnabled="False" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="181,0,263,15" HorizontalAlignment="Center" Width="30" Height="30" Style="{DynamicResource Add_Button}" PreviewMouseLeftButtonDown="addanartical_Button_PreviewMouseLeftButtonDown" MouseEnter="addanartical_Button_MouseEnter" MouseLeave="addanartical_Button_MouseLeave" RenderTransformOrigin="-5.933,1.333" VerticalAlignment="Bottom"/>
+                <Label x:Name="error_Label" Content="Error : The path is illegal, please try again!" Visibility="Collapsed" Foreground="#ffa10000" HorizontalAlignment="Left" FontSize="13" Margin="10,49,0,0" VerticalAlignment="Top"/>
             </Grid>
         </Grid>
     </Grid>

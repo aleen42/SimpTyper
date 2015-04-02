@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -38,8 +39,12 @@ namespace SimpTyper
         public static Button Browse_Button;
         public static Button addanartial_Button;
         public static int i = 0;    //doubleclick
+        public static int num = 1;
+        public static long selectedfile_text_count = 0;
+        public static long mouseoverfile_text_count = 0;
         public static string Filter_Name = "";
         public static string addfile_Name = "";
+        public static string selectedfile_Path = "";
         public static string selectedfile_Name = "";
         public static string selectedfile_Text = "";
         public static string selectedfile_CreationTime = "";
@@ -54,6 +59,12 @@ namespace SimpTyper
         public static Grid articalinfo_grid;
         public static TextBox filterarticals_TextBox;
         public static TextBox browse_TextBox;
+        public static UserControl metro_loading;
+        public static UserControl artical_show;
+        public static Label update_at_Label;
+        public static Label time_Label;
+        public static Label words_Label;
+        public static Label count_Label;
         public static Window mainwindow;
 
     }
@@ -541,6 +552,31 @@ namespace SimpTyper
         private void Artical_info_Loaded(object sender, RoutedEventArgs e)
         {
             common.articalinfo_grid = sender as Grid;
+        }
+
+        private void metro_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.metro_loading = sender as UserControl;
+        }
+
+        private void time_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.time_Label = sender as Label;
+        }
+
+        private void words_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.words_Label = sender as Label;
+        }
+
+        private void count_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.count_Label = sender as Label;
+        }
+
+        private void update_at_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.update_at_Label = sender as Label;
         }
 
 

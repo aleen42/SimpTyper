@@ -21,3 +21,4 @@ F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\Artical_Title.
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\Artical_Title.g.cs
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\Artical_Show.baml
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\Artical_Show.g.cs
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper_MarkupCompile.lref

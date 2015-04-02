@@ -25,7 +25,8 @@ namespace SimpTyper
             InitializeComponent();
             artical_title.Content = common.mouseoverfile_Name;
             artical.Text = common.mouseoverfile_Text;
-            time.Content = common.mouseoverfile_CreationTime;
+            common.time_Label.Content = common.mouseoverfile_CreationTime;
+            common.count_Label.Content = common.mouseoverfile_text_count;
             //artical_title.FontSize = 100 * 3 / common.mouseoverfile_Name.Length;
         }
 
