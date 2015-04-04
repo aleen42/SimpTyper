@@ -119,10 +119,6 @@
         <Style x:Key="ScrollBarThumbVertical" TargetType="{x:Type Thumb}">
             <Setter Property="OverridesDefaultStyle" Value="true"/>
             <Setter Property="IsTabStop" Value="false"/>
-<<<<<<< HEAD
-=======
-            <Setter Property="Height" Value="20"/>
->>>>>>> origin/master
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Thumb}">
@@ -188,11 +184,7 @@
                                     <RepeatButton Command="{x:Static ScrollBar.PageDownCommand}" Opacity="0" Style="{StaticResource RepeatButtonTransparent}"/>
                                 </Track.IncreaseRepeatButton>-->
                                 <Track.Thumb>
-<<<<<<< HEAD
                                     <Thumb Height="20" Style="{StaticResource ScrollBarThumbVertical}"/>
-=======
-                                    <Thumb Style="{StaticResource ScrollBarThumbVertical}"/>
->>>>>>> origin/master
                                 </Track.Thumb>
                             </Track>
                             <!--<RepeatButton x:Name="PART_LineDownButton" Visibility="Collapsed" Command="{x:Static ScrollBar.LineDownCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="2" Style="{StaticResource ScrollBarButton}">
@@ -325,13 +317,7 @@
             </Label.RenderTransform>
         </Label>
         <Grid x:Name="artical_grid" Opacity="1" Margin="77,152,77,46">
-
-
-<<<<<<< HEAD
             <ScrollViewer x:Name="sv" Background="White" Template="{DynamicResource ScrollViewerControlTemplate}" Height="343" VerticalAlignment="Top">
-=======
-            <ScrollViewer x:Name="sv" Background="White" Template="{DynamicResource ScrollViewerControlTemplate}" Height="307" VerticalAlignment="Top">
->>>>>>> origin/master
                 <ScrollViewer.OpacityMask>
                     <ImageBrush ImageSource="Pic/artical_grid_shadow.png"/>
                 </ScrollViewer.OpacityMask>
