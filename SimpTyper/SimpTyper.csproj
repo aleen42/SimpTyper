@@ -67,6 +67,9 @@
     <Compile Include="RightButtonMenu.xaml.cs">
       <DependentUpon>RightButtonMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowContainer.xaml.cs">
+      <DependentUpon>WindowContainer.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddArticals_InnerGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -106,6 +109,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="RightButtonMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowContainer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -235,6 +242,23 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pic\artical_grid_shadow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\typebutton_mouseover.png" />
+    <Resource Include="Pic\typebutton_pressed.png" />
+    <Resource Include="Pic\typebutton_static .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\typebutton_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\artical_shadow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

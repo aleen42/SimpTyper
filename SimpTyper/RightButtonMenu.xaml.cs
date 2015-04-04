@@ -54,6 +54,7 @@ namespace SimpTyper
             //MessageBox.Show(common.selectedfile_Path);
             //File.OpenText(common.selectedfile_Path);
             //MessageBox.Show(common.selectedfile_Path);
+            e.Handled = true;
             Process editor = new Process();
             editor.StartInfo.FileName = common.selectedfile_Path;
             editor.StartInfo.CreateNoWindow = true;
@@ -125,6 +126,9 @@ namespace SimpTyper
                 common.selectedfile_Text += "\n\n\n";
                 common.selectedfile_text_count--;
 
+                selectedfile.Close();
+                text_reader.Close();
+
                 FileInfo info_reader = new FileInfo(common.selectedfile_Path);
                 common.selectedfile_CreationTime = info_reader.CreationTime.ToString();
 
@@ -163,6 +167,8 @@ namespace SimpTyper
             File.Delete(common.selectedfile_Path);
             common.selectedfile_Path = "";
             //更新左側listbox
+            common.type_Button.IsEnabled = false;
+            common.whether_selectfile = false;
             common.Filter_Name = common.filterarticals_TextBox.Text;
             common.listbox_grid.Children.Clear();
             common.listbox_grid.Children.Add(new LeftPart_ListBox());

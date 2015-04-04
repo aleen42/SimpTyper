@@ -52,8 +52,10 @@ namespace SimpTyper
             System.IO.DirectoryInfo text_folder = new System.IO.DirectoryInfo(@"..\..\Txt\");
             System.IO.FileInfo[] text_file = text_folder.GetFiles("*." + suffix);                                           //获取后缀名为suffix的文件
             //遍历文件夹
+            common.leftpart_row_num = 0;
             foreach (System.IO.FileInfo NextFile in text_file)
             {
+                common.leftpart_row_num++;
                 if (common.Filter_Name.Length > NextFile.Name.Substring(0, NextFile.Name.Length - (suffix.Length + 1)).Length)
                     continue;
                 if (common.Filter_Name != "" && common.Filter_Name != NextFile.Name.Substring(0, common.Filter_Name.Length))
@@ -78,6 +80,9 @@ namespace SimpTyper
                 //ListBox_addItem.PreviewMouseDown += new MouseButtonEventHandler(Item_Selected);
                 LeftPartListBox.Items.Add(ListBox_addItem);
             }
+            if (common.loadmorearticals_Label == null)
+                return;
+            common.loadmorearticals_set();
         }
 
         private object Convert(object value, Type targetType, object parameter)
@@ -161,6 +166,8 @@ namespace SimpTyper
             if (common.articalinfo_grid.Children != null)
                 common.articalinfo_grid.Children.Clear();
             common.articalinfo_grid.Children.Add(new Artical_Show());
+
+            common.type_Button.IsEnabled = true;
             common.time_Label.Opacity = 1;
             common.count_Label.Opacity = 1;
             common.update_at_Label.Opacity = 0.6;
@@ -244,6 +251,7 @@ namespace SimpTyper
             ListBoxItem current = sender as ListBoxItem;
             current.Foreground = new SolidColorBrush(Colors.Black);
             current.Style = (Style)Resources["ListBoxItemStyle_withstaticlogo"];
+            
         }
 
         private void ListBoxItem_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -284,10 +292,9 @@ namespace SimpTyper
             string s = "";
             common.mouseoverfile_Text = "";
             common.mouseoverfile_text_count = 0;
-            int i = 0;
+            common.mouseoverfile_Text += "\n\n\n";
             while ((s = text_reader.ReadLine()) != null)
             {
-                if (i++ > 5) break;
                 common.mouseoverfile_text_count += s.Length + 1;
                 if (s.Substring(0, 0) != " ")
                     common.mouseoverfile_Text += "        ";

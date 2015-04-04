@@ -29,10 +29,24 @@ namespace SimpTyper
             artical.TextWrapping = TextWrapping.Wrap;
             artical.FontSize = 20;
             artical.Foreground = new SolidColorBrush(Color.FromArgb(0xff, 0x5b, 0x5b, 0x5b));
-            
+            artical.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(artical_PreviewMouseLeftButonDown);
             sv.Content = artical;
             common.time_Label.Content = common.selectedfile_CreationTime;
             common.count_Label.Content = common.selectedfile_text_count;
         }
+
+        private void artical_title_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            common.menu_grid_clear();
+        }
+
+        private void artical_PreviewMouseLeftButonDown(object sender, MouseButtonEventArgs e)
+        {
+            common.menu_grid_clear();
+            common.addtitle_grid_clear();
+        }
+
+
+
     }
 }

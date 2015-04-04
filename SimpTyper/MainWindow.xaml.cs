@@ -41,6 +41,7 @@ namespace SimpTyper
         public static Button addanartial_Button;
         public static int i = 0;    //doubleclick
         public static int num = 1;
+        public static int leftpart_row_num = 0;
         public static long selectedfile_text_count = 0;
         public static long mouseoverfile_text_count = 0;
         public static string Filter_Name = "";
@@ -52,7 +53,8 @@ namespace SimpTyper
         public static string mouseoverfile_Name = "";
         public static string mouseoverfile_Text = "";
         public static string mouseoverfile_CreationTime = "";
-        public static string space_string = "\r\n\r\n\r\n";
+        public static string space_string = "\n\n\n";
+        public static Button type_Button;
         public static Grid leftpart_grid;
         public static Grid addtitile_grid;
         public static Grid inner_grid;
@@ -62,6 +64,7 @@ namespace SimpTyper
         public static TextBox filterarticals_TextBox;
         public static TextBox browse_TextBox;
         public static UserControl metro_loading;
+        public static Label loadmorearticals_Label;
         public static Label update_at_Label;
         public static Label time_Label;
         public static Label words_Label;
@@ -70,6 +73,49 @@ namespace SimpTyper
         public static Rect rcnormal;//定义一个全局rect记录还原状态下窗口的位置和大小。
         public static System.Timers.Timer timer;
 
+        public static void menu_grid_clear()
+        {
+            if (common.menu_grid.Children != null)
+            {
+                common.menu_grid.Children.Clear();
+            }
+        }
+
+        public static void addtitile_grid_set()
+        {
+            if (common.whether_addartical_open == false)
+            {
+                common.addtitile_grid.Visibility = Visibility.Visible;
+                common.whether_addartical_open = true;
+                common.addtitile_grid.Children.Add(new AddArticals_InnerGrid());
+            }
+            else
+            {
+                common.addtitile_grid.Visibility = Visibility.Collapsed;
+                common.addtitile_grid.Children.Clear();
+                common.whether_addartical_open = false;
+            }
+        }
+
+        public static void addtitle_grid_clear()
+        {
+            if (common.whether_addartical_open == true)
+            {
+                common.addtitile_grid.Visibility = Visibility.Collapsed;
+                common.addtitile_grid.Children.Clear();
+                common.whether_addartical_open = false;
+            }
+        }
+
+        public static void loadmorearticals_set()
+        {
+            if (common.leftpart_row_num > 13)
+                common.loadmorearticals_Label.Opacity = 1;
+            else
+                common.loadmorearticals_Label.Opacity = 0;
+        }
+
+        
 
     }
 
@@ -100,8 +146,11 @@ namespace SimpTyper
             Window_main.Height = SystemParameters.WorkArea.Height * 0.9;
             Window_main.MinWidth = SystemParameters.WorkArea.Width * 0.85;
             Window_main.MinHeight = SystemParameters.WorkArea.Height * 0.85;
+            //MessageBox.Show("1");
             ListBox_Grid.Children.Add(new LeftPart_ListBox());
             common.first_time_loadLeftPartListBox = false;
+            if (common.leftpart_row_num > 13)
+                Loadmorearticals.Opacity = 1;
         }   
 
 
@@ -288,10 +337,7 @@ namespace SimpTyper
         //        move_Normal_Click();
         //        common.whether_maximize = false;
         //    }
-            if (common.menu_grid.Children != null)
-            {
-                common.menu_grid.Children.Clear();
-            }
+            common.menu_grid_clear();
 
             Point p = Mouse.GetPosition(this);
             if(common.inner_grid==null)
@@ -312,12 +358,7 @@ namespace SimpTyper
                     }
                     else
                     {
-                        if (common.whether_addartical_open == true)
-                        {
-                            common.addtitile_grid.Visibility = Visibility.Collapsed;
-                            common.addtitile_grid.Children.Clear();
-                            common.whether_addartical_open = false;
-                        }
+                        common.addtitle_grid_clear();
                     }
                 }
             }
@@ -374,10 +415,7 @@ namespace SimpTyper
 
         private void Close_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (common.menu_grid.Children != null)
-            {
-                common.menu_grid.Children.Clear();
-            }
+            common.menu_grid_clear();
             Application.Current.Shutdown();
         }
         
@@ -417,10 +455,7 @@ namespace SimpTyper
 
         private void Maximize_button_Click(object sender, RoutedEventArgs e)
         {
-            if (common.menu_grid.Children != null)
-            {
-                common.menu_grid.Children.Clear();
-            }
+            common.menu_grid_clear();
             if (common.whether_maximize == false)
             {
                 Maximize_button.Style = (Style)Resources["NormalButton"];
@@ -437,10 +472,7 @@ namespace SimpTyper
 
         private void Minimize_button_Click(object sender, RoutedEventArgs e)
         {
-            if (common.menu_grid.Children != null)
-            {
-                common.menu_grid.Children.Clear();
-            }
+            common.menu_grid_clear();
             this.WindowState = WindowState.Minimized;
         }
 
@@ -456,22 +488,8 @@ namespace SimpTyper
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            if (common.menu_grid.Children != null)
-            {
-                common.menu_grid.Children.Clear();
-            }
-            if (common.whether_addartical_open == false) 
-            {
-                common.addtitile_grid.Visibility = Visibility.Visible;
-                common.whether_addartical_open = true;
-                common.addtitile_grid.Children.Add(new AddArticals_InnerGrid());
-            }
-            else
-            {
-                common.addtitile_grid.Visibility = Visibility.Collapsed;
-                common.addtitile_grid.Children.Clear();
-                common.whether_addartical_open = false;
-            }
+            common.menu_grid_clear();
+            common.addtitile_grid_set();
         }
 
         //private void FilterArticals_LostFocus(object sender, RoutedEventArgs e)                   //somethingwrong
@@ -501,6 +519,7 @@ namespace SimpTyper
                 common.listbox_grid.Children.Clear();
                 common.listbox_grid.Children.Add(new LeftPart_ListBox());
                 common.whether_selectfile = false;
+                common.type_Button.IsEnabled = false;
                 if (common.articalinfo_grid.Children != null)
                     common.articalinfo_grid.Children.Clear();
             }
@@ -515,13 +534,8 @@ namespace SimpTyper
 
         private void Filter_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (common.menu_grid.Children != null)
-                common.menu_grid.Children.Clear();
-            if (common.whether_addartical_open == true)
-            {
-                common.addtitile_grid.Visibility = Visibility.Collapsed;
-                common.whether_addartical_open = false;
-            }
+            common.menu_grid_clear();
+            common.addtitle_grid_clear();
         }
 
         private void Window_main_Loaded(object sender, RoutedEventArgs e)
@@ -531,13 +545,8 @@ namespace SimpTyper
 
         private void GridSplitter_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (common.whether_addartical_open == true)
-            {
-                common.addtitile_grid.Visibility = Visibility.Collapsed;
-                common.whether_addartical_open = false;
-            }
-            if (common.menu_grid.Children != null)
-                common.menu_grid.Children.Clear();
+            common.menu_grid_clear();
+            common.addtitle_grid_clear();
         }
 
         private void ListBox_Grid_Loaded(object sender, RoutedEventArgs e)
@@ -588,6 +597,29 @@ namespace SimpTyper
         private void Gear_Loading_Loaded(object sender, RoutedEventArgs e)
         {
             common.metro_loading = sender as UserControl;
+            //MessageBox.Show("2");
+        }
+
+        private void Loadmorearticals_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.loadmorearticals_Label = sender as Label;
+        }
+
+        private void Type_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.type_Button=sender as Button;
+        }
+
+        private void Type_Click(object sender, RoutedEventArgs e)
+        {
+            Window type_window = new WindowContainer();
+            this.Hide();
+            bool? l = type_window.ShowDialog();
+            if (l == false)
+            {
+                this.Show();
+            }
+           
         }
 
 

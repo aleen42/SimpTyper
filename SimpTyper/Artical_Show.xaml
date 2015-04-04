@@ -306,7 +306,7 @@
     </UserControl.Resources>
 
     <Grid>
-        <Label x:Name="artical_title" Content="Label" Opacity="1" Foreground="#ffa10000" HorizontalAlignment="Center" Margin="0,51,0,420" FontSize="50">
+        <Label x:Name="artical_title" Content="Label" MouseDown="artical_title_MouseDown" Opacity="1" Foreground="#ffa10000" HorizontalAlignment="Center" Margin="0,51,0,420" FontSize="50">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
