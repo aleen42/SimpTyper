@@ -216,9 +216,6 @@
     <Resource Include="Pic\addanartical_Button_static.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Notepad_static.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Pic\Delete_static.png" />
   </ItemGroup>
   <ItemGroup>

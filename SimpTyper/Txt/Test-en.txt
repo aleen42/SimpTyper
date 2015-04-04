@@ -1,6 +1,0 @@
-<<<<<<< HEAD
-1231asdf
-=======
-1asdf
->>>>>>> origin/master
-aleen

@@ -314,7 +314,6 @@ namespace SimpTyper
             else
             {
                 PART_ContentHostClearButton.Visibility = Visibility.Visible;
-<<<<<<< HEAD
                 common.addanartial_Button.IsEnabled = true;
                 error_Label.Visibility = Visibility.Collapsed;
 
@@ -336,18 +335,6 @@ namespace SimpTyper
                     }
                     
                 }
-=======
-                if (File.Exists(Browse.Text) == true)
-                {
-                    common.addanartial_Button.IsEnabled = true;
-                    error_Label.Visibility = Visibility.Collapsed;
-                }
-                else
-                {
-                    common.addanartial_Button.IsEnabled = false;
-                    error_Label.Visibility = Visibility.Visible;
-                }     
->>>>>>> origin/master
             }   
             
         }

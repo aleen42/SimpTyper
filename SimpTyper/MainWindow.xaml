@@ -1142,52 +1142,7 @@
             </Label.RenderTransform>
         </Label>
         <Grid x:Name="Right_Button_Menu" Background="{x:Null}" Loaded="Right_Button_Menu_Loaded" Margin="172,156,0,0" HorizontalAlignment="Left" Width="130" Grid.ColumnSpan="2" Height="66" VerticalAlignment="Top"/>
-<<<<<<< HEAD
-        <local:GearLoading x:Name="Gear_Loading" Loaded="Gear_Loading_Loaded" d:IsHidden="True" Visibility="Collapsed" Background="{x:Null}" Margin="153,273,204,332" Grid.Column="1" RenderTransformOrigin="0.5,0.5"/>
-=======
-        <Grid x:Name="Artical_info" RenderOptions.BitmapScalingMode="Fant" Background="{x:Null}" Loaded="Artical_info_Loaded" Margin="5,64,10,0" Grid.Column="1" Height="559" VerticalAlignment="Top"/>
-        <Grid Background="{x:Null}" Loaded="Addarticals_Loaded" Visibility="Collapsed" Grid.ColumnSpan="2" Margin="3,0,0,31" HorizontalAlignment="Left" Width="500" Height="208" VerticalAlignment="Bottom"/>
-        <Label x:Name="update_at" Content="updated at: " Loaded="update_at_Loaded" Opacity="0" Foreground="#FF5B5B5B" Margin="0,0,204,72" FontSize="15" Grid.Column="1" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="96">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label x:Name="time" Content="time" Loaded="time_Loaded" Opacity="0" Foreground="#ffa10000" Margin="0,0,56,68" FontSize="15" Grid.Column="1" Height="32" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="156">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label x:Name="words" Content="words: " Loaded="words_Loaded" Opacity="0" Foreground="#FF5B5B5B" Margin="0,0,194,42" FontSize="15" Grid.Column="1" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="72">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label x:Name="count" Content="100,00" Loaded="count_Loaded" Opacity="0" Foreground="#ffa10000" Margin="0,0,142,34" FontSize="15" Grid.Column="1" HorizontalAlignment="Right" Width="72" Height="34" VerticalAlignment="Bottom">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
->>>>>>> origin/master
+        <local:GearLoading x:Name="Gear_Loading" d:IsHidden="True" Visibility="Collapsed" Background="{x:Null}" Margin="153,273,204,332" Grid.Column="1" RenderTransformOrigin="0.5,0.5"/>
     </Grid>
 
 </Window>
