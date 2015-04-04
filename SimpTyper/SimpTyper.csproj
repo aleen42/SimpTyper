@@ -61,6 +61,9 @@
     <Compile Include="Artical_Title.xaml.cs">
       <DependentUpon>Artical_Title.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GearLoading.xaml.cs">
+      <DependentUpon>GearLoading.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RightButtonMenu.xaml.cs">
       <DependentUpon>RightButtonMenu.xaml</DependentUpon>
     </Compile>
@@ -73,6 +76,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Artical_Title.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GearLoading.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -219,6 +226,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pic\artical_grid_bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\leftpartgrid_buttom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\addbutton_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\artical_grid_shadow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

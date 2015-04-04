@@ -1,5 +1,4 @@
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe.config
-F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.csprojResolveAssemblyReference.cache
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\MainWindow.baml
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\MainWindow.g.cs
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\App.g.cs
@@ -21,3 +20,8 @@ F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\Artical_Title.
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\Artical_Title.g.cs
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\Artical_Show.baml
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\Artical_Show.g.cs
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper_MarkupCompile.lref
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.csprojResolveAssemblyReference.cache
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\GearLoading.baml
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\GearLoading.g.cs
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\GeneratedInternalTypeHelper.g.cs

@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pic/artical_grid_bottom.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pic/artical_grid_shadow.png")]
 
 

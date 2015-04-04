@@ -199,8 +199,12 @@ namespace SimpTyper
             if (ofd.ShowDialog() == true)
             {
                 Browse.Text = ofd.FileName;
-                common.addfile_Name = ofd.SafeFileName;
+                //if(File.Exists(common.addfile_Name))
+                //{
+                //    common.addanartial_Button.IsEnabled = true;
+                //}
             }
+            //MessageBox.Show("ok");
         }
 
         private void Browse_Button_MouseEnter(object sender, MouseEventArgs e)
@@ -230,8 +234,22 @@ namespace SimpTyper
 
         private void addanartical_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (common.addfile_Name == "")
-                return;
+            if (Browse.Text.LastIndexOf("/") < Browse.Text.LastIndexOf("\\"))
+            {
+                common.addfile_Name = Browse.Text.Substring(Browse.Text.LastIndexOf("\\") + 1);
+            }
+            else
+            {
+                common.addfile_Name = Browse.Text.Substring(Browse.Text.LastIndexOf("/") + 1);
+            }
+            //MessageBox.Show(common.addfile_Name);
+            if (File.Exists(@"..\..\Txt\" + common.addfile_Name) == true)
+            {
+                string suffix = "txt";
+                common.addfile_Name = common.addfile_Name.Substring(0, common.addfile_Name.Length - (suffix.Length + 1));
+                common.addfile_Name += "(" + common.num + ").txt";
+                common.num++;
+            }
             File.Copy(Browse.Text, @"..\..\Txt\" + common.addfile_Name);
             //關閉添加框體
             common.addtitile_grid.Visibility = Visibility.Collapsed;
@@ -247,7 +265,7 @@ namespace SimpTyper
         {
             common.addanartial_Button.Background = new ImageBrush
             {
-                ImageSource = new BitmapImage(new Uri(@"..\..\Pic/addanartical_Button_mouseover.png", UriKind.Relative))
+                ImageSource = new BitmapImage(new Uri(@"..\..\Pic/addbutton_mouseover.png", UriKind.Relative))
             };
         }
 
@@ -255,7 +273,7 @@ namespace SimpTyper
         {
             common.addanartial_Button.Background = new ImageBrush
             {
-                ImageSource = new BitmapImage(new Uri(@"..\..\Pic/addanartical_Button_static.png", UriKind.Relative))
+                ImageSource = new BitmapImage(new Uri(@"..\..\Pic/addbutton_static.png", UriKind.Relative))
             };
         }
 
@@ -264,7 +282,7 @@ namespace SimpTyper
             common.addanartial_Button = sender as Button;
             common.addanartial_Button.Background = new ImageBrush
             {
-                ImageSource = new BitmapImage(new Uri(@"..\..\Pic/addanartical_Button_static.png", UriKind.Relative))
+                ImageSource = new BitmapImage(new Uri(@"..\..\Pic/addbutton_static.png", UriKind.Relative))
             };
         }
 
@@ -286,10 +304,39 @@ namespace SimpTyper
 
         private void Browse_TextChanged(object sender, TextChangedEventArgs e)
         {
+
             if (Browse.Text == "")
+            {
                 PART_ContentHostClearButton.Visibility = Visibility.Collapsed;
+                error_Label.Visibility = Visibility.Collapsed;
+                common.addanartial_Button.IsEnabled = false;
+            }
             else
+            {
                 PART_ContentHostClearButton.Visibility = Visibility.Visible;
+                common.addanartial_Button.IsEnabled = true;
+                error_Label.Visibility = Visibility.Collapsed;
+
+                if (File.Exists(Browse.Text) == false)
+                {
+                    common.addanartial_Button.IsEnabled = false;
+                    error_Label.Content = "Error1 : The path is illegal, please try again!";
+                    error_Label.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    FileInfo file_info = new FileInfo(Browse.Text);
+                    //MessageBox.Show((file_info.Length / 1024).ToString());
+                    if (Math.Round((double)file_info.Length / 1024, 0) > 20)
+                    {
+                        common.addanartial_Button.IsEnabled = false;
+                        error_Label.Content = "Error2 : Your file is about " + Math.Round((double)file_info.Length / 1024, 0).ToString() + "KB, which is much more than 20KB!";
+                        error_Label.Visibility = Visibility.Visible;
+                    }
+                    
+                }
+            }   
+            
         }
     }
 }

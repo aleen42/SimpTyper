@@ -24,8 +24,15 @@ namespace SimpTyper
         {
             InitializeComponent();
             artical_title.Content = common.selectedfile_Name;
+            TextBlock artical = new TextBlock();
             artical.Text = common.selectedfile_Text;
-            time.Content = common.selectedfile_CreationTime;
+            artical.TextWrapping = TextWrapping.Wrap;
+            artical.FontSize = 20;
+            artical.Foreground = new SolidColorBrush(Color.FromArgb(0xff, 0x5b, 0x5b, 0x5b));
+            
+            sv.Content = artical;
+            common.time_Label.Content = common.selectedfile_CreationTime;
+            common.count_Label.Content = common.selectedfile_text_count;
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -14,6 +15,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SimpTyper
 {
@@ -38,14 +40,19 @@ namespace SimpTyper
         public static Button Browse_Button;
         public static Button addanartial_Button;
         public static int i = 0;    //doubleclick
+        public static int num = 1;
+        public static long selectedfile_text_count = 0;
+        public static long mouseoverfile_text_count = 0;
         public static string Filter_Name = "";
         public static string addfile_Name = "";
+        public static string selectedfile_Path = "";
         public static string selectedfile_Name = "";
         public static string selectedfile_Text = "";
         public static string selectedfile_CreationTime = "";
         public static string mouseoverfile_Name = "";
         public static string mouseoverfile_Text = "";
         public static string mouseoverfile_CreationTime = "";
+        public static string space_string = "\r\n\r\n\r\n";
         public static Grid leftpart_grid;
         public static Grid addtitile_grid;
         public static Grid inner_grid;
@@ -54,17 +61,26 @@ namespace SimpTyper
         public static Grid articalinfo_grid;
         public static TextBox filterarticals_TextBox;
         public static TextBox browse_TextBox;
+        public static UserControl metro_loading;
+        public static Label update_at_Label;
+        public static Label time_Label;
+        public static Label words_Label;
+        public static Label count_Label;
         public static Window mainwindow;
+        public static Rect rcnormal;//定义一个全局rect记录还原状态下窗口的位置和大小。
+        public static System.Timers.Timer timer;
+
 
     }
+
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
     public partial class MainWindow : Window
     {
-        Rect rcnormal;//定义一个全局rect记录还原状态下窗口的位置和大小。
+        
         //public System.Windows.Threading.DispatcherTimer dispatcherTimer;
-        public System.Timers.Timer timer;
+        
         //public object s;
         //public MouseButtonEventArgs mouse;
 
@@ -73,8 +89,8 @@ namespace SimpTyper
             this.SourceInitialized += new EventHandler(Window_SourceInitialized);
             InitializeComponent();
             Window_Initialize();
+            
         }
-
 
         private void Window_Initialize()
         {
@@ -87,6 +103,7 @@ namespace SimpTyper
             ListBox_Grid.Children.Add(new LeftPart_ListBox());
             common.first_time_loadLeftPartListBox = false;
         }   
+
 
         private const int WM_NCHITTEST = 0x0084;
         private const int WM_LBUTTONDOWN = 0x0201;
@@ -171,22 +188,22 @@ namespace SimpTyper
             }
             else if (msg == WM_LBUTTONDOWN)
             {
-                timer = new System.Timers.Timer(140); 
-                timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
+                common.timer = new System.Timers.Timer(140);
+                common.timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
                 if (common.whether_maximize == true)
-                    timer.Start();                  //通过设置Enalbed为true，马上开始调用Elapsed
+                    common.timer.Start();                  //通过设置Enalbed为true，马上开始调用Elapsed
             }
             else if (msg == WM_LBUTTONUP)
             {
-                if (timer != null)
-                    timer.Close();
+                if (common.timer != null)
+                    common.timer.Close();
             }
             return IntPtr.Zero;
         }
 
         void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            timer.Stop();           //通过设置Enalbed为false，马上停止调用Elapsed
+            common.timer.Stop();           //通过设置Enalbed为false，马上停止调用Elapsed
 
             Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal, (Action)delegate()         //按指定的优先级在与 Dispatcher 关联的线程上同步执行指定的委托。
             {
@@ -371,7 +388,7 @@ namespace SimpTyper
 
         private void Maximize_Click()
         {
-            rcnormal = new Rect(this.Left, this.Top, this.Width, this.Height);//保存下当前位置与大小
+            common.rcnormal = new Rect(this.Left, this.Top, this.Width, this.Height);//保存下当前位置与大小
             this.Left = 0;//设置位置
             this.Top = 0;
             Rect rc = SystemParameters.WorkArea;//获取工作区大小
@@ -381,20 +398,20 @@ namespace SimpTyper
 
         private void Normal_Click()
         {
-            this.Left = rcnormal.Left;
-            this.Top = rcnormal.Top;
-            this.Width = rcnormal.Width;
-            this.Height = rcnormal.Height;
+            this.Left = common.rcnormal.Left;
+            this.Top = common.rcnormal.Top;
+            this.Width = common.rcnormal.Width;
+            this.Height = common.rcnormal.Height;
         }
 
         private void move_Normal_Click()
         {
             Rect rc = SystemParameters.WorkArea;//获取工作区大小
             Point p = Mouse.GetPosition(this);
-            this.Left = p.X - p.X / rc.Width * rcnormal.Width;
+            this.Left = p.X - p.X / rc.Width * common.rcnormal.Width;
             this.Top = p.Y - 20;
-            this.Width = rcnormal.Width;
-            this.Height = rcnormal.Height;
+            this.Width = common.rcnormal.Width;
+            this.Height = common.rcnormal.Height;
             common.up_whether_maximize = false;
         }
 
@@ -541,6 +558,36 @@ namespace SimpTyper
         private void Artical_info_Loaded(object sender, RoutedEventArgs e)
         {
             common.articalinfo_grid = sender as Grid;
+        }
+
+        private void metro_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.metro_loading = sender as UserControl;
+        }
+
+        private void time_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.time_Label = sender as Label;
+        }
+
+        private void words_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.words_Label = sender as Label;
+        }
+
+        private void count_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.count_Label = sender as Label;
+        }
+
+        private void update_at_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.update_at_Label = sender as Label;
+        }
+
+        private void Gear_Loading_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.metro_loading = sender as UserControl;
         }
 
 
