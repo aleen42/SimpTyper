@@ -62,6 +62,10 @@ namespace SimpTyper
         public static TextBox filterarticals_TextBox;
         public static TextBox browse_TextBox;
         public static UserControl metro_loading;
+<<<<<<< HEAD
+=======
+        public static UserControl artical_show;
+>>>>>>> origin/master
         public static Label update_at_Label;
         public static Label time_Label;
         public static Label words_Label;
@@ -585,11 +589,14 @@ namespace SimpTyper
             common.update_at_Label = sender as Label;
         }
 
+<<<<<<< HEAD
         private void Gear_Loading_Loaded(object sender, RoutedEventArgs e)
         {
             common.metro_loading = sender as UserControl;
         }
 
+=======
+>>>>>>> origin/master
 
 
         //private void TextBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

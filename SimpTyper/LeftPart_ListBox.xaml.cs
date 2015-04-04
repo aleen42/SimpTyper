@@ -127,11 +127,17 @@ namespace SimpTyper
 
             ListBoxItem current = sender as ListBoxItem;
             common.selectedfile_Name = ConvertBack(current.Content.ToString()).ToString();
+<<<<<<< HEAD
             common.selectedfile_Path = @"..\..\Txt\" + ConvertBack(current.Content.ToString()) + ".txt";
             //common.metro_loading.Visibility = Visibility.Visible;
             //MessageBox.Show("start");
 
             FileStream selectedfile = new FileStream(common.selectedfile_Path, FileMode.Open, FileAccess.Read);
+=======
+            //common.metro_loading.Visibility = Visibility.Visible;
+            //MessageBox.Show("start");
+            FileStream selectedfile = new FileStream(@"..\..\Txt\" + common.selectedfile_Name + ".txt", FileMode.Open, FileAccess.Read);
+>>>>>>> origin/master
             StreamReader text_reader = new StreamReader(selectedfile, Encoding.GetEncoding("gb2312"));      //gb2312coding编码读入中文
             // 把文件指针重新定位到文件的开始
             text_reader.BaseStream.Seek(0, SeekOrigin.Begin);  //0代表开头
@@ -139,7 +145,11 @@ namespace SimpTyper
             //SeekOrigin.Begin:表示流的开头
             string s = "";
             common.selectedfile_Text = "";
+<<<<<<< HEAD
             common.selectedfile_Text += "\n\n\n";
+=======
+            common.selectedfile_Text += "\r\n\r\n\r\n";
+>>>>>>> origin/master
             common.selectedfile_text_count = 0;
             while ((s = text_reader.ReadLine()) != null)
             {
@@ -149,7 +159,11 @@ namespace SimpTyper
                 common.selectedfile_Text += s;
                 common.selectedfile_Text += "\n";
             }
+<<<<<<< HEAD
             common.selectedfile_Text += "\n\n\n";
+=======
+            common.selectedfile_Text += "\r\n\r\n\r\n";
+>>>>>>> origin/master
             common.selectedfile_text_count--;
 
             FileInfo info_reader = new FileInfo(common.selectedfile_Path);
@@ -161,7 +175,12 @@ namespace SimpTyper
             if (common.articalinfo_grid.Children != null)
                 common.articalinfo_grid.Children.Clear();
             common.articalinfo_grid.Children.Add(new Artical_Show());
+<<<<<<< HEAD
 
+=======
+            common.artical_show = new Artical_Show();
+            common.articalinfo_grid.Children.Add(common.artical_show);
+>>>>>>> origin/master
             common.time_Label.Opacity = 1;
             common.count_Label.Opacity = 1;
             common.update_at_Label.Opacity = 0.6;
@@ -285,10 +304,15 @@ namespace SimpTyper
             string s = "";
             common.mouseoverfile_Text = "";
             common.mouseoverfile_text_count = 0;
+<<<<<<< HEAD
             int i = 0;
             while ((s = text_reader.ReadLine()) != null)
             {
                 if (i++ > 5) break;
+=======
+            while ((s = text_reader.ReadLine()) != null)
+            {
+>>>>>>> origin/master
                 common.mouseoverfile_text_count += s.Length + 1;
                 if (s.Substring(0, 0) != " ")
                     common.mouseoverfile_Text += "        ";
@@ -317,12 +341,21 @@ namespace SimpTyper
                 common.articalinfo_grid.Children.Add(new Artical_Show());
             }
 
+<<<<<<< HEAD
             //if (common.whether_addartical_open == true)
             //{
             //    common.addtitile_grid.Visibility = Visibility.Collapsed;
             //    common.addtitile_grid.Children.Clear();
             //    common.whether_addartical_open = false;
             //}
+=======
+            if (common.whether_addartical_open == true)
+            {
+                common.addtitile_grid.Visibility = Visibility.Collapsed;
+                common.addtitile_grid.Children.Clear();
+                common.whether_addartical_open = false;
+            }
+>>>>>>> origin/master
 
             common.time_Label.Opacity = 1;
             common.count_Label.Opacity = 1;
