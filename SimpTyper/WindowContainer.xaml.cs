@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,6 +21,8 @@ namespace SimpTyper
     /// </summary>
     public partial class WindowContainer : Window
     {
+        string space = "";
+
         public WindowContainer()
         {
         this.SourceInitialized += new EventHandler(Window_SourceInitialized);
@@ -34,6 +38,26 @@ namespace SimpTyper
             Window_main.Height = SystemParameters.WorkArea.Height * 0.9;
             Window_main.MinWidth = SystemParameters.WorkArea.Width * 0.85;
             Window_main.MinHeight = SystemParameters.WorkArea.Height * 0.85;
+
+            artical_title.Content = common.selectedfile_Name;
+            FileStream selectedfile = new FileStream(common.selectedfile_Path, FileMode.Open, FileAccess.Read);
+            StreamReader text_reader = new StreamReader(selectedfile, Encoding.GetEncoding("gb2312"));      //gb2312coding编码读入中文
+            // 把文件指针重新定位到文件的开始
+            text_reader.BaseStream.Seek(0, SeekOrigin.Begin);  //0代表开头
+            //StreamReader.BaseStream.Seek(offset,origin);
+            //SeekOrigin.Begin:表示流的开头
+            string s = "";
+            common.selectedfile_Text = "";
+            while ((s = text_reader.ReadLine()) != null)
+            {
+                common.selectedfile_Text += s.Trim();
+                common.selectedfile_Text += " ";
+            }
+
+            Artical.Text = space + common.selectedfile_Text;
+            selectedfile.Close();
+            text_reader.Close();
+
         }
 
         private const int WM_NCHITTEST = 0x0084;
@@ -340,5 +364,68 @@ namespace SimpTyper
             
             this.WindowState = WindowState.Minimized;
         }
+
+        private void InputBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextBox current = sender as TextBox;
+            current.Focus();
+        }
+
+        //private void InputBox_TextChanged(object sender, TextChangedEventArgs e)            //error for chinese input
+        //{
+
+                
+        //}
+
+        private void InputBox_PreviewTextInput(object sender, TextCompositionEventArgs e)           //处理中英文输入
+        {
+            if (Artical.Text.Length == 0 || (InputBox.Text != "" && Regex.Match(InputBox.Text.Substring(InputBox.Text.Length - 1, 1), "^[a-zA-Z]+$").Success))         //InputBox.Text!="" 表示英文输入错误，所以要正规式判断最后输入的是否为英文字母，得清空才能继续输入
+                return;
+            int i = e.Text.Length;
+            if (e.Text == Artical.Text.Substring(space.Length, i))
+            {
+                if (!Regex.Match(e.Text, "^[a-zA-Z]+$").Success)
+                    InputBox.Text = "";
+                //pre_Artical.Text = pre_Artical.Text.Substring(i, pre_Artical.Text.Length - i);
+                //pre_Artical.Text += Artical.Text.Substring(0, i);
+                Artical.Text = Artical.Text.Substring(i, Artical.Text.Length - i);
+                e.Handled = true;
+            }
+            //TextBox current = sender as TextBox;
+            //InputMethod.Current.ImeSentenceMode = ImeSentenceModeValues.Automatic;
+            //MessageBox.Show(e.Text);  
+            
+        }
+
+        private void InputBox_TextChanged(object sender, TextChangedEventArgs e)                    //处理空格输入
+        {
+            if (Artical.Text.Length == 0)                                 
+                return;
+            if (InputBox.Text == " " && Artical.Text.Substring(space.Length, 1) == " ")
+            {
+                //pre_Artical.Text = pre_Artical.Text.Substring(1, pre_Artical.Text.Length - 1);
+                //pre_Artical.Text += Artical.Text.Substring(0, 1);
+                Artical.Text = Artical.Text.Substring(1, Artical.Text.Length - 1);
+                InputBox.Text = "";
+            }
+            e.Handled = false;  
+        }
+
+
+
+        //private void Window_main_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    //if (e.Key.ToString() == common.selectedfile_Text.Substring(0, 1).ToUpper())
+        //    //{
+        //    //    common.selectedfile_Text = common.selectedfile_Text.Substring(1, common.selectedfile_Text.Length - 1);
+        //    //    Artical.Text = Artical.Text.Substring(1, Artical.Text.Length - 1);
+        //    //}
+        //    if (e.Key == Key.LeftShift || e.Key == Key.RightShift)
+        //        e.Handled = false;
+        //    MessageBox.Show(e.Key.ToString());
+        //    //if (e.Key == )
+                
+        //}
+
     }
 }

@@ -245,6 +245,50 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="White"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="White"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="White"/>
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
 
     </Window.Resources>
     <Grid>
@@ -272,7 +316,7 @@
         </Button>
         <Button x:Name="Maximize_button" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="0,0,29,0" VerticalAlignment="Top" Height="27" Style="{DynamicResource MaximizeButton}" Click="Maximize_button_Click" HorizontalAlignment="Right" Width="29"/>
         <Button x:Name="Minimize_button" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="0,0,58,0" VerticalAlignment="Top" Width="29" Height="27" Style="{DynamicResource MinimizeButton}" Click="Minimize_button_Click" HorizontalAlignment="Right"/>
-        <Label x:Name="artical_title" Content="Label" Opacity="1" Foreground="#ffa10000" Margin="564,75,422,516" FontSize="50">
+        <Label x:Name="artical_title" Content="Label" Opacity="1" Foreground="Black" HorizontalAlignment="Center" Margin="0,51,0,420" FontSize="50">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -282,9 +326,26 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <TextBlock x:Name="Artical" Background="White" Text="111111111111111111111111111111111111111" FontSize="100 " TextWrapping="NoWrap" Margin="46,187,54,377" Foreground="#FF555454" RenderTransformOrigin="0.5,0.5"/>
-        <Image Source="Pic/artical_shadow.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Margin="0,187,997,377" HorizontalAlignment="Right" Width="205"/>
-        <Image Source="Pic/artical_shadow.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Margin="0,187,50,377" HorizontalAlignment="Right" Width="180">
+        <TextBlock x:Name="Artical" Text="aaaaaaaaaabbbbbbbbbbbbbbbbbbbbbcccccccccccc" Background="White" FontSize="100" TextWrapping="NoWrap" Margin="276,187,78,291" RenderTransformOrigin="0.5,0.5" >
+            <TextBlock.Foreground>
+                <LinearGradientBrush EndPoint="890,220" MappingMode="Absolute">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FFA10000" Offset="0.518"/>
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="#FFDDA4A4" Offset="0.996"/>
+                    <GradientStop Color="#FFDDA4A4" Offset="0.888"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
+        <Image Source="Pic/artical_shadow.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Margin="0,187,814,291" HorizontalAlignment="Right" Width="388"/>
+        <Image Source="Pic/artical_shadow.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Margin="0,187,2,291" HorizontalAlignment="Right" Width="297">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -294,5 +355,6 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
+        <TextBox x:Name="InputBox" Loaded="InputBox_Loaded" PreviewTextInput="InputBox_PreviewTextInput" TextChanged="InputBox_TextChanged" HorizontalAlignment="Left" FontSize="20" Height="38" Margin="276,421,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="890" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource TextBoxStyle}"/>
     </Grid>
 </Window>
