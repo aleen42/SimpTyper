@@ -28,6 +28,7 @@ namespace SimpTyper
     class common
     {
         public static bool whether_maximize = false;
+        public static bool first_input = false;
         public static bool up_whether_maximize = false;         //记录是否往上拉窗体到顶端
         public static bool first_time_loadLeftPartListBox = true;
         public static bool whether_selectfile = false;
@@ -44,11 +45,13 @@ namespace SimpTyper
         public static int leftpart_row_num = 0;
         public static long selectedfile_text_count = 0;
         public static long mouseoverfile_text_count = 0;
+        public static long words = 0;
         public static string Filter_Name = "";
         public static string addfile_Name = "";
         public static string selectedfile_Path = "";
         public static string selectedfile_Name = "";
         public static string selectedfile_Text = "";
+        public static string selectedfile_Type_Text = "";
         public static string selectedfile_CreationTime = "";
         public static string mouseoverfile_Name = "";
         public static string mouseoverfile_Text = "";
@@ -62,6 +65,7 @@ namespace SimpTyper
         public static Grid menu_grid;
         public static Grid articalinfo_grid;
         public static TextBox filterarticals_TextBox;
+        public static TextBox input_TextBox;
         public static TextBox browse_TextBox;
         public static UserControl metro_loading;
         public static Label loadmorearticals_Label;
@@ -71,6 +75,10 @@ namespace SimpTyper
         public static Label count_Label;
         public static Window mainwindow;
         public static Rect rcnormal;//定义一个全局rect记录还原状态下窗口的位置和大小。
+        public static TimeSpan timer_time;
+        public static DispatcherTimer type_timer;
+        public static DispatcherTimer speed_timer;
+        //public static TimeSpan timer_time1 = new TimeSpan(0, 0, 0, 0, 0);
         public static System.Timers.Timer timer;
 
         public static void menu_grid_clear()

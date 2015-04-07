@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SimpTyper
 {
@@ -28,6 +29,11 @@ namespace SimpTyper
         this.SourceInitialized += new EventHandler(Window_SourceInitialized);
             InitializeComponent();
             Window_Initialize();
+        }
+
+        private void words_update()
+        {
+            words.Content = common.words.ToString() + "/" + (common.selectedfile_Type_Text.Length - 1).ToString();
         }
 
         private void Window_Initialize()
@@ -47,14 +53,18 @@ namespace SimpTyper
             //StreamReader.BaseStream.Seek(offset,origin);
             //SeekOrigin.Begin:表示流的开头
             string s = "";
-            common.selectedfile_Text = "";
+            common.selectedfile_Type_Text = "";
             while ((s = text_reader.ReadLine()) != null)
             {
-                common.selectedfile_Text += s.Trim();
-                common.selectedfile_Text += " ";
+                common.selectedfile_Type_Text += s.Trim();
+                common.selectedfile_Type_Text += " ";
             }
+            common.words = 0;
+            words_update();
 
-            Artical.Text = space + common.selectedfile_Text;
+            
+
+            Artical.Text = space + common.selectedfile_Type_Text;
             selectedfile.Close();
             text_reader.Close();
 
@@ -310,6 +320,8 @@ namespace SimpTyper
 
         private void Close_Button_Click(object sender, RoutedEventArgs e)
         {
+            stop_time();
+            common.first_input = false;
             this.Close();
         }
 
@@ -367,8 +379,9 @@ namespace SimpTyper
 
         private void InputBox_Loaded(object sender, RoutedEventArgs e)
         {
-            TextBox current = sender as TextBox;
-            current.Focus();
+            common.input_TextBox = sender as TextBox;
+            common.input_TextBox.Visibility = Visibility.Visible;
+            common.input_TextBox.Focus();
         }
 
         //private void InputBox_TextChanged(object sender, TextChangedEventArgs e)            //error for chinese input
@@ -379,8 +392,19 @@ namespace SimpTyper
 
         private void InputBox_PreviewTextInput(object sender, TextCompositionEventArgs e)           //处理中英文输入
         {
-            if (Artical.Text.Length == 0 || (InputBox.Text != "" && Regex.Match(InputBox.Text.Substring(InputBox.Text.Length - 1, 1), "^[a-zA-Z]+$").Success))         //InputBox.Text!="" 表示英文输入错误，所以要正规式判断最后输入的是否为英文字母，得清空才能继续输入
+            if (common.first_input == false)
+            {
+                set_timer();
+                common.first_input = true;
+            }
+            if (InputBox.Text != "" && Regex.Match(InputBox.Text.Substring(InputBox.Text.Length - 1, 1), "^[a-zA-Z]+$").Success)         //InputBox.Text!="" 表示英文输入错误，所以要正规式判断最后输入的是否为英文字母，得清空才能继续输入
                 return;
+            if (Artical.Text.Length == 0)
+            {
+                stop_time();
+                common.first_input = false;
+                return;
+            }
             int i = e.Text.Length;
             if (e.Text == Artical.Text.Substring(space.Length, i))
             {
@@ -389,8 +413,17 @@ namespace SimpTyper
                 //pre_Artical.Text = pre_Artical.Text.Substring(i, pre_Artical.Text.Length - i);
                 //pre_Artical.Text += Artical.Text.Substring(0, i);
                 Artical.Text = Artical.Text.Substring(i, Artical.Text.Length - i);
+                common.words += i;
+                words_update();
                 e.Handled = true;
             }
+
+            if (common.words == common.selectedfile_Type_Text.Length - 1)       //为空则停止计时
+            {
+                stop_time();
+                common.first_input = false;
+                common.input_TextBox.Visibility = Visibility.Collapsed;
+            }    
             //TextBox current = sender as TextBox;
             //InputMethod.Current.ImeSentenceMode = ImeSentenceModeValues.Automatic;
             //MessageBox.Show(e.Text);  
@@ -399,33 +432,73 @@ namespace SimpTyper
 
         private void InputBox_TextChanged(object sender, TextChangedEventArgs e)                    //处理空格输入
         {
-            if (Artical.Text.Length == 0)                                 
+            if (common.words == common.selectedfile_Type_Text.Length - 1)
+            {
+                stop_time();
+                common.first_input = false;
                 return;
+            }         
+   
+
             if (InputBox.Text == " " && Artical.Text.Substring(space.Length, 1) == " ")
             {
                 //pre_Artical.Text = pre_Artical.Text.Substring(1, pre_Artical.Text.Length - 1);
                 //pre_Artical.Text += Artical.Text.Substring(0, 1);
+                common.words++;
+                words_update();
                 Artical.Text = Artical.Text.Substring(1, Artical.Text.Length - 1);
                 InputBox.Text = "";
             }
+    
             e.Handled = false;  
         }
 
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            common.input_TextBox.Focus();
+            e.Handled = true;
+        }
 
+        private void set_timer()
+        {
 
-        //private void Window_main_KeyDown(object sender, KeyEventArgs e)
-        //{
-        //    //if (e.Key.ToString() == common.selectedfile_Text.Substring(0, 1).ToUpper())
-        //    //{
-        //    //    common.selectedfile_Text = common.selectedfile_Text.Substring(1, common.selectedfile_Text.Length - 1);
-        //    //    Artical.Text = Artical.Text.Substring(1, Artical.Text.Length - 1);
-        //    //}
-        //    if (e.Key == Key.LeftShift || e.Key == Key.RightShift)
-        //        e.Handled = false;
-        //    MessageBox.Show(e.Key.ToString());
-        //    //if (e.Key == )
-                
-        //}
+            common.type_timer = new DispatcherTimer();
+            common.timer_time = new TimeSpan(0, 0, 0, 0, 0);
+            common.type_timer.Interval = new TimeSpan(0, 0, 1);
+            common.type_timer.Tick += new EventHandler(Timer_Tick);
+            common.type_timer.Start();
+
+            common.speed_timer = new DispatcherTimer();
+            common.speed_timer.Interval = new TimeSpan(0, 0, 1);
+            common.speed_timer.Tick += new EventHandler(Timer_Speed);
+            common.speed_timer.Start();
+        }
+
+        private void stop_time()
+        {
+            if (common.type_timer != null)
+                common.type_timer.Stop();
+        }
+
+        void Timer_Tick(object send, EventArgs e)
+        {
+            common.timer_time += new TimeSpan(0, 0, 1);
+            //if (common.timer_time.Milliseconds % 100 == 0 && common.timer_time.Milliseconds % 1000 != 0)
+            //    common.timer_time += new TimeSpan(0, 0, 1);
+            var time = string.Format("{0:D2}:{1:D2}:{2:D2}", common.timer_time.Hours, common.timer_time.Minutes, common.timer_time.Seconds);
+            timer_label.Content = time;
+        }
+
+        void Timer_Speed(object send, EventArgs e)
+        {
+            if (common.words != 0 && common.words != common.selectedfile_Type_Text.Length - 1)
+            {
+                var speed = string.Format("{0:D4}", (int)((double)common.words / (common.timer_time.Hours * 60 * 60 + common.timer_time.Minutes * 60 + common.timer_time.Seconds) * 60));
+                type_speed.Content = speed;
+            }
+            if (common.words == common.selectedfile_Type_Text.Length - 1)
+                common.speed_timer.Stop();
+        }
 
     }
 }

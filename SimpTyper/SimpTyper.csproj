@@ -249,10 +249,16 @@
     <Resource Include="Pic\typebutton_disabled.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pic\icon.png" />
+    <Resource Include="Pic\artical_shadow.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pic\artical_shadow.png" />
+    <Resource Include="Pic\pointer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\ios8_keyboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

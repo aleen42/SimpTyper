@@ -13,7 +13,7 @@
         WindowStyle="None" AllowsTransparency="True" MouseDoubleClick="Window_main_MouseDoubleClick"
         ResizeMode="CanResizeWithGrip" ShowInTaskbar="False"
         Loaded="Window_main_Loaded"
-        SizeChanged="Window_SizeChanged" MouseDown="Window_MouseDown" Style="{DynamicResource normal_NewStyle}" Icon="Pic/icon.png">
+        SizeChanged="Window_SizeChanged" MouseDown="Window_MouseDown" Style="{DynamicResource normal_NewStyle}" Icon="Pic/logo.ico">
 
 
     <Window.Resources>
