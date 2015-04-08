@@ -13,6 +13,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -30,6 +31,9 @@ namespace SimpTyper
     /// </summary>
     public partial class LeftPart_ListBox : UserControl
     {
+
+        int begin_time_second = 0;
+
         public LeftPart_ListBox()
         {
             InitializeComponent();
@@ -53,6 +57,7 @@ namespace SimpTyper
             System.IO.FileInfo[] text_file = text_folder.GetFiles("*." + suffix);                                           //获取后缀名为suffix的文件
             //遍历文件夹
             common.leftpart_row_num = 0;
+            
             foreach (System.IO.FileInfo NextFile in text_file)
             {
                 common.leftpart_row_num++;
@@ -70,6 +75,7 @@ namespace SimpTyper
                 ListBox_addItem.Height = 30;
                 ListBox_addItem.FontFamily = new FontFamily("Microsoft JhengHei UI");
                 ListBox_addItem.FontSize = 13;
+                ListBox_addItem.Margin = new Thickness(0, 0, 0, 3);
                 //ListBox_addItem.Background = new SolidColorBrush(Colors.White);
                 ListBox_addItem.MouseEnter += new MouseEventHandler(ListBoxItem_MouseEnter);
                 ListBox_addItem.MouseLeave += new MouseEventHandler(ListBoxItem_MouseLeave);
@@ -79,7 +85,18 @@ namespace SimpTyper
                 ListBox_addItem.PreviewMouseRightButtonDown += new MouseButtonEventHandler(ListBoxItem_PreviewMouseRightButtonDown);
                 //ListBox_addItem.PreviewMouseDown += new MouseButtonEventHandler(Item_Selected);
                 LeftPartListBox.Items.Add(ListBox_addItem);
+
+                if (common.whether_selectfile == true)
+                    return;
+                Storyboard show = new Storyboard();
+                show = this.Resources["text_bg_load"] as Storyboard;
+                Storyboard.SetTarget(show, ListBox_addItem);
+                TimeSpan begin_time = new TimeSpan(0, 0, 0, 0, begin_time_second);
+                begin_time_second += 30;
+                show.BeginTime = begin_time;
+                show.Begin();
             }
+            
             if (common.loadmorearticals_Label == null)
                 return;
             common.loadmorearticals_set();
@@ -356,6 +373,10 @@ namespace SimpTyper
             }
         }
 
+        private void Txt_bg_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 
 

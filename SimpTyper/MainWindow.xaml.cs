@@ -75,6 +75,7 @@ namespace SimpTyper
         public static Label count_Label;
         public static Window mainwindow;
         public static Rect rcnormal;//定义一个全局rect记录还原状态下窗口的位置和大小。
+        public static Border Txt_bg;
         public static TimeSpan timer_time;
         public static DispatcherTimer type_timer;
         public static DispatcherTimer speed_timer;
@@ -560,6 +561,7 @@ namespace SimpTyper
         private void ListBox_Grid_Loaded(object sender, RoutedEventArgs e)
         {
             common.listbox_grid = sender as Grid;
+            //common.listbox_grid.Height = common.leftpart_row_num * 33;
         }
 
         private void Right_Button_Menu_Loaded(object sender, RoutedEventArgs e)

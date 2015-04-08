@@ -13,7 +13,7 @@
         WindowStyle="None" AllowsTransparency="True" MouseDoubleClick="Window_main_MouseDoubleClick"
         ResizeMode="CanResizeWithGrip" ShowInTaskbar="False"
         Loaded="Window_main_Loaded"
-        SizeChanged="Window_SizeChanged" MouseDown="Window_MouseDown" Style="{DynamicResource normal_NewStyle}" Icon="Pic/logo.ico">
+        SizeChanged="Window_SizeChanged" MouseDown="Window_MouseDown" Style="{DynamicResource normal_NewStyle}" Icon="Pic/icon.png">
 
 
     <Window.Resources>
@@ -302,12 +302,20 @@
                                             <EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="1.5"/>
                                             <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
                                         </DoubleAnimationUsingKeyFrames>
+                                         
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
                             <EventTrigger RoutedEvent="MouseEnter">
                                 <BeginStoryboard>
                                     <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames                               
+                                            Storyboard.TargetName="border"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(X)"  
+                                            >
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.08" Value="10"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.14" Value="7"/>
+                                        </DoubleAnimationUsingKeyFrames>
                                         <DoubleAnimationUsingKeyFrames                               
                                             Storyboard.TargetName="AddArticals_label"
                                             Storyboard.TargetProperty="Opacity"  
@@ -320,6 +328,12 @@
                             <EventTrigger RoutedEvent="MouseLeave">
                                 <BeginStoryboard>
                                     <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames                               
+                                            Storyboard.TargetName="border"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(X)"  
+                                            >
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.08" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
                                         <DoubleAnimationUsingKeyFrames                               
                                             Storyboard.TargetName="AddArticals_label"
                                             Storyboard.TargetProperty="Opacity"  
@@ -405,6 +419,13 @@
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <DoubleAnimationUsingKeyFrames                               
+                                            Storyboard.TargetName="border"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(X)"  
+                                            >
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.08" Value="10"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.14" Value="7"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames                               
                                             Storyboard.TargetName="AddArticals_label"
                                             Storyboard.TargetProperty="Opacity"  
                                             >
@@ -416,6 +437,12 @@
                             <EventTrigger RoutedEvent="MouseLeave">
                                 <BeginStoryboard>
                                     <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames                               
+                                            Storyboard.TargetName="border"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(X)"  
+                                            >
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.08" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
                                         <DoubleAnimationUsingKeyFrames                               
                                             Storyboard.TargetName="AddArticals_label"
                                             Storyboard.TargetProperty="Opacity"  
@@ -1195,8 +1222,8 @@
         <Grid x:Name="LeftPart" Loaded="LeftPart_Loaded" Margin="0,28,0,0" Height="595" VerticalAlignment="Top">
             <TextBox x:Name="Filter" Loaded="Filter_Loaded" Height="23" Margin="20,71,20,0" TextChanged="Filter_TextChanged" FontSize="13" TextWrapping="NoWrap" VerticalAlignment="Top" Style="{DynamicResource TextBoxStyle_withClear}" FontFamily="Arial" GotFocus="Filter_GotFocus"/>
             <!--GotFocus="FilterArticals_GotFocus" LostFocus="TextBox_LostFocus" Text="Filter Articals..."-->
-            <Grid x:Name="ListBox_Grid" Loaded="ListBox_Grid_Loaded" Margin="0,110,0,0" Height="392" VerticalAlignment="Top"/>
-            <Label x:Name="Loadmorearticals" Content="load more articals..." Loaded="Loadmorearticals_Loaded" FontSize="13" Foreground="#FFA10000" Opacity="0" HorizontalAlignment="Left" Margin="14,501,0,0" VerticalAlignment="Top" Width="190"/>
+            <Grid x:Name="ListBox_Grid" Loaded="ListBox_Grid_Loaded" Margin="0,110,0,0" Height="398" VerticalAlignment="Top"/>
+            <Label x:Name="Loadmorearticals" Content="load more articals..." Loaded="Loadmorearticals_Loaded" FontSize="13" Foreground="#FFA10000" Opacity="0" HorizontalAlignment="Left" Margin="14,513,0,0" VerticalAlignment="Top" Width="190"/>
         </Grid>
         <Grid Margin="0,28,0,89" Grid.Column="1"/>
         <Grid x:Name="Artical_info" RenderOptions.BitmapScalingMode="Fant" Background="{x:Null}" Loaded="Artical_info_Loaded" Margin="5,64,10,0" Grid.Column="1" Height="559" VerticalAlignment="Top"/>

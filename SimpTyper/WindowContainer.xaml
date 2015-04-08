@@ -11,7 +11,7 @@
         Width="1247.9" Height="701.7" 
         WindowStyle="None" AllowsTransparency="True" MouseDoubleClick="Window_main_MouseDoubleClick"
         ResizeMode="CanResizeWithGrip" ShowInTaskbar="False"
-        SizeChanged="Window_SizeChanged" MouseDown="Window_MouseDown" Style="{DynamicResource normal_NewStyle}" Icon="Pic/logo.ico">
+        SizeChanged="Window_SizeChanged" MouseDown="Window_MouseDown" Style="{DynamicResource normal_NewStyle}">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
