@@ -13,10 +13,22 @@
         WindowStyle="None" AllowsTransparency="True" MouseDoubleClick="Window_main_MouseDoubleClick"
         ResizeMode="CanResizeWithGrip" ShowInTaskbar="False"
         Loaded="Window_main_Loaded"
-        SizeChanged="Window_SizeChanged" MouseDown="Window_MouseDown" Style="{DynamicResource normal_NewStyle}" Icon="Pic/icon.png">
+        SizeChanged="Window_SizeChanged" MouseDown="Window_MouseDown" Style="{DynamicResource normal_NewStyle}" Icon="Pic/icon.ico">
 
 
     <Window.Resources>
+
+        <Storyboard x:Key="window_close" RepeatBehavior="1x">
+            <!--<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>-->
+            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetProperty="Background.Color" To="Black" />
+            <!--<ColorAnimation Duration="0:0:1" Storyboard.TargetProperty="Background.Color" To="Black" />-->
+        </Storyboard>
+
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -302,7 +314,114 @@
                                             <EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="1.5"/>
                                             <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
                                         </DoubleAnimationUsingKeyFrames>
-                                         
+
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames                               
+                                            Storyboard.TargetName="border"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(X)"  
+                                            >
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.08" Value="10"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.14" Value="7"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames                               
+                                            Storyboard.TargetName="AddArticals_label"
+                                            Storyboard.TargetProperty="Opacity"  
+                                            >
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames                               
+                                            Storyboard.TargetName="border"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(X)"  
+                                            >
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.08" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames                               
+                                            Storyboard.TargetName="AddArticals_label"
+                                            Storyboard.TargetProperty="Opacity"  
+                                            >
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ImageBrush x:Key="Button.Static.Background7" ImageSource="Pic/returnbutton_static.png"/>
+        <!--<SolidColorBrush x:Key="Button.Static.Border7" Color="{x:Null}"/>-->
+        <ImageBrush x:Key="Button.MouseOver.Background7" ImageSource="Pic/returnbutton_mouseover.png"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border7" Color="White"/>
+        <ImageBrush x:Key="Button.Pressed.Background7" ImageSource="Pic/returnbutton_pressed.png"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border7" Color="White"/>
+        <Style x:Key="Return_Button" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background7}"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <DockPanel LastChildFill="True" Margin="44,-2,-288,-59">
+                                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                <Label x:Name="AddArticals_label" Content="Return" Opacity="0" FontSize="30" Width="274" Margin="0,2,0,0" Foreground="White"/>
+
+                            </DockPanel>
+
+                            <Border.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterX="20.5" CenterY="12"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Border.RenderTransform>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background7}"/>
+                                <!--<Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border7}"/>-->
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background7}"/>
+                                <!--<Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border7}"/>-->
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <!--<Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>-->
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                            <EventTrigger RoutedEvent="PreviewMouseLeftButtonDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames                               
+                                            Storyboard.TargetName="border"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(Y)"  
+                                            >
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="1.5"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -592,7 +711,7 @@
                     <ControlTemplate TargetType="{x:Type TextBox}">
                         <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                             <DockPanel LastChildFill="True">
-                                <Button Width="13" Height="13" x:Name="PART_ContentHostClearButton" DockPanel.Dock="Right" HorizontalAlignment="Right">
+                                <!--<Button Width="13" Height="13" x:Name="PART_ContentHostClearButton" DockPanel.Dock="Right" HorizontalAlignment="Right">
                                     <Button.Template>
                                         <ControlTemplate TargetType="{x:Type Button}">
                                             <Border x:Name="PART_Border" CornerRadius="0,3,0,3" BorderBrush="Transparent" BorderThickness="0" Padding="2">
@@ -600,7 +719,7 @@
                                             </Border>
                                         </ControlTemplate>
                                     </Button.Template>
-                                </Button>
+                                </Button>-->
                                 <ScrollViewer x:Name="PART_ContentHost" Focusable="false" VerticalAlignment="Center" HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Margin="2,2,18,2" Width="Auto"/>
                             </DockPanel>
                         </Border>
@@ -647,7 +766,7 @@
                                     <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self},Path=Text.Length}" Value="0"/>
                                 </MultiDataTrigger.Conditions>
                                 <MultiDataTrigger.Setters>
-                                    <Setter TargetName="PART_ContentHostClearButton" Property="Visibility" Value="Collapsed" />
+                                    <!--<Setter TargetName="PART_ContentHostClearButton" Property="Visibility" Value="Collapsed" />-->
                                     <Setter TargetName="PART_ContentHost" Property="Background">
                                         <Setter.Value>
                                             <VisualBrush Opacity="0.3" Stretch="None" AlignmentX="Left">
@@ -1172,104 +1291,333 @@
             </Style.Triggers>
         </Style>
 
+        <SolidColorBrush x:Key="TextBox.Static.Border1" Color="White"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border1" Color="White"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border1" Color="White"/>
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border1}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border1}"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border1}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
 
 
+        <Storyboard x:Key="load" RepeatBehavior="1x">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="type_grid" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="main_grid" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <!--<ColorAnimation Storyboard.TargetName="Grid_container" Duration="0:0:0.1" Storyboard.TargetProperty="Background.Color" To="Black" />
+            <ColorAnimation Storyboard.TargetName="Grid_container" Duration="0:0:2.6" Storyboard.TargetProperty="Background.Color" To="Black" />
+            <ColorAnimation Storyboard.TargetName="Grid_container" Duration="0:0:2.8" Storyboard.TargetProperty="Background.Color" To="White" />-->
+        </Storyboard>
+
+        <Storyboard x:Key="show_type_grid" RepeatBehavior="1x">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:0.5" Storyboard.TargetName="type_grid" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <!--<ColorAnimation Storyboard.TargetName="Grid_container" Duration="0:0:0.4" Storyboard.TargetProperty="Background.Color" To="Black" />-->
+            <!--<ColorAnimation Storyboard.TargetName="Grid_container" Duration="0:0:0.8" Storyboard.TargetProperty="Background.Color" To="White" />-->
+        </Storyboard>
+
+        <Storyboard x:Key="show_main_grid" RepeatBehavior="1x">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:0.5" Storyboard.TargetName="main_grid" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <!--<ColorAnimation Storyboard.TargetName="Grid_container" Duration="0:0:0.4" Storyboard.TargetProperty="Background.Color" To="Black" />-->
+            <!--<ColorAnimation Storyboard.TargetName="Grid_container" Duration="0:0:0.8" Storyboard.TargetProperty="Background.Color" To="White" />-->
+        </Storyboard>
+
+        <Storyboard x:Key="show_score_grid" RepeatBehavior="1x">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:0.2" Storyboard.TargetName="score_grid" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.8"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:0.2" Storyboard.TargetName="type_grid" Storyboard.TargetProperty="(UIElement.BitmapEffect).(BlurBitmapEffect.Radius)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="15"/>
+            </DoubleAnimationUsingKeyFrames>
+            <!--<ColorAnimation Storyboard.TargetName="Grid_container" Duration="0:0:0.4" Storyboard.TargetProperty="Background.Color" To="Black" />-->
+            <!--<ColorAnimation Storyboard.TargetName="Grid_container" Duration="0:0:0.8" Storyboard.TargetProperty="Background.Color" To="White" />-->
+        </Storyboard>
+
+        <Storyboard x:Key="hide_score_grid" RepeatBehavior="1x">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="score_grid" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:0" Storyboard.TargetName="type_grid" Storyboard.TargetProperty="(UIElement.BitmapEffect).(BlurBitmapEffect.Radius)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <!--<ColorAnimation Storyboard.TargetName="Grid_container" Duration="0:0:0.4" Storyboard.TargetProperty="Background.Color" To="Black" />-->
+            <!--<ColorAnimation Storyboard.TargetName="Grid_container" Duration="0:0:0.8" Storyboard.TargetProperty="Background.Color" To="White" />-->
+        </Storyboard>
     </Window.Resources>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition x:Name="Column1" MinWidth="210" MaxWidth="280" Width="230"/>
-            <ColumnDefinition Width="300*"/>
-        </Grid.ColumnDefinitions>
+    <Grid x:Name="Grid_container" Background="White" >
+        <Grid x:Name="main_grid" d:IsHidden="True" Visibility="Collapsed" Opacity="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="Column1" MinWidth="210" MaxWidth="280" Width="230"/>
+                <ColumnDefinition Width="300*"/>
+            </Grid.ColumnDefinitions>
 
-        <GridSplitter  HorizontalAlignment="Left" Margin="0,89" PreviewMouseLeftButtonDown="GridSplitter_PreviewMouseLeftButtonDown" Width="5" Opacity="0.3" ShowsPreview="False" Style="{DynamicResource GridSplitterStyle}" Grid.Column="1">
-            <GridSplitter.Background>
-                <ImageBrush ImageSource="Pic/line.png"/>
-            </GridSplitter.Background>
-        </GridSplitter>
+            <GridSplitter  HorizontalAlignment="Left" Margin="0,89" PreviewMouseLeftButtonDown="GridSplitter_PreviewMouseLeftButtonDown" Width="5" Opacity="0.3" ShowsPreview="False" Style="{DynamicResource GridSplitterStyle}" Grid.Column="1">
+                <GridSplitter.Background>
+                    <ImageBrush ImageSource="Pic/line.png"/>
+                </GridSplitter.Background>
+            </GridSplitter>
 
-        <Grid Grid.ColumnSpan="2" Margin="0,2,0,0">
-            <Grid  HorizontalAlignment="Right" Width="1244" Height="27" VerticalAlignment="Top" Background="White" Margin="0,-2,0,0">
-                <!--<Button x:Name="Close_button" RenderOptions.BitmapScalingMode="NearestNeighbor" VerticalAlignment="Bottom" Width="28" Height="28" Style="{DynamicResource CloseButton}" Click="Button_Click" Margin="1217,-1,-1,0"/>-->
-                <Button Width="29" x:Name="PART_ContentHostClearButton" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="Close_Button_Click" Margin="0,-1,0,0">
+            <Grid Grid.ColumnSpan="2" Margin="0,2,0,0">
+                <Button x:Name="Addbutton" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="10,0,0,10" HorizontalAlignment="Left" Width="30" Height="30" Style="{DynamicResource Add_Button}" Click="AddButton_Click" RenderTransformOrigin="-5.933,1.333" VerticalAlignment="Bottom"/>
+                <Button x:Name="Type" Loaded="Type_Loaded" IsEnabled="False" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="238,0,0,10" HorizontalAlignment="Left" Width="30" Height="30" Style="{DynamicResource Type_Button}" RenderTransformOrigin="-5.933,1.333" VerticalAlignment="Bottom" Click="Type_Click"/>
+            </Grid>
+            <Grid x:Name="LeftPart" Loaded="LeftPart_Loaded" Margin="0,28,0,0" Height="595" VerticalAlignment="Top">
+                <TextBox x:Name="Filter" Loaded="Filter_Loaded" Height="23" Margin="20,71,20,0" TextChanged="Filter_TextChanged" FontSize="13" TextWrapping="NoWrap" VerticalAlignment="Top" Style="{DynamicResource TextBoxStyle_withClear}" FontFamily="Arial" GotFocus="Filter_GotFocus"/>
+                <Button Width="13" Height="13" x:Name="PART_ClearButton" Visibility="Collapsed" FocusManager.FocusedElement="{Binding ElementName=Browse}" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="0,76,23,506" PreviewMouseLeftButtonDown="PART_ClearButton_PreviewMouseLeftButtonDown">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
-                            <Border x:Name="PART_Border" BorderBrush="Transparent" BorderThickness="0" Margin="0,1,0,0">
-                                <Path x:Name="PART_Path" RenderOptions.BitmapScalingMode="NearestNeighbor" Data="M6,6 L6,6 10,10 M10,6 L10,6 6,10" Stretch="Fill" StrokeThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#FF8E8E8E" Margin="6.51,7.25,6.25,4" Height="11.75" Width="12.24" />
+                            <Border x:Name="PART_Border" CornerRadius="0,3,0,3" BorderBrush="Transparent" BorderThickness="0" Padding="2">
+                                <Path x:Name="PART_Path" RenderOptions.BitmapScalingMode="NearestNeighbor" Data="M6,6 L6,6 10,10 M10,6 L10,6 6,10" Stretch="Fill" StrokeThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#FFA10000" Margin="-0.5,0,0.5,0" />
                             </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" TargetName="PART_Border" Value="#FFDF0000"/>
-                                    <Setter Property="Stroke" TargetName="PART_Path" Value="White"/>
-                                </Trigger>
-                                <Trigger Property="IsMouseOver" Value="False">
-                                    <Setter Property="Background" TargetName="PART_Border" Value="White"/>
-                                    <Setter Property="Stroke" TargetName="PART_Path" Value="#FF8E8E8E"/>
-                                </Trigger>
-                                <Trigger Property="IsPressed" Value="True">
-                                    <Setter Property="Background" TargetName="PART_Border" Value="#FFa10000" />
-                                </Trigger>
-                            </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                <Button x:Name="Maximize_button" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="0,0,29,0" VerticalAlignment="Bottom" Height="27" Style="{DynamicResource MaximizeButton}" Click="Maximize_button_Click" HorizontalAlignment="Right" Width="29"/>
-                <Button x:Name="Minimize_button" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="1157,0,58,0" VerticalAlignment="Bottom" Width="29" Height="27" Style="{DynamicResource MinimizeButton}" Click="Minimize_button_Click"/>
+                <!--GotFocus="FilterArticals_GotFocus" LostFocus="TextBox_LostFocus" Text="Filter Articals..."-->
+                <Grid x:Name="ListBox_Grid" Loaded="ListBox_Grid_Loaded" Margin="0,110,0,0" Height="398" VerticalAlignment="Top"/>
+                <Label x:Name="Loadmorearticals" Content="load more articals..." Loaded="Loadmorearticals_Loaded" FontSize="13" Foreground="#FFA10000" Opacity="0" HorizontalAlignment="Left" Margin="14,513,0,0" VerticalAlignment="Top" Width="190"/>
             </Grid>
-            <Button x:Name="Addbutton" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="10,0,0,10" HorizontalAlignment="Left" Width="30" Height="30" Style="{DynamicResource Add_Button}" Click="AddButton_Click" RenderTransformOrigin="-5.933,1.333" VerticalAlignment="Bottom"/>
-            <Button x:Name="Type" Loaded="Type_Loaded" IsEnabled="False" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="238,0,0,10" HorizontalAlignment="Left" Width="30" Height="30" Style="{DynamicResource Type_Button}" RenderTransformOrigin="-5.933,1.333" VerticalAlignment="Bottom" Click="Type_Click"/>
+            <Grid Margin="0,28,0,89" Grid.Column="1"/>
+            <Grid x:Name="Artical_info" RenderOptions.BitmapScalingMode="Fant" Background="{x:Null}" Loaded="Artical_info_Loaded" Margin="5,64,10,0" Grid.Column="1" Height="559" VerticalAlignment="Top"/>
+            <Grid Background="{x:Null}" Loaded="Addarticals_Loaded" Visibility="Collapsed" Grid.ColumnSpan="2" Margin="3,0,0,31" HorizontalAlignment="Left" Width="500" Height="208" VerticalAlignment="Bottom"/>
+            <Label x:Name="update_at" Content="updated at: " Loaded="update_at_Loaded" Opacity="0" Foreground="#FF5B5B5B" Margin="0,0,204,72" FontSize="15" Grid.Column="1" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="96">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Label x:Name="time" Content="time" Loaded="time_Loaded" Opacity="0" Foreground="#ffa10000" Margin="0,0,56,68" FontSize="15" Grid.Column="1" Height="32" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="156">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Label x:Name="word" Content="words: " Loaded="words_Loaded" Opacity="0" Foreground="#FF5B5B5B" Margin="0,0,194,42" FontSize="15" Grid.Column="1" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="72">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Label x:Name="count" Content="100,00" Loaded="count_Loaded" Opacity="0" Foreground="#ffa10000" Margin="0,0,142,34" FontSize="15" Grid.Column="1" HorizontalAlignment="Right" Width="72" Height="34" VerticalAlignment="Bottom">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Grid x:Name="Right_Button_Menu" Background="{x:Null}" Loaded="Right_Button_Menu_Loaded" Margin="172,156,0,0" HorizontalAlignment="Left" Width="130" Grid.ColumnSpan="2" Height="66" VerticalAlignment="Top"/>
+            <local:GearLoading x:Name="Gear_Loading" Loaded="Gear_Loading_Loaded" d:IsHidden="True" Visibility="Collapsed" Background="{x:Null}" Margin="153,273,204,332" Grid.Column="1" RenderTransformOrigin="0.5,0.5"/>
         </Grid>
-        <Grid x:Name="LeftPart" Loaded="LeftPart_Loaded" Margin="0,28,0,0" Height="595" VerticalAlignment="Top">
-            <TextBox x:Name="Filter" Loaded="Filter_Loaded" Height="23" Margin="20,71,20,0" TextChanged="Filter_TextChanged" FontSize="13" TextWrapping="NoWrap" VerticalAlignment="Top" Style="{DynamicResource TextBoxStyle_withClear}" FontFamily="Arial" GotFocus="Filter_GotFocus"/>
-            <!--GotFocus="FilterArticals_GotFocus" LostFocus="TextBox_LostFocus" Text="Filter Articals..."-->
-            <Grid x:Name="ListBox_Grid" Loaded="ListBox_Grid_Loaded" Margin="0,110,0,0" Height="398" VerticalAlignment="Top"/>
-            <Label x:Name="Loadmorearticals" Content="load more articals..." Loaded="Loadmorearticals_Loaded" FontSize="13" Foreground="#FFA10000" Opacity="0" HorizontalAlignment="Left" Margin="14,513,0,0" VerticalAlignment="Top" Width="190"/>
+        <Grid x:Name="type_grid" Visibility="Collapsed" Opacity="0" d:IsHidden="True" Background="White" MouseDown="Grid_MouseDown">
+            <Grid.BitmapEffect>
+                <BlurBitmapEffect Radius="0" KernelType="Gaussian"></BlurBitmapEffect>
+            </Grid.BitmapEffect>
+            <Label Content="Type" Opacity="1" Margin="10,0,0,0" FontSize="40" HorizontalAlignment="Left" Height="108" VerticalAlignment="Top"/>
+            <Label x:Name="artical_title" Content="Label" Opacity="1" Foreground="Black" HorizontalAlignment="Left" Margin="58,63,0,408" FontSize="60">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <TextBlock x:Name="Artical" Text="aaaaaaaaaabbbbbbbbbbbbbbbbbbbbbcccccccccccc" Background="White" FontSize="100" TextWrapping="NoWrap" Margin="276,187,78,291" RenderTransformOrigin="0.5,0.5" >
+                <TextBlock.Foreground>
+                    <LinearGradientBrush EndPoint="890,220" MappingMode="Absolute">
+                        <LinearGradientBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="#FFA10000" Offset="0.518"/>
+                        <GradientStop Color="White" Offset="1"/>
+                        <GradientStop Color="#FFDDA4A4" Offset="0.996"/>
+                        <GradientStop Color="#FFDDA4A4" Offset="0.888"/>
+                    </LinearGradientBrush>
+                </TextBlock.Foreground>
+            </TextBlock>
+            <Image Source="Pic/artical_shadow.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Margin="0,187,2,291" HorizontalAlignment="Right" Width="297">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Pic/pointer.png" Stretch="Fill" RenderTransformOrigin="1.091,0.042" Margin="244,148,0,0" Height="215" VerticalAlignment="Top" HorizontalAlignment="Left" Width="77"/>
+            <TextBox x:Name="InputBox" Loaded="InputBox_Loaded" PreviewTextInput="InputBox_PreviewTextInput" TextChanged="InputBox_TextChanged" HorizontalAlignment="Left" FontSize="60" Height="132" Margin="276,421,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="890" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource TextBoxStyle}" Cursor="Arrow"/>
+            <Label x:Name="words" Content="Label" Opacity="1" Foreground="Black" Margin="58,233,0,0" FontSize="28" Height="99" VerticalAlignment="Top" HorizontalAlignment="Left" Width="186"/>
+            <Label x:Name="timer_label" Content="00:00:00" Opacity="1" Margin="58,264,0,0" FontSize="28" Height="99" VerticalAlignment="Top" HorizontalAlignment="Left" Width="186">
+                <Label.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <LinearGradientBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="#FFA10000"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="Black" Offset="0.289"/>
+                        <GradientStop Color="#FF9E0000" Offset="0.285"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+            </Label>
+            <Label x:Name="type_speed" Content="0000" Opacity="1" Margin="58,200,0,0" FontSize="28" Height="99" VerticalAlignment="Top" HorizontalAlignment="Left" Width="231" Foreground="#FFA10000"/>
+            <Label Content=" WPM/min" Opacity="1" Margin="122,212,0,0" FontSize="16" Height="99" VerticalAlignment="Top" HorizontalAlignment="Left" Width="231" Foreground="Black"/>
+            <!--<Label x:Name="wrong_type_num" Content="0" Opacity="1" Margin="58,454,0,0" FontSize="28" Height="99" VerticalAlignment="Top" HorizontalAlignment="Left" Width="186"/>-->
         </Grid>
-        <Grid Margin="0,28,0,89" Grid.Column="1"/>
-        <Grid x:Name="Artical_info" RenderOptions.BitmapScalingMode="Fant" Background="{x:Null}" Loaded="Artical_info_Loaded" Margin="5,64,10,0" Grid.Column="1" Height="559" VerticalAlignment="Top"/>
-        <Grid Background="{x:Null}" Loaded="Addarticals_Loaded" Visibility="Collapsed" Grid.ColumnSpan="2" Margin="3,0,0,31" HorizontalAlignment="Left" Width="500" Height="208" VerticalAlignment="Bottom"/>
-        <Label x:Name="update_at" Content="updated at: " Loaded="update_at_Loaded" Opacity="0" Foreground="#FF5B5B5B" Margin="0,0,204,72" FontSize="15" Grid.Column="1" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="96">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label x:Name="time" Content="time" Loaded="time_Loaded" Opacity="0" Foreground="#ffa10000" Margin="0,0,56,68" FontSize="15" Grid.Column="1" Height="32" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="156">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label x:Name="words" Content="words: " Loaded="words_Loaded" Opacity="0" Foreground="#FF5B5B5B" Margin="0,0,194,42" FontSize="15" Grid.Column="1" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="72">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label x:Name="count" Content="100,00" Loaded="count_Loaded" Opacity="0" Foreground="#ffa10000" Margin="0,0,142,34" FontSize="15" Grid.Column="1" HorizontalAlignment="Right" Width="72" Height="34" VerticalAlignment="Bottom">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Grid x:Name="Right_Button_Menu" Background="{x:Null}" Loaded="Right_Button_Menu_Loaded" Margin="172,156,0,0" HorizontalAlignment="Left" Width="130" Grid.ColumnSpan="2" Height="66" VerticalAlignment="Top"/>
-        <local:GearLoading x:Name="Gear_Loading" Loaded="Gear_Loading_Loaded" d:IsHidden="True" Visibility="Collapsed" Background="{x:Null}" Margin="153,273,204,332" Grid.Column="1" RenderTransformOrigin="0.5,0.5"/>
+        <Button Width="29" Height="28" x:Name="PART_ContentHostClearButton" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="Close_Button_Click" VerticalAlignment="Top" Margin="0,-1,0,0">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="PART_Border" BorderBrush="Transparent" BorderThickness="0" Margin="0,1,0,0">
+                        <Path x:Name="PART_Path" RenderOptions.BitmapScalingMode="NearestNeighbor" Data="M6,6 L6,6 10,10 M10,6 L10,6 6,10" Stretch="Fill" StrokeThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#FF8E8E8E" Margin="6.51,7.25,6.25,4" Height="11.75" Width="12.24" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="PART_Border" Value="#FFDF0000"/>
+                            <Setter Property="Stroke" TargetName="PART_Path" Value="White"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter Property="Background" TargetName="PART_Border" Value="White"/>
+                            <Setter Property="Stroke" TargetName="PART_Path" Value="#FF8E8E8E"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="PART_Border" Value="#FFa10000" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="Maximize_button" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="0,0,29,0" VerticalAlignment="Top" Height="27" Style="{DynamicResource MaximizeButton}" Click="Maximize_button_Click" HorizontalAlignment="Right" Width="29"/>
+        <Button x:Name="Minimize_button" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="0,0,58,0" VerticalAlignment="Top" Width="29" Height="27" Style="{DynamicResource MinimizeButton}" Click="Minimize_button_Click" HorizontalAlignment="Right"/>
+        <Grid x:Name="score_grid" Margin="-1" Visibility="Collapsed" d:IsHidden="True" Opacity="0" Background="Black">
+            <Button x:Name="ReturnButton" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="24,0,0,24" HorizontalAlignment="Left" Width="50" Style="{DynamicResource Return_Button}" Click="ReturnButton_Click" RenderTransformOrigin="-5.933,1.333" Height="50" VerticalAlignment="Bottom"/>
+            <Label x:Name="score_artical_title" Content="Label" Opacity="1" Foreground="White" Margin="96,130,0,0" FontSize="100" HorizontalAlignment="Left" Height="228" VerticalAlignment="Top">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Label x:Name="score_date" Content="Label" Opacity="1" Foreground="White" HorizontalAlignment="Left" Margin="96,344,0,0" FontSize="50" Height="230" VerticalAlignment="Top">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Label x:Name="score_time" Content="Label" Opacity="1" Foreground="#FFA10000" HorizontalAlignment="Left" Margin="96,290,0,0" FontSize="42" Height="228" VerticalAlignment="Top">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Label Content="Perfomance" Opacity="1" Foreground="White" Margin="10,0,0,0" FontSize="40" HorizontalAlignment="Left" Height="108" VerticalAlignment="Top"/>
+            <Label Content="Speed:" Opacity="1" Foreground="White" Margin="529,384,0,0" FontSize="60" HorizontalAlignment="Left" Height="194" VerticalAlignment="Top"/>
+            <Label Content="wpm" Opacity="1" Foreground="White" Margin="1000,388,0,0" FontSize="60" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top"/>
+            <Label Content="Accuracy:" Opacity="1" Foreground="White" Margin="527,540,0,-48" FontSize="60" HorizontalAlignment="Left" Height="208" VerticalAlignment="Top"/>
+            <Label x:Name="speed_show" Content="0000" Opacity="1" Foreground="#FFA10000" HorizontalAlignment="Left" Margin="743,350,0,0" FontSize="100" Height="228" VerticalAlignment="Top">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Label x:Name="accuracy_show" Content="100%" Opacity="1" Foreground="#FFA10000" HorizontalAlignment="Left" Margin="809,506,0,-34" FontSize="100" Height="228" VerticalAlignment="Top">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+
+        </Grid>
     </Grid>
 
 </Window>
+  

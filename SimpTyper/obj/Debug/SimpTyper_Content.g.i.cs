@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bitbug_favicon.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pic/returnbutton_mouseover.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pic/returnbutton_pressed.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pic/returnbutton_static.png")]
 
 

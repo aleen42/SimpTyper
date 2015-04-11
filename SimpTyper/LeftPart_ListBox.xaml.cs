@@ -87,7 +87,8 @@ namespace SimpTyper
                 LeftPartListBox.Items.Add(ListBox_addItem);
 
                 if (common.whether_selectfile == true)
-                    return;
+                    continue;
+
                 Storyboard show = new Storyboard();
                 show = this.Resources["text_bg_load"] as Storyboard;
                 Storyboard.SetTarget(show, ListBox_addItem);
@@ -371,11 +372,6 @@ namespace SimpTyper
                     common.articalinfo_grid.Children.Clear();
                 common.articalinfo_grid.Children.Add(new Artical_Show());
             }
-        }
-
-        private void Txt_bg_Loaded(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 

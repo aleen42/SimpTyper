@@ -70,9 +70,6 @@
     <Compile Include="RightButtonMenu.xaml.cs">
       <DependentUpon>RightButtonMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowContainer.xaml.cs">
-      <DependentUpon>WindowContainer.xaml</DependentUpon>
-    </Compile>
     <Page Include="AddArticals_InnerGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -115,10 +112,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WindowContainer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -145,7 +138,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pic\bg.jpg" />
@@ -261,10 +256,15 @@
     <Resource Include="Pic\ios8_keyboard.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pic\icon.png" />
+    <Resource Include="bitbug_favicon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bitbug_favicon.ico" />
+    <Resource Include="Pic\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\returnbutton_mouseover.png" />
+    <Resource Include="Pic\returnbutton_pressed.png" />
+    <Resource Include="Pic\returnbutton_static.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

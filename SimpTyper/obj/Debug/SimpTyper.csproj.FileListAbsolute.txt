@@ -25,5 +25,3 @@ F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.cspr
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\GearLoading.baml
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\GearLoading.g.cs
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\GeneratedInternalTypeHelper.g.cs
-F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\WindowContainer.g.cs
-F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\WindowContainer.baml

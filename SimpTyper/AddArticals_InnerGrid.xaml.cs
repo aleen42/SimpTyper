@@ -242,15 +242,13 @@ namespace SimpTyper
             {
                 common.addfile_Name = Browse.Text.Substring(Browse.Text.LastIndexOf("/") + 1);
             }
+
+            string suffix = "txt";
+            common.addfile_Name = common.addfile_Name.Substring(0, common.addfile_Name.Length - (suffix.Length + 1));
+
             //MessageBox.Show(common.addfile_Name);
-            if (File.Exists(@"..\..\Txt\" + common.addfile_Name) == true)
-            {
-                string suffix = "txt";
-                common.addfile_Name = common.addfile_Name.Substring(0, common.addfile_Name.Length - (suffix.Length + 1));
-                common.addfile_Name += "(" + common.num + ").txt";
-                common.num++;
-            }
-            File.Copy(Browse.Text, @"..\..\Txt\" + common.addfile_Name);
+
+            File.Copy(Browse.Text, @"..\..\Txt\" + common.addfile_Name + ".txt");
             //關閉添加框體
             common.addtitile_grid.Visibility = Visibility.Collapsed;
             common.addtitile_grid.Children.Clear();
@@ -313,6 +311,15 @@ namespace SimpTyper
             }
             else
             {
+                if (Browse.Text.LastIndexOf("/") < Browse.Text.LastIndexOf("\\"))
+                {
+                    common.addfile_Name = Browse.Text.Substring(Browse.Text.LastIndexOf("\\") + 1);
+                }
+                else
+                {
+                    common.addfile_Name = Browse.Text.Substring(Browse.Text.LastIndexOf("/") + 1);
+                }
+
                 PART_ContentHostClearButton.Visibility = Visibility.Visible;
                 common.addanartial_Button.IsEnabled = true;
                 error_Label.Visibility = Visibility.Collapsed;
@@ -331,6 +338,16 @@ namespace SimpTyper
                     {
                         common.addanartial_Button.IsEnabled = false;
                         error_Label.Content = "Error2 : Your file is about " + Math.Round((double)file_info.Length / 1024, 0).ToString() + "KB, which is much more than 20KB!";
+                        error_Label.Visibility = Visibility.Visible;
+                    }
+
+                    if (File.Exists(@"..\..\Txt\" + common.addfile_Name) == true)
+                    {
+
+                        //common.addfile_Name += "(" + common.num + ").txt";
+                        //common.num++;
+                        common.addanartial_Button.IsEnabled = false;
+                        error_Label.Content = "Error3 : The name of the file has been existed!";
                         error_Label.Visibility = Visibility.Visible;
                     }
                     

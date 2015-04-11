@@ -69,7 +69,7 @@
                             </Border.RenderTransform>
                         </Border>-->
                         <Grid x:Name="Bd" RenderOptions.BitmapScalingMode="NearestNeighbor" Background="{TemplateBinding Background}" SnapsToDevicePixels="true" Margin="0,0,0,0">
-                            <Border x:Name="Txt_bg" Loaded="Txt_bg_Loaded" Background="Black" Height="Auto" Width="Auto" Opacity="0"  Margin="0" HorizontalAlignment="Stretch"/>
+                            <!--<Border x:Name="Txt_bg" Loaded="Txt_bg_Loaded" Background="Black" Height="Auto" Width="Auto" Opacity="0"  Margin="0" HorizontalAlignment="Stretch"/>-->
                             <Border x:Name="Txt_logo" Height="14" Width="14" Opacity="0.3"  Margin="20,8,0,8" HorizontalAlignment="Left" >
                                 <Border.Background>
                                     <ImageBrush RenderOptions.BitmapScalingMode="NearestNeighbor" ImageSource="Pic/TxtLogo_static.png"/>
