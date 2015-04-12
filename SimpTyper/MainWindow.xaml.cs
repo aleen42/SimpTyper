@@ -292,6 +292,10 @@ namespace SimpTyper
             Artical.Text = space + common.selectedfile_Type_Text;
             selectedfile.Close();
             text_reader.Close();
+            common.input_TextBox.Visibility = Visibility.Visible;
+            common.input_TextBox.Focus();
+            timer_label.Content = "00:00:00";
+            type_speed.Content = "0000";
         }
 
         private void score_grid_Initialize()
@@ -1193,6 +1197,13 @@ namespace SimpTyper
         private void ReturnButton_Click(object sender, RoutedEventArgs e)
         {
             hide_score_grid();
+            common.whether_selectfile = false;
+            common.time_Label.Opacity = 0;
+            common.count_Label.Opacity = 0;
+            common.update_at_Label.Opacity = 0;
+            common.words_Label.Opacity = 0;
+            if (common.articalinfo_grid.Children != null)
+                common.articalinfo_grid.Children.Clear();
             main_grid_Initialize();
         }
 
