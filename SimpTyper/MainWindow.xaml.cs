@@ -75,6 +75,7 @@ namespace SimpTyper
         public static Grid addtitile_grid;
         public static Grid inner_grid;
         public static Grid listbox_grid;
+        public static Grid score_grid;
         public static Grid menu_grid;
         public static Grid articalinfo_grid;
         public static TextBox filterarticals_TextBox;
@@ -99,6 +100,12 @@ namespace SimpTyper
         {
             if (common.listbox_grid != null && common.listbox_grid.Children != null)
                 common.listbox_grid.Children.Clear();
+        }
+
+        public static void score_grid_clear()
+        {
+            if (common.score_grid.Children != null)
+                common.score_grid.Children.Clear();    
         }
 
         public static void menu_grid_clear()
@@ -266,6 +273,8 @@ namespace SimpTyper
             common.listbox_grid_clear();
             ListBox_Grid.Children.Add(new LeftPart_ListBox());
             common.first_time_loadLeftPartListBox = false;
+            if (common.type_Button != null)
+                common.type_Button.IsEnabled = false;
             if (common.leftpart_row_num > 13)
                 Loadmorearticals.Opacity = 1;
         }
@@ -294,8 +303,11 @@ namespace SimpTyper
             text_reader.Close();
             common.input_TextBox.Visibility = Visibility.Visible;
             common.input_TextBox.Focus();
+            common.first_input = false;
             timer_label.Content = "00:00:00";
             type_speed.Content = "0000";
+            common.score_grid_clear();
+            common.score_grid.Children.Add(new Score_ListBox());
         }
 
         private void score_grid_Initialize()
@@ -317,6 +329,7 @@ namespace SimpTyper
         private const int WM_TIMER = 0x0113;
         private readonly int agWidth = 12; //拐角宽度   
         private readonly int bThickness = 4; // 边框宽度   
+
         private Point mousePoint = new Point(); //鼠标坐标   
 
         public enum HitTest
@@ -352,6 +365,7 @@ namespace SimpTyper
             HTCLOSE = 20,
             HTHELP = 21,
         }
+
         public enum Month
         {
             Jan = 1,
@@ -492,13 +506,13 @@ namespace SimpTyper
             return (lParam & 0xffff);
 
         }
+
         public static Int32 GET_Y_LPARAM(int lParam)
         {
 
             return (lParam >> 16);
 
         }
-        
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -675,9 +689,7 @@ namespace SimpTyper
             common.mainwindow = sender as Window;
         }
 
-        
-
-        //=========================================================================== main_grid =============================================================================
+        #region main_grid
         private void load_main_grid()
         {
             Storyboard load = new Storyboard();
@@ -851,10 +863,11 @@ namespace SimpTyper
         {
             type_grid_Initialize();                       
         }
-        
 
+        #endregion
 
-        //=========================================================================== type_grid =============================================================================
+        #region type_grid
+
         private void load_type_grid()
         {
             Storyboard load = new Storyboard();
@@ -868,6 +881,11 @@ namespace SimpTyper
             load = this.Resources["show_type_grid"] as Storyboard;
             load.Begin();
             
+        }
+
+        private void ScoreList_Loaded(object sender, RoutedEventArgs e)
+        {
+            common.score_grid = sender as Grid;
         }
 
         void set_type_grid_visible(object sender, ElapsedEventArgs e)
@@ -903,11 +921,16 @@ namespace SimpTyper
                 common.first_input = true;
             }
 
-            if (InputBox.Text != "" && Regex.Match(InputBox.Text.Substring(InputBox.Text.Length - 1, 1), "^[a-zA-Z]+$").Success)          //前面有英文字母再输入正确字符的时候不处理
+            
+
+            if (InputBox.Text != "")           //前面有英文字母再输入正确字符的时候不处理
             {                                                                                                                               //InputBox.Text!="" 表示英文输入错误，所以要正规式判断最后输入的是否为英文字母，得清空才能继续输入
-                common.wrong_type_count += e.Text.Length;
-                
-                return;
+                char[] inputbox_ch = InputBox.Text.Substring(0, 1).ToCharArray();
+                if ((int)inputbox_ch[0] >= 0 && (int)inputbox_ch[0] <= 127)
+                {
+                    common.wrong_type_count += e.Text.Length;
+                    return;
+                }
             }
 
             if (InputBox.Text.Length != 0 && InputBox.Text.Substring(0, 1) == " ")                                                      //前面有空格再输入正确字符
@@ -1132,6 +1155,15 @@ namespace SimpTyper
             if (common.words == common.selectedfile_Type_Text.Length - 1)
                 common.speed_timer.Stop();
         }
+
+        private void type_grid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key==Key.Escape)
+            {
+                show_pause_grid();
+                e.Handled = true;
+            }
+        } 
         //private void TextBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         //{
         //    common.filterarticals.Text = "";
@@ -1163,9 +1195,10 @@ namespace SimpTyper
         //        common.i = 0;
         //    }
         //}
+        #endregion
 
+        #region score_grid
 
-        //=========================================================================== score_grid =============================================================================
         private void show_score_grid()
         {
             score_grid.Visibility = Visibility.Visible;
@@ -1207,9 +1240,85 @@ namespace SimpTyper
             main_grid_Initialize();
         }
 
+        private void TryButton_Click(object sender, RoutedEventArgs e)
+        {
+            hide_score_grid();
+            type_grid_Initialize();
+        }
+
         private void PART_ClearButton_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Filter.Text = "";
-        } 
+        }
+
+        #endregion
+
+        #region pause_grid
+
+        private void ReturnButton_pause_Click(object sender, RoutedEventArgs e)
+        {
+            hide_pause_grid();
+            common.whether_selectfile = false;
+            common.time_Label.Opacity = 0;
+            common.count_Label.Opacity = 0;
+            common.update_at_Label.Opacity = 0;
+            common.words_Label.Opacity = 0;
+            if (common.articalinfo_grid.Children != null)
+                common.articalinfo_grid.Children.Clear();
+            main_grid_Initialize();
+        }
+
+        private void CancelButton_pause_Click(object sender, RoutedEventArgs e)
+        {
+            hide_pause_grid();
+            if (common.type_timer != null)
+                common.type_timer.Start();
+            if (common.speed_timer != null)
+                common.speed_timer.Start();
+            common.input_TextBox.Focus();
+        }
+
+        private void TryButton_pause_Click(object sender, RoutedEventArgs e)
+        {
+            hide_pause_grid();
+            type_grid_Initialize();
+        }
+
+        private void show_pause_grid()
+        {
+            if (common.type_timer != null)
+                common.type_timer.Stop();
+            if (common.speed_timer != null)
+                common.speed_timer.Stop();
+            pause_grid.Visibility = Visibility.Visible;
+            Storyboard show = new Storyboard();
+            show = this.Resources["show_pause_grid"] as Storyboard;
+            show.Begin();    
+        }
+
+        private void hide_pause_grid()
+        {
+            Storyboard show = new Storyboard();
+            show = this.Resources["hide_pause_grid"] as Storyboard;
+            show.Begin();
+            Timer timer = new Timer(100);
+            timer.Elapsed += new ElapsedEventHandler(hide_pause_grid_visible);
+            timer.Start();
+        }
+
+        void hide_pause_grid_visible(object sender, ElapsedEventArgs e)
+        {
+            Timer current = sender as Timer;
+            current.Stop();
+            Dispatcher.Invoke(DispatcherPriority.Normal, (Action)delegate()
+            {
+                pause_grid.Visibility = Visibility.Collapsed;
+            });
+        }
+
+        #endregion
+
+        
+
     }
 }

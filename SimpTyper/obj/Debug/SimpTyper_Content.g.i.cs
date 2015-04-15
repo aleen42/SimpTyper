@@ -8,8 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pic/returnbutton_mouseover.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pic/returnbutton_pressed.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pic/returnbutton_static.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pic/button_pressed.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pic/button_static.png")]
 
 

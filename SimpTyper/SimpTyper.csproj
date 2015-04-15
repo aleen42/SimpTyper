@@ -70,6 +70,9 @@
     <Compile Include="RightButtonMenu.xaml.cs">
       <DependentUpon>RightButtonMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Score_ListBox.xaml.cs">
+      <DependentUpon>Score_ListBox.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddArticals_InnerGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -109,6 +112,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="RightButtonMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Score_ListBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -265,6 +272,10 @@
     <Resource Include="Pic\returnbutton_mouseover.png" />
     <Resource Include="Pic\returnbutton_pressed.png" />
     <Resource Include="Pic\returnbutton_static.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pic\Button_pressed.png" />
+    <Resource Include="Pic\Button_static.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
