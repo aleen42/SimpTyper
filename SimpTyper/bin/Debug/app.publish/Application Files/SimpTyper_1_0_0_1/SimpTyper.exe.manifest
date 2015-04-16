@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="SimpTyper.exe" version="1.0.0.1" publicKeyToken="acd4bb0c1e016c3e" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="bitbug_favicon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="SimpTyper" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="SimpTyper.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC 清单选项
+          如果要更改 Windows 用户帐户控制级别，请用以下节点之一替换
+          requestedExecutionLevel 节点。
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+          如果要利用文件和注册表虚拟化提供
+          向后兼容性，请删除 requestedExecutionLevel 节点。
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SimpTyper.exe" size="5391280">
+      <assemblyIdentity name="SimpTyper" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>sWBoYHJCUYE3dIbAcLYIrsS+7H2tLqms0gp3594z7pE=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="bitbug_favicon.ico" size="1150">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ItnsAicgUmsoUmRl4uLiHjlq8WWvY3nENAvUfsQBLNM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="SimpTyper.exe.config" size="187">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xm4bo26HQ0LNVwz1vdPYtzhkpMnp2AI5i+f0b+OahTI=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=ALEEN\Aleen42" issuerKeyHash="70a849fdadeeccc5576efd8afdf260ecd19b9699" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>sz4I9/B6rXzozQHB8XK2kK5nHSMvedtvPOSggxUlC7M=</DigestValue></Reference></SignedInfo><SignatureValue>FlIIBqEJsdRMBzK7w5W/JxGtJuiwwQTf6LCdmFQhTvNaIv/99keqVoCaogOtk7dmow++hcgGkiqh0/oPHoKVYnawEP50KFkVWXlOLwtLrSgZN48MbdJuIgcRJBGDVJfyYKJshFIc4ZXOIUcN8SL8yXHPeqcH6yCZbQLpdi7vIs4=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>w+vYXF/xnOsTCJkyh4glL9MAF9PKUtBw5Pb9U4BQV+K5sprssxrO2CyS9kdbOhqtr3JA1jiCsZFyuVOXHGHjYB+v9pXL+7OQCRurpduAJANQ5VbvWWTA87N9uSgV/03WkidCDg0oKbyEW/Jpa6Evesr58uAaTef6FjATQPq9e+c=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="b30b251583a0e43c6fdb792f231d67ae90b672f1c101cde87cad7af0f7083eb3" Description="" Url=""><as:assemblyIdentity name="SimpTyper.exe" version="1.0.0.1" publicKeyToken="acd4bb0c1e016c3e" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=ALEEN\Aleen42</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>9xrShVapNN0+CJrNU2wTo84zSyklrJM7HLcbWKHLj5E=</DigestValue></Reference></SignedInfo><SignatureValue>Z+GC5QX1uqtkhEgeDAB3p1lpb0ZD/JAtZGyzC6/G2GDqhtUSeMldM0xz1gVVphRIhLbXaNEWEhKzJwlHAbRvFf04L+EAwen9fVWHKelHxFTP6lJgfXxrFNRLjb1P42SpOlWhFxi8Q+JDJERllvXyz9iV0beEab3wmv0d+1akxws=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>w+vYXF/xnOsTCJkyh4glL9MAF9PKUtBw5Pb9U4BQV+K5sprssxrO2CyS9kdbOhqtr3JA1jiCsZFyuVOXHGHjYB+v9pXL+7OQCRurpduAJANQ5VbvWWTA87N9uSgV/03WkidCDg0oKbyEW/Jpa6Evesr58uAaTef6FjATQPq9e+c=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBzTCCATagAwIBAgIQVoYMiR2/RppCf5mgNmSQWDANBgkqhkiG9w0BAQsFADAlMSMwIQYDVQQDHhoAQQBMAEUARQBOAFwAQQBsAGUAZQBuADQAMjAeFw0xNTA0MTYxNDQ3MjBaFw0xNjA0MTUyMDQ3MjBaMCUxIzAhBgNVBAMeGgBBAEwARQBFAE4AXABBAGwAZQBlAG4ANAAyMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDD69hcX/Gc6xMImTKHiCUv0wAX08pS0HDk9v1TgFBX4rmymuyzGs7YLJL2R1s6Gq2vckDWOIKxkXK5U5ccYeNgH6/2lcv7s5AJG6ul24AkA1DlVu9ZZMDzs325KBX/TdaSJ0IODSgpvIRb8mlroS96yvny4BpN5/oWMBNA+r175wIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAJ9S6BCsQ7yQcLG2Ltzk1Wt/csFaAZuPevhn6+EwKVI9v5lXXtKdNT4Zqp4ZgaSxj4bPPtxSRosfyXsUvlqkhlU2HwTj+aVtNrCTter3TxjCax6iOftiwRr5gLLC8xI1PaOMaZ9+hnujtwtj2dUaWe0sWnsIBIwC9QN/fdNvdw83</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

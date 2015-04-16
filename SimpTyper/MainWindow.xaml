@@ -1675,7 +1675,7 @@
             <Grid x:Name="Right_Button_Menu" Background="{x:Null}" Loaded="Right_Button_Menu_Loaded" Margin="172,156,0,0" HorizontalAlignment="Left" Width="130" Grid.ColumnSpan="2" Height="66" VerticalAlignment="Top"/>
             <local:GearLoading x:Name="Gear_Loading" Loaded="Gear_Loading_Loaded" d:IsHidden="True" Visibility="Collapsed" Background="{x:Null}" Margin="153,273,204,332" Grid.Column="1" RenderTransformOrigin="0.5,0.5"/>
         </Grid>
-        <Grid x:Name="type_grid" Visibility="Visible" Opacity="1" Background="White" MouseDown="Grid_MouseDown" KeyDown="type_grid_KeyDown">
+        <Grid x:Name="type_grid" Visibility="Collapsed" Opacity="0" MouseDown="Grid_MouseDown" KeyDown="type_grid_KeyDown" Margin="0,-1,0,0">
             <Grid.BitmapEffect>
                 <BlurBitmapEffect Radius="0" KernelType="Gaussian"></BlurBitmapEffect>
             </Grid.BitmapEffect>
@@ -1691,7 +1691,7 @@
                     </TransformGroup>
                 </Label.RenderTransform>
             </Label>
-            <TextBlock x:Name="Artical" Text="aaaaaaaaaabbbbbbbbbbbbbbbbbbbbbcccccccccccc" Background="White" FontSize="100" TextWrapping="NoWrap" Margin="276,187,78,291" RenderTransformOrigin="0.5,0.5" >
+            <TextBlock x:Name="Artical" Loaded="Artical_Loaded" Text="aaaaaaaaaabbbbbbbbbbbbbbbbbbbbbcccccccccccc" Background="White" FontSize="100" TextWrapping="NoWrap" Margin="337,187,70,291" RenderTransformOrigin="0.5,0.5" >
                 <TextBlock.Foreground>
                     <LinearGradientBrush EndPoint="890,220" MappingMode="Absolute">
                         <LinearGradientBrush.RelativeTransform>
@@ -1709,7 +1709,7 @@
                     </LinearGradientBrush>
                 </TextBlock.Foreground>
             </TextBlock>
-            <Image Source="Pic/artical_shadow.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Margin="0,187,2,291" HorizontalAlignment="Right" Width="297">
+            <Image Source="Pic/artical_shadow.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Margin="0,73,2,198" HorizontalAlignment="Right" Width="502">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -1719,10 +1719,10 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image Source="Pic/pointer.png" Stretch="Fill" RenderTransformOrigin="1.091,0.042" Margin="244,148,0,0" Height="215" VerticalAlignment="Top" HorizontalAlignment="Left" Width="77"/>
-            <TextBox x:Name="InputBox" Loaded="InputBox_Loaded" PreviewTextInput="InputBox_PreviewTextInput" TextChanged="InputBox_TextChanged" HorizontalAlignment="Left" FontSize="60" Height="132" Margin="276,421,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="890" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource TextBoxStyle}" Cursor="Arrow"/>
-            <Label x:Name="words" Content="Label" Opacity="1" Foreground="Black" Margin="58,233,0,0" FontSize="28" Height="99" VerticalAlignment="Top" HorizontalAlignment="Left" Width="186"/>
-            <Label x:Name="timer_label" Content="00:00:00" Opacity="1" Margin="58,264,0,0" FontSize="28" Height="99" VerticalAlignment="Top" HorizontalAlignment="Left" Width="186">
+            <Image x:Name="type_point" Loaded="type_point_Loaded" Source="Pic/pointer.png" Stretch="Fill" RenderTransformOrigin="1.091,0.042" Margin="302,148,0,0" Height="215" VerticalAlignment="Top" HorizontalAlignment="Left" Width="84"/>
+            <TextBox x:Name="InputBox" Loaded="InputBox_Loaded" PreviewTextInput="InputBox_PreviewTextInput" TextChanged="InputBox_TextChanged" HorizontalAlignment="Left" FontSize="60" Height="132" Margin="337,421,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="837" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource TextBoxStyle}" Cursor="Arrow"/>
+            <Label x:Name="words" Content="Label" Opacity="1" Foreground="Black" Margin="32,216,0,0" FontSize="28" Height="99" VerticalAlignment="Top" HorizontalAlignment="Left" Width="186"/>
+            <Label x:Name="timer_label" Content="00:00:00" Opacity="1" Margin="32,255,0,0" FontSize="28" Height="99" VerticalAlignment="Top" HorizontalAlignment="Left" Width="186">
                 <Label.Foreground>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -1740,10 +1740,12 @@
                     </LinearGradientBrush>
                 </Label.Foreground>
             </Label>
-            <Label x:Name="type_speed" Content="0000" Opacity="1" Margin="58,200,0,0" FontSize="28" Height="99" VerticalAlignment="Top" HorizontalAlignment="Left" Width="231" Foreground="#FFA10000"/>
-            <Label Content=" WPM(words/min)" Opacity="1" Margin="122,212,0,0" FontSize="16" Height="99" VerticalAlignment="Top" HorizontalAlignment="Left" Width="231" Foreground="Black"/>
+            <Label x:Name="type_speed" Content="0000" Opacity="1" Margin="32,175,0,0" FontSize="28" Height="99" VerticalAlignment="Top" HorizontalAlignment="Left" Width="230" Foreground="#FFA10000"/>
+            <Label Content=" WPM(words/min)" Opacity="1" Margin="96,187,0,0" FontSize="16" Height="99" VerticalAlignment="Top" HorizontalAlignment="Left" Width="230" Foreground="Black"/>
             <!--<Label x:Name="wrong_type_num" Content="0" Opacity="1" Margin="58,454,0,0" FontSize="28" Height="99" VerticalAlignment="Top" HorizontalAlignment="Left" Width="186"/>-->
-            <Grid x:Name="ScoreList" Loaded="ScoreList_Loaded" Margin="0,316,0,0" Height="307" VerticalAlignment="Top" HorizontalAlignment="Left" Width="271"/>
+            <Grid x:Name="ScoreList" Loaded="ScoreList_Loaded" Margin="0,316,0,0" Height="295" VerticalAlignment="Top" HorizontalAlignment="Left" Width="411"/>
+            <!--<Label x:Name="x_label" Content="x:" HorizontalAlignment="Left" Margin="438,40,0,0" VerticalAlignment="Top" FontSize="20"/>-->
+            <!--<Label x:Name="y_label" Content="y:" HorizontalAlignment="Left" Margin="438,73,0,0" VerticalAlignment="Top" FontSize="20"/>-->
         </Grid>
         <Button Width="29" Height="28" x:Name="PART_ContentHostClearButton" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="Close_Button_Click" VerticalAlignment="Top" Margin="0,-1,0,0">
             <Button.Template>

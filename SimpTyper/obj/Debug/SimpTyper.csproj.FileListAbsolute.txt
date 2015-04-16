@@ -27,3 +27,8 @@ F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\GearLoading.g.
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\GeneratedInternalTypeHelper.g.cs
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\Score_ListBox.baml
 F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\Score_ListBox.g.cs
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.csproj.ResolveComReference.cache
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe.manifest
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.application
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.exe.manifest
+F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.application

@@ -20,6 +20,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Runtime.InteropServices;
+
+
+
 
 namespace SimpTyper
 {
@@ -45,14 +49,28 @@ namespace SimpTyper
         public static Button AddTitle_Grid_Button_Create;
         public static Button Browse_Button;
         public static Button addanartial_Button;
+        
+
+        //public static int num = 1;
         public static int i = 0;    //doubleclick
+        public static int leftpart_row_num = 0;
         public static long wrong_type_count = 0;
         public static long last_input_length = 0;
-        //public static int num = 1;
-        public static int leftpart_row_num = 0;
         public static long selectedfile_text_count = 0;
         public static long mouseoverfile_text_count = 0;
         public static long words = 0;
+
+        public static double Artical_left = 0.0;
+        public static double Artical_right = 0.0;
+        public static double Artical_top = 0.0;
+        public static double Artical_bottom = 0.0;
+        public static double type_point_left = 0.0;
+        public static double type_point_right = 0.0;
+        public static double type_point_top = 0.0;
+        public static double type_point_bottom = 0.0;
+        //public static double move_x;
+        //public static double move_y;
+
         public static string Filter_Name = "";
         public static string addfile_Name = "";
         public static string selectedfile_Path = "";
@@ -64,7 +82,6 @@ namespace SimpTyper
         public static string mouseoverfile_Text = "";
         public static string mouseoverfile_CreationTime = "";
         public static string space_string = "\n\n\n";
-
         public static string Key_64 = "Aleen's ";
         public static string Iv_64 = "Simp'sCo";
         public static string public_key = "";
@@ -240,12 +257,177 @@ namespace SimpTyper
         }
     }
 
+    //public class MouseHook
+    //{
+    //    //private const int WM_MOUSEMOVE = 0x200;
+    //    //private const int WM_LBUTTONDOWN = 0x201;
+    //    //private const int WM_RBUTTONDOWN = 0x204;
+    //    //private const int WM_MBUTTONDOWN = 0x207;
+    //    //private const int WM_LBUTTONUP = 0x202;
+    //    //private const int WM_RBUTTONUP = 0x205;
+    //    //private const int WM_MBUTTONUP = 0x208;
+    //    //private const int WM_LBUTTONDBLCLK = 0x203;
+    //    //private const int WM_RBUTTONDBLCLK = 0x206;
+    //    //private const int WM_MBUTTONDBLCLK = 0x209;
+
+    //    //全局的事件
+    //    public event System.Windows.Forms.MouseEventHandler OnMouseActivity;
+
+    //    static int hMouseHook = 0; //鼠标钩子句柄
+
+    //    //鼠标常量
+    //    public const int WH_MOUSE_LL = 14; //mouse hook constant
+
+    //    HookProc MouseHookProcedure; //声明鼠标钩子事件类型.
+
+    //    //声明一个Point的封送类型
+    //    [StructLayout(LayoutKind.Sequential)]
+    //    public class POINT
+    //    {
+    //        public int x;
+    //        public int y;
+    //    }
+
+    //    //声明鼠标钩子的封送结构类型
+    //    [StructLayout(LayoutKind.Sequential)]
+    //    public class MouseHookStruct
+    //    {
+    //        public POINT pt;
+    //        public int hWnd;
+    //        public int wHitTestCode;
+    //        public int dwExtraInfo;
+    //    }
+
+
+    //    //装置钩子的函数
+    //    [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    //    public static extern int SetWindowsHookEx(int idHook, HookProc lpfn, IntPtr hInstance, int threadId);
+
+    //    //卸下钩子的函数
+    //    [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    //    public static extern bool UnhookWindowsHookEx(int idHook);
+
+    //    //下一个钩挂的函数
+    //    [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    //    public static extern int CallNextHookEx(int idHook, int nCode, Int32 wParam, IntPtr lParam);
+
+    //    public delegate int HookProc(int nCode, Int32 wParam, IntPtr lParam);
+
+    //    [DllImport("kernel32.dll")]
+    //    private static extern IntPtr GetModuleHandle(IntPtr path);
+
+    //    /// <summary>
+    //    /// 墨认的构造函数构造当前类的实例.
+    //    /// </summary>
+    //    public MouseHook()
+    //    {
+    //    }
+
+    //    //析构函数.
+    //    ~MouseHook()
+    //    {
+    //        try
+    //        {
+    //            Stop();
+    //        }
+    //        catch (Exception e)
+    //        {
+    //            //nothing
+    //        }
+    //    }
+
+    //    public void Start()
+    //    {
+    //        //安装鼠标钩子
+    //        if (hMouseHook == 0)
+    //        {
+    //            //生成一个HookProc的实例.
+    //            MouseHookProcedure = new HookProc(MouseHookProc);
+
+    //            hMouseHook = SetWindowsHookEx(WH_MOUSE_LL, MouseHookProcedure, GetModuleHandle(IntPtr.Zero), 0);
+
+    //            //如果装置失败停止钩子
+    //            if (hMouseHook == 0)
+    //            {
+    //                try
+    //                {
+    //                    Stop();
+    //                }
+    //                catch (Exception e)
+    //                {
+    //                    //nothing
+    //                }
+    //                throw new Exception("SetWindowsHookEx failed.");
+    //            }
+    //        }
+    //    }
+
+    //    public void Stop()
+    //    {
+    //        bool retMouse = true;
+    //        if (hMouseHook != 0)
+    //        {
+    //            retMouse = UnhookWindowsHookEx(hMouseHook);
+    //            hMouseHook = 0;
+    //        }
+
+    //        //如果卸下钩子失败
+    //        if (!(retMouse)) throw new Exception("UnhookWindowsHookEx failed.");
+    //    }
+
+    //    private int MouseHookProc(int nCode, Int32 wParam, IntPtr lParam)
+    //    {
+    //        //如果正常运行并且用户要监听鼠标的消息
+    //        if ((nCode >= 0) && (OnMouseActivity != null))
+    //        {
+    //            System.Windows.Forms.MouseButtons button = new System.Windows.Forms.MouseButtons();
+    //            int clickCount = 0;
+
+    //            //switch (wParam)
+    //            //{
+    //            //    case WM_LBUTTONDOWN:
+    //            //        button = MouseButtons.Left;
+    //            //        clickCount = 1;
+    //            //        break;
+    //            //    case WM_LBUTTONUP:
+    //            //        button = MouseButtons.Left;
+    //            //        clickCount = 1;
+    //            //        break;
+    //            //    case WM_LBUTTONDBLCLK:
+    //            //        button = MouseButtons.Left;
+    //            //        clickCount = 2;
+    //            //        break;
+    //            //    case WM_RBUTTONDOWN:
+    //            //        button = MouseButtons.Right;
+    //            //        clickCount = 1;
+    //            //        break;
+    //            //    case WM_RBUTTONUP:
+    //            //        button = MouseButtons.Right;
+    //            //        clickCount = 1;
+    //            //        break;
+    //            //    case WM_RBUTTONDBLCLK:
+    //            //        button = MouseButtons.Right;
+    //            //        clickCount = 2;
+    //            //        break;
+    //            //}
+
+    //            //从回调函数中得到鼠标的信息
+    //            MouseHookStruct MyMouseHookStruct = (MouseHookStruct)Marshal.PtrToStructure(lParam, typeof(MouseHookStruct));
+    //            System.Windows.Forms.MouseEventArgs e = new System.Windows.Forms.MouseEventArgs(button, clickCount, MyMouseHookStruct.pt.x, MyMouseHookStruct.pt.y, 0);
+    //            //if(e.X>700)return 1;//如果想要限制鼠标在屏幕中的移动区域可以在此处设置
+    //            OnMouseActivity(this, e);
+    //        }
+    //        return CallNextHookEx(hMouseHook, nCode, wParam, lParam);
+    //    }
+    //}       //监控鼠标钩子类
+
+
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
     public partial class MainWindow : Window
     {
-        string space = "";
+        
 
         //public System.Windows.Threading.DispatcherTimer dispatcherTimer;
         
@@ -255,6 +437,9 @@ namespace SimpTyper
         public MainWindow()
         {
             this.SourceInitialized += new EventHandler(Window_SourceInitialized);
+            //mouse.OnMouseActivity += new System.Windows.Forms.MouseEventHandler(mouse_OnMouseActivity);
+            //mouse.Start();          //装载钩子
+
             InitializeComponent();
        
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -265,6 +450,17 @@ namespace SimpTyper
             Window_main.MinHeight = SystemParameters.WorkArea.Height * 0.85;
             main_grid_Initialize();
         }
+
+        //void mouse_OnMouseActivity(object sender, System.Windows.Forms.MouseEventArgs e)
+        //{
+        //    //x_label.Content = e.X;
+        //    //y_label.Content = e.Y;
+        //    common.move_x = e.X - (Artical.Margin.Left + 0.5 * (this.Width - Artical.Margin.Left - Artical.Margin.Right));
+        //    common.move_y = e.Y - (Artical.Margin.Top + 0.5 * (this.Height - Artical.Margin.Top - Artical.Margin.Bottom));
+        //    double time = 0.03;
+        //    Artical.Margin = new Thickness(common.Artical_left - time * common.move_x, common.Artical_top - time * common.move_y, common.Artical_right, common.Artical_bottom);
+        //    type_point.Margin = new Thickness(common.type_point_left - time * common.move_x, common.type_point_top - time * common.move_y, common.type_point_right, common.type_point_bottom);
+        //}
 
         private void main_grid_Initialize()
         {
@@ -318,11 +514,13 @@ namespace SimpTyper
             score_time.Content = DateTime.Now.ToLongTimeString();
             var speed = string.Format("{0:D4}", (int)((double)common.words / (common.timer_time.Hours * 60 * 60 + common.timer_time.Minutes * 60 + common.timer_time.Seconds) * 60));
             speed_show.Content = speed;
-            int accuracy = 100 - (int)((double)common.wrong_type_count / (common.selectedfile_Text.Length - 1) * 100);
+            int accuracy = 100 - (int)((double)common.wrong_type_count / (common.words + common.wrong_type_count) * 100);
             accuracy_show.Content = accuracy.ToString() + "%";
             common.wrong_type_count = 0;
         }
 
+        string space = "";
+        //MouseHook mouse = new MouseHook();
         private const int WM_NCHITTEST = 0x0084;
         private const int WM_LBUTTONDOWN = 0x0201;
         private const int WM_LBUTTONUP = 0x0202;
@@ -401,11 +599,11 @@ namespace SimpTyper
 
         private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
         {
+
             if (msg == WM_NCHITTEST)
             {
                 this.mousePoint.X = (lParam.ToInt32() & 0xFFFF);
                 this.mousePoint.Y = (lParam.ToInt32() >> 16);
-
 
                 // 窗口左上角   
                 if (this.mousePoint.Y - this.Top <= this.agWidth
@@ -614,6 +812,7 @@ namespace SimpTyper
         private void Close_Button_Click(object sender, RoutedEventArgs e)
         {
             common.menu_grid_clear();
+            //mouse.Stop();
             Application.Current.Shutdown();
         }
         
@@ -908,6 +1107,24 @@ namespace SimpTyper
             common.input_TextBox.Focus();
         }
 
+        private void Artical_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextBlock current = sender as TextBlock;
+            common.Artical_left = current.Margin.Left;
+            common.Artical_top = current.Margin.Top;
+            common.Artical_right = current.Margin.Right;
+            common.Artical_bottom = current.Margin.Bottom;
+        }
+
+        private void type_point_Loaded(object sender, RoutedEventArgs e)
+        {
+            Image current = sender as Image;
+            common.type_point_left = current.Margin.Left;
+            common.type_point_top = current.Margin.Top;
+            common.type_point_right = current.Margin.Right;
+            common.type_point_bottom = current.Margin.Bottom;
+        }
+
         private void words_update()
         {
             words.Content = common.words.ToString() + "/" + (common.selectedfile_Type_Text.Length - 1).ToString();
@@ -1035,6 +1252,7 @@ namespace SimpTyper
         private void save_grade()
         {
             var speed = string.Format("{0:D4}", (int)((double)common.words / (common.timer_time.Hours * 60 * 60 + common.timer_time.Minutes * 60 + common.timer_time.Seconds) * 60));
+            int accuracy = 100 - (int)((double)common.wrong_type_count / (common.words + common.wrong_type_count) * 100);
             string save_file_Path = @"..\..\Data\" + common.ASCII_code(common.selectedfile_Name) + "-" + common.ASCII_code(DateTime.Now.ToLongTimeString()) +".spr";
             FileStream score_file;
             if (File.Exists(save_file_Path) == false)
@@ -1045,7 +1263,7 @@ namespace SimpTyper
             StreamWriter write_score = new StreamWriter(score_file);
             write_score.BaseStream.Seek(0, SeekOrigin.End);
             common.Set_RSA_key();
-            write_score.WriteLine(common.RSAEncrypt(common.public_key, common.selectedfile_Name) + "\n" + common.RSAEncrypt(common.public_key, speed) + "\n" + common.Encode(common.public_key) + "\n" + common.Encode(common.private_key));
+            write_score.WriteLine(common.RSAEncrypt(common.public_key, common.selectedfile_Name) + "\n" + common.RSAEncrypt(common.public_key, speed) + "\n" + common.RSAEncrypt(common.public_key, accuracy.ToString()) + "\n" + common.Encode(common.public_key) + "\n" + common.Encode(common.private_key) + "\n" + common.Encode(Convert_Date(DateTime.Now.ToLongDateString())) + "\n" + common.Encode(DateTime.Now.ToLongTimeString()));
             //write_score.WriteLine(common.RSADecrypt(common.private_key, common.RSAEncrypt(common.public_key, common.selectedfile_Name)) + " " + common.RSADecrypt(common.private_key, common.RSAEncrypt(common.public_key, speed)));
             write_score.Flush();
             score_file.Close();
@@ -1317,6 +1535,10 @@ namespace SimpTyper
         }
 
         #endregion
+
+        
+
+        
 
         
 

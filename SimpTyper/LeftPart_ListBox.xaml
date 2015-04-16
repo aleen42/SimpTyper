@@ -15,7 +15,7 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
             </DoubleAnimationUsingKeyFrames>--> 
             <ColorAnimation Duration="0:0:0" Storyboard.TargetProperty="Background.Color" To="White" />
-            <ColorAnimation Duration="0:0:0.1" Storyboard.TargetProperty="Background.Color" To="#FFcccccc" />
+            <ColorAnimation Duration="0:0:0.1" Storyboard.TargetProperty="Background.Color" To="#ffb0b0b0" />
             <ColorAnimation Duration="0:0:1" Storyboard.TargetProperty="Background.Color" To="White" />
             <ColorAnimation Duration="0:0:3" Storyboard.TargetProperty="Background.Color" To="White" />
             
