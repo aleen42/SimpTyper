@@ -21,3 +21,5 @@ Finally, When we finish typing, it will automatically show you your perfomance l
 <img src="http://imglf1.ph.126.net/fWTthF1kplWNVLK07X77Xg==/6630159569094500875.jpg">
 
 So, is that job done? The answer is absolutely not. I'll keep making it better with a heart of learning more technology of developing softwares.
+
+ATTETION: you can see a package of Setup in this project, in which you will find the installer of SimpTyper.
