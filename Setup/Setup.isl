@@ -340,21 +340,18 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
-		<row><td>Component</td><td>{C258B210-09E9-49BD-842C-8B2A988BB928}</td><td>DEBUG</td><td>2</td><td/><td>File</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT</td><td>{173D8CDB-9395-4BCA-BB29-A0F12E59AD02}</td><td>SIMPTYPER</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Component</td><td>{1571D342-CB17-48DA-8F2F-34EC4A50797B}</td><td>DEBUG</td><td>2</td><td/><td>File</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT</td><td>{6BFC546E-A397-448F-809D-68255E225962}</td><td>SIMPTYPER</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{BF6D0B8F-AD97-414C-AC3F-782B02CBB67E}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT10</td><td>{A1D93927-F485-44AA-8AFE-D622D31237A0}</td><td>PIC</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT11</td><td>{2EFDCA60-B4A8-441D-ABEF-2FDA1E28623C}</td><td>PROPERTIES</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT12</td><td>{5F9C20B4-A253-4081-B34B-7D5395E72316}</td><td>TXT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{6EDFBD15-01FA-41A6-9308-A2AFE357FC61}</td><td>BIN</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{CADCB802-36F0-4DDB-AD0C-68FD6A2CAC14}</td><td>DEBUG</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT4</td><td>{A3C5C8B9-1AD8-4B11-8066-B434DB3E0269}</td><td>APP.PUBLISH</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT5</td><td>{44F87334-1D17-4050-8EEE-14637F6506EB}</td><td>RELEASE</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT6</td><td>{B92DD16F-FBB0-4B69-9CD2-380E685C2447}</td><td>DATA</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT10</td><td>{06C0E583-0107-4F1B-A794-91E9E0D3E5E5}</td><td>PIC</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT12</td><td>{BD4B69A4-45DF-49DC-9189-F4E4A309FB2C}</td><td>TXT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{236E4620-301D-4AB5-A976-50D5EC80B062}</td><td>BIN</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{8CBD1D56-1621-45E4-881A-C8D33502D466}</td><td>DEBUG</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT5</td><td>{226E1CC9-F3D5-421B-806A-D89B8FD81E11}</td><td>RELEASE</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT6</td><td>{3F996C35-B16D-423A-ACA6-939A69C9827E}</td><td>DATA</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>NewComponent1</td><td>{A09A7195-FDEE-4B39-B1CF-ECCC81369E90}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>SimpTyper.exe</td><td>{E3AA1158-8ABE-4BDF-8FB5-55091179E99E}</td><td>APP.PUBLISH</td><td>2</td><td/><td>simptyper.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>SimpTyper.exe1</td><td>{FE22F1CC-105D-4D82-B1D3-86417D361E7D}</td><td>DEBUG</td><td>2</td><td/><td>simptyper.exe1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>SimpTyper.vshost.exe</td><td>{38C1A90A-5ECA-4016-AE97-D9AE808AFE5E}</td><td>DEBUG</td><td>2</td><td/><td>simptyper.vshost.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>SimpTyper.exe1</td><td>{BA6E443B-12A5-415D-A05C-3984B8758F1C}</td><td>DEBUG</td><td>2</td><td/><td>simptyper.exe1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>SimpTyper.vshost.exe</td><td>{1F0B469B-2A7E-4AB6-8490-12D0255E2E8E}</td><td>DEBUG</td><td>2</td><td/><td>simptyper.vshost.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1063,8 +1060,8 @@
 	<table name="CreateFolder">
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
-		<row><td>APP.PUBLISH</td><td>ISX_DEFAULTCOMPONENT4</td></row>
 		<row><td>BIN</td><td>ISX_DEFAULTCOMPONENT2</td></row>
+		<row><td>DATA</td><td>ISX_DEFAULTCOMPONENT6</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>INSTALLDIR</td><td>NewComponent1</td></row>
 		<row><td>RELEASE</td><td>ISX_DEFAULTCOMPONENT5</td></row>
@@ -1149,7 +1146,6 @@
 		<col def="I4">ISAttributes</col>
 		<col def="S255">ISFolderName</col>
 		<row><td>ALLUSERSPROFILE</td><td>TARGETDIR</td><td>.:ALLUSE~1|All Users</td><td/><td>0</td><td/></row>
-		<row><td>APP.PUBLISH</td><td>DEBUG</td><td>APP_PU~1|app.publish</td><td/><td>0</td><td/></row>
 		<row><td>AdminToolsFolder</td><td>TARGETDIR</td><td>.:Admint~1|AdminTools</td><td/><td>0</td><td/></row>
 		<row><td>AppDataFolder</td><td>TARGETDIR</td><td>.:APPLIC~1|Application Data</td><td/><td>0</td><td/></row>
 		<row><td>BIN</td><td>SIMPTYPER</td><td>bin</td><td/><td>0</td><td/></row>
@@ -1173,7 +1169,6 @@
 		<row><td>MyPicturesFolder</td><td>TARGETDIR</td><td>.:MyPict~1|MyPictures</td><td/><td>0</td><td/></row>
 		<row><td>NetHoodFolder</td><td>TARGETDIR</td><td>.:NetHood</td><td/><td>0</td><td/></row>
 		<row><td>PIC</td><td>SIMPTYPER</td><td>Pic</td><td/><td>0</td><td/></row>
-		<row><td>PROPERTIES</td><td>SIMPTYPER</td><td>PROPER~1|Properties</td><td/><td>0</td><td/></row>
 		<row><td>PersonalFolder</td><td>TARGETDIR</td><td>.:Personal</td><td/><td>0</td><td/></row>
 		<row><td>PrimaryVolumePath</td><td>TARGETDIR</td><td>.:Primar~1|PrimaryVolumePath</td><td/><td>0</td><td/></row>
 		<row><td>PrintHoodFolder</td><td>TARGETDIR</td><td>.:PRINTH~1|PrintHood</td><td/><td>0</td><td/></row>
@@ -1894,15 +1889,12 @@
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT10</td></row>
-		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT11</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT12</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT3</td></row>
-		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT4</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT5</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT6</td></row>
 		<row><td>AlwaysInstall</td><td>NewComponent1</td></row>
-		<row><td>AlwaysInstall</td><td>SimpTyper.exe</td></row>
 		<row><td>AlwaysInstall</td><td>SimpTyper.exe1</td></row>
 		<row><td>AlwaysInstall</td><td>SimpTyper.vshost.exe</td></row>
 	</table>
@@ -1920,18 +1912,6 @@
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
 		<row><td>File</td><td>Component</td><td>SimpTyper.主输出</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;SimpTyper&gt;|Built</td><td>3</td><td/></row>
-		<row><td>_410111511645122110_49535853</td><td>ISX_DEFAULTCOMPONENT6</td><td>841011~1.SPR|8410111511645122110-4953585350585052.spr</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Data\8410111511645122110-4953585350585052.spr</td><td>1</td><td/></row>
-		<row><td>_410111511645122110_49545850</td><td>ISX_DEFAULTCOMPONENT6</td><td>841011~1.SPR|8410111511645122110-4954585055585155.spr</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Data\8410111511645122110-4954585055585155.spr</td><td>1</td><td/></row>
-		<row><td>_410111511645122110_495458501</td><td>ISX_DEFAULTCOMPONENT6</td><td>841011~1.SPR|8410111511645122110-4954585055585349.spr</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Data\8410111511645122110-4954585055585349.spr</td><td>1</td><td/></row>
-		<row><td>_410111511645122110_49565852</td><td>ISX_DEFAULTCOMPONENT6</td><td>841011~1.SPR|8410111511645122110-4956585250585156.spr</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Data\8410111511645122110-4956585250585156.spr</td><td>1</td><td/></row>
-		<row><td>_410111511645122110_495658521</td><td>ISX_DEFAULTCOMPONENT6</td><td>841011~1.SPR|8410111511645122110-4956585250585253.spr</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Data\8410111511645122110-4956585250585253.spr</td><td>1</td><td/></row>
-		<row><td>_410111511645122110_495658522</td><td>ISX_DEFAULTCOMPONENT6</td><td>841011~1.SPR|8410111511645122110-4956585250585355.spr</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Data\8410111511645122110-4956585250585355.spr</td><td>1</td><td/></row>
-		<row><td>_410111511645122110_495658523</td><td>ISX_DEFAULTCOMPONENT6</td><td>841011~1.SPR|8410111511645122110-4956585251584853.spr</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Data\8410111511645122110-4956585251584853.spr</td><td>1</td><td/></row>
-		<row><td>_410111511645122110_495658524</td><td>ISX_DEFAULTCOMPONENT6</td><td>841011~1.SPR|8410111511645122110-4956585251584954.spr</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Data\8410111511645122110-4956585251584954.spr</td><td>1</td><td/></row>
-		<row><td>_410111511645122110_49575849</td><td>ISX_DEFAULTCOMPONENT6</td><td>841011~1.SPR|8410111511645122110-4957584955584857.spr</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Data\8410111511645122110-4957584955584857.spr</td><td>1</td><td/></row>
-		<row><td>_410111511645122110_495758491</td><td>ISX_DEFAULTCOMPONENT6</td><td>841011~1.SPR|8410111511645122110-4957584955584953.spr</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Data\8410111511645122110-4957584955584953.spr</td><td>1</td><td/></row>
-		<row><td>_410410132781011191151129711</td><td>ISX_DEFAULTCOMPONENT6</td><td>841041~1.SPR|84104101327810111911511297112101114-5050585149584848.spr</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Data\84104101327810111911511297112101114-5050585149584848.spr</td><td>1</td><td/></row>
-		<row><td>_4104101327810111911511297111</td><td>ISX_DEFAULTCOMPONENT6</td><td>841041~1.SPR|84104101327810111911511297112101114-5050585251585352.spr</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Data\84104101327810111911511297112101114-5050585251585352.spr</td><td>1</td><td/></row>
 		<row><td>a_book_of_scoundrels.txt</td><td>ISX_DEFAULTCOMPONENT12</td><td>ABOOKO~1.TXT|A Book of Scoundrels.txt</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Txt\A Book of Scoundrels.txt</td><td>1</td><td/></row>
 		<row><td>a_discourse_on_method.txt</td><td>ISX_DEFAULTCOMPONENT12</td><td>ADISCO~1.TXT|A Discourse on Method.txt</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Txt\A Discourse on Method.txt</td><td>1</td><td/></row>
 		<row><td>a_model_stuent.txt</td><td>ISX_DEFAULTCOMPONENT12</td><td>AMODEL~1.TXT|A Model Stuent.txt</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Txt\A Model Stuent.txt</td><td>1</td><td/></row>
@@ -1952,7 +1932,6 @@
 		<row><td>artical_grid_bottom.png</td><td>ISX_DEFAULTCOMPONENT10</td><td>ARTICA~1.PNG|artical_grid_bottom.png</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Pic\artical_grid_bottom.png</td><td>1</td><td/></row>
 		<row><td>artical_grid_shadow.png</td><td>ISX_DEFAULTCOMPONENT10</td><td>ARTICA~1.PNG|artical_grid_shadow.png</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Pic\artical_grid_shadow.png</td><td>1</td><td/></row>
 		<row><td>artical_shadow.png</td><td>ISX_DEFAULTCOMPONENT10</td><td>ARTICA~1.PNG|artical_shadow.png</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Pic\artical_shadow.png</td><td>1</td><td/></row>
-		<row><td>assemblyinfo.cs</td><td>ISX_DEFAULTCOMPONENT11</td><td>ASSEMB~1.CS|AssemblyInfo.cs</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Properties\AssemblyInfo.cs</td><td>1</td><td/></row>
 		<row><td>bg.jpg</td><td>ISX_DEFAULTCOMPONENT10</td><td>bg.jpg</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Pic\bg.jpg</td><td>1</td><td/></row>
 		<row><td>brows_button_mouseover.png</td><td>ISX_DEFAULTCOMPONENT10</td><td>BROWS_~1.PNG|Brows_Button_mouseover.png</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Pic\Brows_Button_mouseover.png</td><td>1</td><td/></row>
 		<row><td>brows_button_static.png</td><td>ISX_DEFAULTCOMPONENT10</td><td>BROWS_~1.PNG|Brows_Button_static.png</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Pic\Brows_Button_static.png</td><td>1</td><td/></row>
@@ -1986,15 +1965,10 @@
 		<row><td>normalbutton_static.png</td><td>ISX_DEFAULTCOMPONENT10</td><td>NORMAL~1.PNG|normalbutton_static.png</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Pic\normalbutton_static.png</td><td>1</td><td/></row>
 		<row><td>pointer.png</td><td>ISX_DEFAULTCOMPONENT10</td><td>pointer.png</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Pic\pointer.png</td><td>1</td><td/></row>
 		<row><td>rectangle.png</td><td>ISX_DEFAULTCOMPONENT10</td><td>RECTAN~1.PNG|rectangle.png</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Pic\rectangle.png</td><td>1</td><td/></row>
-		<row><td>resources.designer.cs</td><td>ISX_DEFAULTCOMPONENT11</td><td>RESOUR~1.CS|Resources.Designer.cs</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Properties\Resources.Designer.cs</td><td>1</td><td/></row>
-		<row><td>resources.resx</td><td>ISX_DEFAULTCOMPONENT11</td><td>RESOUR~1.RES|Resources.resx</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Properties\Resources.resx</td><td>1</td><td/></row>
 		<row><td>returnbutton_mouseover.png</td><td>ISX_DEFAULTCOMPONENT10</td><td>RETURN~1.PNG|returnbutton_mouseover.png</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Pic\returnbutton_mouseover.png</td><td>1</td><td/></row>
 		<row><td>returnbutton_pressed.png</td><td>ISX_DEFAULTCOMPONENT10</td><td>RETURN~1.PNG|returnbutton_pressed.png</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Pic\returnbutton_pressed.png</td><td>1</td><td/></row>
 		<row><td>returnbutton_static.png</td><td>ISX_DEFAULTCOMPONENT10</td><td>RETURN~1.PNG|returnbutton_static.png</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Pic\returnbutton_static.png</td><td>1</td><td/></row>
-		<row><td>settings.designer.cs</td><td>ISX_DEFAULTCOMPONENT11</td><td>SETTIN~1.CS|Settings.Designer.cs</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Properties\Settings.Designer.cs</td><td>1</td><td/></row>
-		<row><td>settings.settings</td><td>ISX_DEFAULTCOMPONENT11</td><td>SETTIN~1.SET|Settings.settings</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\Properties\Settings.settings</td><td>1</td><td/></row>
 		<row><td>simptyper.application</td><td>ISX_DEFAULTCOMPONENT3</td><td>SIMPTY~1.APP|SimpTyper.application</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.application</td><td>1</td><td/></row>
-		<row><td>simptyper.exe</td><td>SimpTyper.exe</td><td>SIMPTY~1.EXE|SimpTyper.exe</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\app.publish\SimpTyper.exe</td><td>1</td><td/></row>
 		<row><td>simptyper.exe.config</td><td>ISX_DEFAULTCOMPONENT3</td><td>SIMPTY~1.CON|SimpTyper.exe.config</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe.config</td><td>1</td><td/></row>
 		<row><td>simptyper.exe.manifest</td><td>ISX_DEFAULTCOMPONENT3</td><td>SIMPTY~1.MAN|SimpTyper.exe.manifest</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe.manifest</td><td>1</td><td/></row>
 		<row><td>simptyper.exe1</td><td>SimpTyper.exe1</td><td>SIMPTY~1.EXE|SimpTyper.exe</td><td>0</td><td/><td/><td/><td>1</td><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe</td><td>1</td><td/></row>
@@ -2158,21 +2132,18 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
-		<row><td>Component</td><td/><td/><td>_6139D423_E5D1_4350_BA25_0DDB463462BB_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_0867CCE6_BC6E_4759_BB7D_3D1132122D9F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Component</td><td/><td/><td>_0ED1D4D6_E185_469F_8E3C_8049B08F8312_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_5639CCC2_BE95_4375_BACA_BF10AD7FEDA8_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_ACA93492_2DDF_436A_A5B6_5D350033FC81_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT10</td><td/><td/><td>_DB88030B_AF02_430E_B024_36EC840CD41D_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT11</td><td/><td/><td>_BD2819F5_C08C_49A8_AB9A_9A3F3A2BA811_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT12</td><td/><td/><td>_53B48B82_B6C4_40DC_A36F_C2C61AB383CC_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_98195717_69D8_4845_B234_0035F73772C9_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT3</td><td/><td/><td>_3B37060F_AB7F_4359_998E_4B90C411D219_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT4</td><td/><td/><td>_D19F1A43_B76B_4C96_A81E_991C02269701_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT5</td><td/><td/><td>_B44409DA_12F3_4CC6_95E4_4C88C83C4E4B_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT6</td><td/><td/><td>_F9648A7B_66FE_42FA_A5D2_DB25D17C9056_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT10</td><td/><td/><td>_578F00CE_6244_473F_B720_A2D3F93A6AFA_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT12</td><td/><td/><td>_B5228587_5647_45A9_9D8B_F4207859BC6D_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_16CEF740_D18A_4ABE_BADE_6956564A92C8_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT3</td><td/><td/><td>_46524F87_DE7C_47A5_AD15_B2D0DABA8021_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT5</td><td/><td/><td>_77F887C4_75C1_477D_9151_2F1CA042C4DF_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT6</td><td/><td/><td>_79916C41_AFE9_45F2_BF92_6AABE8E72085_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>NewComponent1</td><td/><td/><td>_502F08E0_5870_4295_A01F_3DB4D05302F3_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>SimpTyper.exe</td><td/><td/><td>_8FCDED3D_5D79_4AC4_80DD_79B67D9F6FAC_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>SimpTyper.exe1</td><td/><td/><td>_A94FF2F3_F97A_40FC_9295_9D5913AE62F3_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>SimpTyper.vshost.exe</td><td/><td/><td>_DEBFB956_ABCB_4C26_B3F4_5AFC726BAB79_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>SimpTyper.exe1</td><td/><td/><td>_04A77298_0295_46BA_AB12_4209B889F10B_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>SimpTyper.vshost.exe</td><td/><td/><td>_2CA8B194_5C29_4CF8_ACD7_0FB564D86770_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -3618,7 +3589,15 @@
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME16</td><td>1033</td><td>SimpTyper.exe</td><td>0</td><td/><td>-1843143871</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME17</td><td>1033</td><td>SimpTyper.vshost.exe</td><td>0</td><td/><td>-1843139775</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME18</td><td>1033</td><td>LAUNCH~1.EXE|Launch SimpTyper.exe</td><td>0</td><td/><td>-1843195167</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME19</td><td>1033</td><td>LAUNCH~1.EXE|Launch SimpTyper.exe</td><td>0</td><td/><td>-1843154667</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td>LAUNCH~1.EXE|Launch SimpTyper.exe</td><td>0</td><td/><td>-1977372393</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME20</td><td>1033</td><td>LAUNCH~1.EXE|Launch SimpTyper.exe</td><td>0</td><td/><td>-1843154667</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME21</td><td>1033</td><td>LAUNCH~1.EXE|Launch SimpTyper.vshost.exe</td><td>0</td><td/><td>-1843154667</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME22</td><td>1033</td><td>LAUNCH~1.EXE|Launch SimpTyper.exe</td><td>0</td><td/><td>-1843154667</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME23</td><td>1033</td><td>SimpTyper.exe</td><td>0</td><td/><td>-1843143563</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME24</td><td>1033</td><td>SimpTyper.exe</td><td>0</td><td/><td>-1843147531</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME25</td><td>1033</td><td>SimpTyper.vshost.exe</td><td>0</td><td/><td>-1843151755</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME26</td><td>1033</td><td>LAUNCH~1.EXE|Launch SimpTyper.exe</td><td>0</td><td/><td>-1843159979</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>1033</td><td>LAUNCH~1.EXE|Launch SimpTyper.vshost.exe</td><td>0</td><td/><td>-1977372393</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME4</td><td>1033</td><td>LAUNCH~1.EXE|Launch SimpTyper.exe</td><td>0</td><td/><td>-1977385833</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME5</td><td>1033</td><td>LAUNCH~1.EXE|Launch SimpTyper.vshost.exe</td><td>0</td><td/><td>-1977385833</td></row>
@@ -3917,6 +3896,8 @@
 		<row><td>ID_STRING1</td><td>1033</td><td>http://www.Simp.com</td><td>0</td><td/><td>-1843191263</td></row>
 		<row><td>ID_STRING10</td><td>1033</td><td>SimpTyper.exe</td><td>0</td><td/><td>-1843162687</td></row>
 		<row><td>ID_STRING11</td><td>1033</td><td>SimpTyper.exe</td><td>0</td><td/><td>-1843199135</td></row>
+		<row><td>ID_STRING12</td><td>1033</td><td>SimpTyper.exe</td><td>0</td><td/><td>-1843198827</td></row>
+		<row><td>ID_STRING13</td><td>1033</td><td>SimpTyper.exe</td><td>0</td><td/><td>-1843190507</td></row>
 		<row><td>ID_STRING2</td><td>1033</td><td>Simp</td><td>0</td><td/><td>-1843191263</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>+86-185-7589-3728</td><td>0</td><td/><td>-1977370505</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>https://github.com/aleen42/SimpTyper</td><td>0</td><td/><td>-1843191263</td></row>
@@ -4037,23 +4018,33 @@
 		<row><td>NewShortcut1_F14C6BAA2FD040CD9C958DF258F946B0.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe</td><td>0</td></row>
 		<row><td>SimpTyper.exe11_05C33E8846204FE6B96B1DA49C361DFF.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe</td><td>0</td></row>
 		<row><td>SimpTyper.exe11_2297A8B019DE40649DB31D65174C35FA.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.exe</td><td>0</td></row>
+		<row><td>SimpTyper.exe11_A371689BE1E241B1A1F1C2357D947915.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe</td><td>0</td></row>
 		<row><td>SimpTyper.exe11_B3C3FF0C021D40DAA11C705E4ABE9968.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe</td><td>0</td></row>
 		<row><td>SimpTyper.exe11_B773B1B85BD54266BAB700D7B1FFC5BB.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe</td><td>0</td></row>
+		<row><td>SimpTyper.exe1_1E033D7462C34D1E9F84FEB9853BB470.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe</td><td>0</td></row>
 		<row><td>SimpTyper.exe1_2E63581744F9426681465D25AC7B7CF7.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe</td><td>0</td></row>
+		<row><td>SimpTyper.exe1_701078EF050E41BFACD26E1F45782B05.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe</td><td>0</td></row>
 		<row><td>SimpTyper.exe1_71DFCBF2696A41C7853960EC58B6E023.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe</td><td>0</td></row>
 		<row><td>SimpTyper.exe1_988346AAC9634E3E887E2422199E95B8.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe</td><td>0</td></row>
 		<row><td>SimpTyper.exe1_F1518C59E382454E99B6D0AD9E2D4C88.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.exe</td><td>0</td></row>
+		<row><td>SimpTyper.exe2_1BBD366D9D5A4E0EAE1C128D12B427A5.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\app.publish\SimpTyper.exe</td><td>0</td></row>
+		<row><td>SimpTyper.exe2_7E6F656D3C3D44ACBB5D67231853D70D.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.exe</td><td>0</td></row>
+		<row><td>SimpTyper.exe2_DB797EBECC23422080ABB7C1198B3D6B.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.exe</td><td>0</td></row>
 		<row><td>SimpTyper.exe2_EB79C64965E14C5286176C8B58ED4CDE.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.exe</td><td>0</td></row>
 		<row><td>SimpTyper.exe2_EFB51F9021914F05AF43E8EDFA71721C.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\obj\Debug\SimpTyper.exe</td><td>0</td></row>
 		<row><td>SimpTyper.exe_1164A1C4F254470CA9ACBFC23B289BE0.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\SimpTyper.exe</td><td>0</td></row>
 		<row><td>SimpTyper.exe_702AFBED0D8B4DC789D6F683767E91A6.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\app.publish\SimpTyper.exe</td><td>0</td></row>
 		<row><td>SimpTyper.exe_A02BAAB7D60E4FBB9277BEA5B9FADF97.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\app.publish\SimpTyper.exe</td><td>0</td></row>
+		<row><td>SimpTyper.exe_A17741E7884443BCA15C057C41AD8F79.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\app.publish\SimpTyper.exe</td><td>0</td></row>
+		<row><td>SimpTyper.exe_FD7D241C7A364B7FA006E517A09FED03.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\app.publish\SimpTyper.exe</td><td>0</td></row>
 		<row><td>SimpTyper.exe_FDD0F3AEBB8C4A119A5511E64528593F.exe</td><td/><td>F:\School\Programing\WPF programing\SimpTyper\SimpTyper\bin\Debug\app.publish\SimpTyper.exe</td><td>0</td></row>
 		<row><td>SimpTyper.vshost.e_2AC03D79FC58440FB5EEE5C17DB8B721.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>SimpTyper.vshost.e_4C85FC068CA142AD8345C198D7082625.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>SimpTyper.vshost.e_5B1038DFC87A4C93AEB797318B0B64E1.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>SimpTyper.vshost.e_6BA618625C294DFBBF7CBBBA4BF30F8F.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
+		<row><td>SimpTyper.vshost.e_9B867B6B6A464ED2922BB9334CE9E022.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>SimpTyper.vshost.e_A5C6AE013D6E46E9A458908E8A03E665.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
+		<row><td>SimpTyper.vshost.e_D32365E5B3244E0A9245FC9769A7947C.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>SimpTyper.vshost.e_D7FCF9CF88214CBD962868B8CE9BD179.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>UNINST_Uninstall_S_581C7F28BEAD4794B973EE370C9B10B4.exe</td><td/><td>E:\Program Files (x86)\InstallShield\2013LE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
 	</table>
@@ -4569,7 +4560,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{F176B8C9-3E1C-4B49-B059-7F6A49905290}</td><td/></row>
 		<row><td>ProductName</td><td>SimpTyper</td><td/></row>
-		<row><td>ProductVersion</td><td>1.00.0000</td><td/></row>
+		<row><td>ProductVersion</td><td>1.01.0000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4645,7 +4636,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L255">FileName</col>
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
-		<row><td>SimpTyper.exe</td><td>SimpTyper.exe</td><td/><td>simpty_1_simptyper</td><td>2</td></row>
 		<row><td>SimpTyper.exe1</td><td>SimpTyper.exe1</td><td/><td>simpty_1_simptyper</td><td>2</td></row>
 		<row><td>SimpTyper.vshost.exe</td><td>SimpTyper.vshost.exe</td><td/><td>simpty_1_simptyper</td><td>2</td></row>
 		<row><td>UNINST_Uninstall_SimpTyper</td><td>NewComponent1</td><td/><td>simpty_1_simptyper</td><td>2</td></row>
@@ -4734,10 +4724,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>SimpTyper.exe</td><td>simpty_1_simptyper</td><td>##IDS_SHORTCUT_DISPLAY_NAME15##</td><td>SimpTyper.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>SimpTyper.exe_FDD0F3AEBB8C4A119A5511E64528593F.exe</td><td>1</td><td>1</td><td>APP.PUBLISH</td><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>SimpTyper.exe1</td><td>simpty_1_simptyper</td><td>##IDS_SHORTCUT_DISPLAY_NAME16##</td><td>SimpTyper.exe1</td><td>AlwaysInstall</td><td/><td/><td/><td>SimpTyper.exe1_71DFCBF2696A41C7853960EC58B6E023.exe</td><td>1</td><td>1</td><td>DEBUG</td><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>SimpTyper.exe11</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME16##</td><td>SimpTyper.exe1</td><td>AlwaysInstall</td><td/><td/><td/><td>SimpTyper.exe11_B3C3FF0C021D40DAA11C705E4ABE9968.exe</td><td>1</td><td>1</td><td>DEBUG</td><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>SimpTyper.vshost.exe</td><td>simpty_1_simptyper</td><td>##IDS_SHORTCUT_DISPLAY_NAME17##</td><td>SimpTyper.vshost.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>SimpTyper.vshost.e_5B1038DFC87A4C93AEB797318B0B64E1.exe</td><td>0</td><td>1</td><td>DEBUG</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>SimpTyper.exe1</td><td>simpty_1_simptyper</td><td>##IDS_SHORTCUT_DISPLAY_NAME24##</td><td>SimpTyper.exe1</td><td>AlwaysInstall</td><td/><td/><td/><td>SimpTyper.exe1_701078EF050E41BFACD26E1F45782B05.exe</td><td>1</td><td>1</td><td>DEBUG</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>SimpTyper.exe11</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME24##</td><td>SimpTyper.exe1</td><td>AlwaysInstall</td><td/><td/><td/><td>SimpTyper.exe11_A371689BE1E241B1A1F1C2357D947915.exe</td><td>1</td><td>1</td><td>DEBUG</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>SimpTyper.vshost.exe</td><td>simpty_1_simptyper</td><td>##IDS_SHORTCUT_DISPLAY_NAME25##</td><td>SimpTyper.vshost.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>SimpTyper.vshost.e_9B867B6B6A464ED2922BB9334CE9E022.exe</td><td>0</td><td>1</td><td>DEBUG</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>UNINST_Uninstall_SimpTyper</td><td>simpty_1_simptyper</td><td>UNINST|Uninstall SimpTyper</td><td>NewComponent1</td><td>[SystemFolder]msiexec.exe</td><td>/x {F176B8C9-3E1C-4B49-B059-7F6A49905290}</td><td/><td/><td>UNINST_Uninstall_S_581C7F28BEAD4794B973EE370C9B10B4.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
