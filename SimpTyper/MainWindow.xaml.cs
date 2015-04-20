@@ -26,9 +26,6 @@ using System.Windows.Interop;
 using System.Security.Principal;
 using System.Reflection;
 
-
-
-
 namespace SimpTyper
 {
     enum AddTitle_Grid_Button
