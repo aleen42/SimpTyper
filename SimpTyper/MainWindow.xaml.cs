@@ -23,6 +23,8 @@ using System.Windows.Threading;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Windows.Interop;
+using System.Security.Principal;
+using System.Reflection;
 
 
 
@@ -437,33 +439,37 @@ namespace SimpTyper
 
         public MainWindow()
         {
-            Process[] processcollection = Process.GetProcessesByName("SimpTyper");
-            if (processcollection.Length >= 1)
-            {
-                //WindowInteropHelper wndHelper = new WindowInteropHelper(this);
-                //IntPtr TyperHwnd = wndHelper.Handle;                                    //获得窗口句柄
-                //Window frm = Application.Current.Windows[1];
-                common.mainwindow.Show();
-                common.mainwindow.Focus();                                        //获得已有的窗体并聚焦
-            }
-            else
-            {
-                this.SourceInitialized += new EventHandler(Window_SourceInitialized);
-                //mouse.OnMouseActivity += new System.Windows.Forms.MouseEventHandler(mouse_OnMouseActivity);
-                //mouse.Start();          //装载钩子
+            this.SourceInitialized += new EventHandler(Window_SourceInitialized);
+            //mouse.OnMouseActivity += new System.Windows.Forms.MouseEventHandler(mouse_OnMouseActivity);
+            //mouse.Start();          //装载钩子
 
-                InitializeComponent();
+            InitializeComponent();
 
-                WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                this.ShowInTaskbar = true;
-                Window_main.Width = SystemParameters.WorkArea.Width * 0.9;
-                Window_main.Height = SystemParameters.WorkArea.Height * 0.9;
-                Window_main.MinWidth = SystemParameters.WorkArea.Width * 0.85;
-                Window_main.MinHeight = SystemParameters.WorkArea.Height * 0.85;
-                main_grid_Initialize();
-            }    
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.ShowInTaskbar = true;
+            Window_main.Width = SystemParameters.WorkArea.Width * 0.9;
+            Window_main.Height = SystemParameters.WorkArea.Height * 0.9;
+            Window_main.MinWidth = SystemParameters.WorkArea.Width * 0.85;
+            Window_main.MinHeight = SystemParameters.WorkArea.Height * 0.85;
+            main_grid_Initialize();
+            //Process[] processcollection = Process.GetProcessesByName("SimpTyper");
+            //if (processcollection.Length >= 1)
+            //{
+            //    //WindowInteropHelper wndHelper = new WindowInteropHelper(this);
+            //    //IntPtr TyperHwnd = wndHelper.Handle;                                    //获得窗口句柄
+            //    //Window frm = Application.Current.Windows[1];
+            //    common.mainwindow.Show();
+            //    common.mainwindow.Focus();                                        //获得已有的窗体并聚焦
+            //}
+            //else
+            //{
+                
+            //}    
         }
 
+        
+
+        
         //void mouse_OnMouseActivity(object sender, System.Windows.Forms.MouseEventArgs e)
         //{
         //    //x_label.Content = e.X;
