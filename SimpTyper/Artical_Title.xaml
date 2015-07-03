@@ -50,9 +50,9 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Grid x:Name="artical_grid" HorizontalAlignment="Left" Opacity="0" Height="307" Margin="363,152,-18,0" VerticalAlignment="Top" Width="654">
-            <TextBlock x:Name="artical" Text="Labelasdfasdfasdf" TextWrapping="Wrap" Foreground="#FF5B5B5B" HorizontalAlignment="Right" FontSize="20" Width="624" Margin="0,0,30,0"/>
-            <Image Source="Pic/artical_grid_bottom.png" Stretch="Fill" HorizontalAlignment="Center" Width="654" Height="307" RenderTransformOrigin="0.5,0.5"/>
+        <Grid x:Name="artical_grid" HorizontalAlignment="Left" Opacity="0" Height="307" Margin="363,152,0,0" VerticalAlignment="Top" Width="605">
+            <TextBlock x:Name="artical" Text="Labelasdfasdfasdf" TextWrapping="Wrap" Foreground="#FF5B5B5B" FontSize="20" HorizontalAlignment="Left" Margin="0,0,0,0" Width="562"/>
+            <Image Source="Pic/artical_grid_bottom.png" Stretch="Fill" HorizontalAlignment="Center" Width="586" Height="307" RenderTransformOrigin="0.5,0.5" Margin="-24,0,43,0"/>
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
