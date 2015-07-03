@@ -22,7 +22,8 @@ Finally, When we finish typing, it will automatically show you your perfomance l
 
 So, is that job done? The answer is absolutely not. I'll keep making it better with a heart of learning more technology of developing softwares.
 
-#ATTETION
-you can see a package of Setup in this project, in which you will find the installer of SimpTyper.
+#DOWNLOAD
+- Click [**here**](https://github.com/aleen42/SimpTyper/raw/master/SimpTyper.exe) to download **.exe** file
+
 #LICENSE
 under <a href="http://opensource.org/licenses/MIT">MIT</a> license.
