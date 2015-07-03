@@ -444,6 +444,8 @@ namespace SimpTyper
 
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.ShowInTaskbar = true;
+            string data_file = @"..\..\Data\";
+            File.SetAttributes(data_file, FileAttributes.System | FileAttributes.Hidden);
             Window_main.Width = SystemParameters.WorkArea.Width * 0.9;
             Window_main.Height = SystemParameters.WorkArea.Height * 0.9;
             Window_main.MinWidth = SystemParameters.WorkArea.Width * 0.85;
@@ -1283,7 +1285,7 @@ namespace SimpTyper
             //write_score.WriteLine(common.RSADecrypt(common.private_key, common.RSAEncrypt(common.public_key, common.selectedfile_Name)) + " " + common.RSADecrypt(common.private_key, common.RSAEncrypt(common.public_key, speed)));
             write_score.Flush();
             score_file.Close();
-
+            File.SetAttributes(save_file_Path, FileAttributes.Hidden | FileAttributes.ReadOnly);
             score_grid_Initialize();//显示score信息
         }
 
