@@ -29,6 +29,9 @@ This project has began on March,17 in 2015.
 
 - So, is that job done? The answer is absolutely not. I'll keep making it better with a heart of learning more technology of developing softwares.
 
+#ATTENTION
+- The sort of your score is still not temporarily implemented.
+
 #DOWNLOAD
 - Click [**here**](https://github.com/aleen42/SimpTyper/raw/master/SimpTyper.exe) to download **.exe** file
 
