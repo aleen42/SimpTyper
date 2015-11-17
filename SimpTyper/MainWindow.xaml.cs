@@ -50,7 +50,7 @@ namespace SimpTyper
         public static Button AddTitle_Grid_Button_Create;
         public static Button Browse_Button;
         public static Button addanartial_Button;
-        
+
 
         //public static int num = 1;
         public static int i = 0;    //doubleclick
@@ -123,7 +123,7 @@ namespace SimpTyper
         public static void score_grid_clear()
         {
             if (common.score_grid.Children != null)
-                common.score_grid.Children.Clear();    
+                common.score_grid.Children.Clear();
         }
 
         public static void menu_grid_clear()
@@ -430,7 +430,7 @@ namespace SimpTyper
     {
 
         //public System.Windows.Threading.DispatcherTimer dispatcherTimer;
-        
+
         //public object s;
         //public MouseButtonEventArgs mouse;
 
@@ -462,13 +462,13 @@ namespace SimpTyper
             //}
             //else
             //{
-                
+
             //}    
         }
 
-        
 
-        
+
+
         //void mouse_OnMouseActivity(object sender, System.Windows.Forms.MouseEventArgs e)
         //{
         //    //x_label.Content = e.X;
@@ -705,7 +705,7 @@ namespace SimpTyper
                 Point p = Mouse.GetPosition(this);
                 if (p.X > 0 && p.X < this.Width && p.Y > 0 && p.Y < 40)
                 {
-                    
+
                     Maximize_button.Style = (Style)Resources["MaximizeButton"];
                     move_Normal_Click();
                     common.whether_maximize = false;
@@ -732,29 +732,29 @@ namespace SimpTyper
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-        //    s = sender;
-        //    mouse = e;
-        //    if (common.i != 0)
-        //    {
-        //        common.i = 0;
-        //        return;
-        //    }
-        //    dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            //    s = sender;
+            //    mouse = e;
+            //    if (common.i != 0)
+            //    {
+            //        common.i = 0;
+            //        return;
+            //    }
+            //    dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
 
-        //    timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
+            //    timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
 
-        //    timer.Start();                  //通过设置Enalbed为true，马上开始调用Elapsed
-        //    dispatcherTimer.Start();
-        //    if (common.whether_maximize == true)
-        //    {
-        //        Maximize_button.Style = (Style)Resources["MaximizeButton"];
-        //        move_Normal_Click();
-        //        common.whether_maximize = false;
-        //    }
+            //    timer.Start();                  //通过设置Enalbed为true，马上开始调用Elapsed
+            //    dispatcherTimer.Start();
+            //    if (common.whether_maximize == true)
+            //    {
+            //        Maximize_button.Style = (Style)Resources["MaximizeButton"];
+            //        move_Normal_Click();
+            //        common.whether_maximize = false;
+            //    }
             common.menu_grid_clear();
 
             Point p = Mouse.GetPosition(this);
-            if(common.inner_grid==null)
+            if (common.inner_grid == null)
             {
                 //null
             }
@@ -777,23 +777,23 @@ namespace SimpTyper
                 }
             }
 
-            if (p.X > 0 && p.X < this.Width && p.Y > 0 && p.Y < 30 && e.LeftButton == MouseButtonState.Pressed && common.whether_maximize == false) 
+            if (p.X > 0 && p.X < this.Width && p.Y > 0 && p.Y < 30 && e.LeftButton == MouseButtonState.Pressed && common.whether_maximize == false)
             {
                 try { this.DragMove(); }
                 catch { }
             }
-        //    System.Threading.Thread.Sleep(200);
-        //    if (common.i != 0)
-        //    {
-        //        common.i = 0;
-        //        return;
-        //    }
-        //    if (common.whether_maximize == true)
-        //    {
-        //        Maximize_button.Style = (Style)Resources["MaximizeButton"];
-        //        move_Normal_Click();
-        //        common.whether_maximize = false;
-        //    }
+            //    System.Threading.Thread.Sleep(200);
+            //    if (common.i != 0)
+            //    {
+            //        common.i = 0;
+            //        return;
+            //    }
+            //    if (common.whether_maximize == true)
+            //    {
+            //        Maximize_button.Style = (Style)Resources["MaximizeButton"];
+            //        move_Normal_Click();
+            //        common.whether_maximize = false;
+            //    }
         }
 
         //private void Window_main_MouseUp(object sender, MouseButtonEventArgs e)
@@ -833,7 +833,7 @@ namespace SimpTyper
             //mouse.Stop();
             Application.Current.Shutdown();
         }
-        
+
         /// <summary>
         /// 最大化，最小化
         /// </summary>
@@ -932,7 +932,7 @@ namespace SimpTyper
                 score_grid.Visibility = Visibility.Collapsed;
                 main_grid.Visibility = Visibility.Visible;
             });
-        } 
+        }
 
         private void main_grid_show()
         {
@@ -953,7 +953,7 @@ namespace SimpTyper
         private void Addarticals_Loaded(object sender, RoutedEventArgs e)
         {
             common.addtitile_grid = sender as Grid;
-            
+
         }
 
         private void Filter_Loaded(object sender, RoutedEventArgs e)
@@ -992,7 +992,7 @@ namespace SimpTyper
                 }
             }
 
-            
+
 
             //if (common.filterarticals.Text == "Filter Articals..." && common.first_time_loadLeftPartListBox == false)                 //textbox没字符
             //{
@@ -1073,12 +1073,12 @@ namespace SimpTyper
 
         private void Type_Loaded(object sender, RoutedEventArgs e)
         {
-            common.type_Button=sender as Button;
+            common.type_Button = sender as Button;
         }
 
         private void Type_Click(object sender, RoutedEventArgs e)
         {
-            type_grid_Initialize();                       
+            type_grid_Initialize();
         }
 
         #endregion
@@ -1097,7 +1097,7 @@ namespace SimpTyper
 
             load = this.Resources["show_type_grid"] as Storyboard;
             load.Begin();
-            
+
         }
 
         private void ScoreList_Loaded(object sender, RoutedEventArgs e)
@@ -1116,7 +1116,7 @@ namespace SimpTyper
                 type_grid.Visibility = Visibility.Visible;
                 common.input_TextBox.Focus();
             });
-        } 
+        }
 
         private void InputBox_Loaded(object sender, RoutedEventArgs e)
         {
@@ -1147,7 +1147,7 @@ namespace SimpTyper
         {
             words.Content = common.words.ToString() + "/" + (common.selectedfile_Type_Text.Length - 1).ToString();
         }
-    
+
         private void InputBox_PreviewTextInput(object sender, TextCompositionEventArgs e)           //处理中英文输入
         {
             if (common.first_input == false)
@@ -1156,7 +1156,7 @@ namespace SimpTyper
                 common.first_input = true;
             }
 
-            
+
 
             if (InputBox.Text != "")           //前面有英文字母再输入正确字符的时候不处理
             {                                                                                                                               //InputBox.Text!="" 表示英文输入错误，所以要正规式判断最后输入的是否为英文字母，得清空才能继续输入
@@ -1171,13 +1171,13 @@ namespace SimpTyper
             if (InputBox.Text.Length != 0 && InputBox.Text.Substring(0, 1) == " ")                                                      //前面有空格再输入正确字符
             {
                 common.wrong_type_count += e.Text.Length;
-                
+
                 return;
             }
 
             int i = e.Text.Length;
 
-            
+
             char[] artical_ch = Artical.Text.Substring(0, 1).ToCharArray();
 
             if (InputBox.Text.Length != 0)             //前面有中文再输入正确字符
@@ -1186,9 +1186,9 @@ namespace SimpTyper
                 if ((int)artical_ch[0] >= 0 && (int)artical_ch[0] <= 127 && (int)inputbox_ch[0] > 127)
                 {
                     common.wrong_type_count += e.Text.Length;
-                    
+
                     return;
-                }      
+                }
             }
 
             if (Artical.Text.Length == 0)
@@ -1198,7 +1198,7 @@ namespace SimpTyper
                 return;
             }
 
-            
+
             //int j;
 
             //if (Regex.Match(e.Text, "^[a-zA-Z]+$").Success)     //英文状态输入的时候 由于inputbox的文本长度会自动归零
@@ -1251,7 +1251,7 @@ namespace SimpTyper
                 }
             }
 
-            
+
 
             if (common.words == common.selectedfile_Type_Text.Length - 1)       //为空则停止计时
             {
@@ -1259,7 +1259,7 @@ namespace SimpTyper
                 common.first_input = false;
                 common.input_TextBox.Visibility = Visibility.Collapsed;
                 save_grade();
-                
+
             }
             //TextBox current = sender as TextBox;
             //InputMethod.Current.ImeSentenceMode = ImeSentenceModeValues.Automatic;
@@ -1271,7 +1271,7 @@ namespace SimpTyper
         {
             var speed = string.Format("{0:D4}", (int)((double)common.words / (common.timer_time.Hours * 60 * 60 + common.timer_time.Minutes * 60 + common.timer_time.Seconds) * 60));
             int accuracy = 100 - (int)((double)common.wrong_type_count / (common.words + common.wrong_type_count) * 100);
-            string save_file_Path = @"..\..\Data\" + common.ASCII_code(common.selectedfile_Name) + "-" + common.ASCII_code(DateTime.Now.ToLongTimeString()) +".spr";
+            string save_file_Path = @"..\..\Data\" + common.ASCII_code(common.selectedfile_Name) + "-" + common.ASCII_code(DateTime.Now.ToLongTimeString()) + ".spr";
             FileStream score_file;
             if (File.Exists(save_file_Path) == false)
                 score_file = File.Create(save_file_Path);
@@ -1320,7 +1320,7 @@ namespace SimpTyper
                     common.last_input_length = InputBox.Text.Length;
                     common.whether_first_space_count = true;
                     common.wrong_type_count += 1;
-                    
+
                     e.Handled = false;
                 }
             }
@@ -1330,7 +1330,7 @@ namespace SimpTyper
                 {
                     common.last_input_length = InputBox.Text.Length;
                     common.wrong_type_count += 1;
-                    
+
                     e.Handled = false;
                 }
                 else
@@ -1339,7 +1339,7 @@ namespace SimpTyper
 
             if (InputBox.Text == "")
                 common.whether_first_space_count = false;
-            
+
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -1394,12 +1394,12 @@ namespace SimpTyper
 
         private void type_grid_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key==Key.Escape)
+            if (e.Key == Key.Escape)
             {
                 show_pause_grid();
                 e.Handled = true;
             }
-        } 
+        }
         //private void TextBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         //{
         //    common.filterarticals.Text = "";
@@ -1414,7 +1414,7 @@ namespace SimpTyper
         //        txb.SelectAll();
         //    }
         //}
- 
+
         //private void Button_Click_1(object sender, RoutedEventArgs e)
         //{
         //    common.i += 1;
@@ -1450,7 +1450,7 @@ namespace SimpTyper
             show.Begin();
             Timer timer = new Timer(100);
             timer.Elapsed += new ElapsedEventHandler(hide_score_grid_visible);
-            timer.Start();            
+            timer.Start();
         }
 
         void hide_score_grid_visible(object sender, ElapsedEventArgs e)
@@ -1529,7 +1529,7 @@ namespace SimpTyper
             pause_grid.Visibility = Visibility.Visible;
             Storyboard show = new Storyboard();
             show = this.Resources["show_pause_grid"] as Storyboard;
-            show.Begin();    
+            show.Begin();
         }
 
         private void hide_pause_grid()
@@ -1553,12 +1553,5 @@ namespace SimpTyper
         }
 
         #endregion
-
-        
-
-        
-
-        
-
     }
 }
