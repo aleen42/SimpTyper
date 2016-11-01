@@ -2,13 +2,9 @@
 
 **SimpTyper** is a simple but interesting typer. This project has began on March,17 in 2015. :grin:
 
-### What I have got?
+The project has began for almost one month, all the work brings me tired feelings. However, I got amazing experience in this project.
 
-:joy: The project has began for almost one month, all the work brings me tired feelings. However, I got amazing experience in this project.
-
-### What I have done?
-
-:thumbsup: Ok, Let's see what I've done.
+Ok, Let's see what I've done.
 
 First, here is the main grid of the software.
 
